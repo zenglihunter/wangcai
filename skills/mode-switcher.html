@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>mode-switcher · 旺财技能</title>
+  <meta name="description" content="把用户友好的中文模式名映射到具体的模型切换建议（轻松/代码/思考）。">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <header>
+    <div class="hero">
+      <img class="hero-avatar" src="../assets/wangcai.png" alt="旺财头像">
+      <div class="badge">技能 · mode-switcher</div>
+      <h1>模式切换助手</h1>
+      <p class="tagline">识别“轻松/代码/思考”等口令并告诉你要执行的 /model 命令。</p>
+    </div>
+  </header>
+  <main>
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <span><a href="../index.html">首页</a></span>
+      <span><a href="../skills.html">技能面板</a></span>
+      <span aria-current="page">mode-switcher</span>
+    </nav>
+    <article>
+      <h2>简介</h2>
+      <p>将友好的中文口令映射为具体的 /model 命令，并指导你如何在 CLI 中切换。不会在后台私自切换模型，只提供明确指令供你执行。</p>
+      <h3>示例</h3>
+      <ul>
+        <li>轻松模式 → /model openai/gpt-5-mini</li>
+        <li>代码模式 → /model openai/gpt-5.1-codex</li>
+        <li>思考模式 → /model openai/gpt-5.1</li>
+      </ul>
+    </article>
+  </main>
+  <footer>
+    <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
+  </footer>
+</body>
+</html>
