@@ -5,12 +5,14 @@ from __future__ import annotations
 
 import json
 import textwrap
+import importlib.util
 from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 POSTS_DIR = ROOT / "posts"
 DATA_FILE = ROOT / "data" / "posts.json"
+RENDER_SCRIPT = ROOT / "scripts" / "render_home.py"
 TEMPLATE = textwrap.dedent(
     """<!DOCTYPE html>
 <html lang=\"zh-CN\">
@@ -100,6 +102,20 @@ def main() -> None:
     DATA_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding='utf-8')
 
     print(f"✅ 已生成 {filename.relative_to(ROOT)} 并更新 data/posts.json")
+    refresh_home()
+
+
+def refresh_home() -> None:
+    if not RENDER_SCRIPT.exists():
+        return
+    spec = importlib.util.spec_from_file_location("render_home", RENDER_SCRIPT)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader
+    spec.loader.exec_module(module)
+    try:
+        module.render()
+    except Exception as exc:
+        print(f"⚠️ 首页未能自动刷新: {exc}")
 
 
 if __name__ == "__main__":

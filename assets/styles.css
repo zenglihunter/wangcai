@@ -109,6 +109,53 @@ footer {
   color: var(--accent);
 }
 
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.8rem;
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.post-tags span {
+  font-size: 0.75rem;
+  background: rgba(15, 23, 42, 0.08);
+  color: var(--fg);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.breadcrumbs a {
+  color: var(--accent);
+}
+
+.breadcrumbs span::after {
+  content: '/';
+  margin: 0 0.3rem;
+  color: var(--muted);
+}
+
+.breadcrumbs span:last-child::after {
+  content: '';
+}
+
 @media (max-width: 640px) {
   .hero {
     padding: 1.8rem;
