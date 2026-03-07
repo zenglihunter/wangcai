@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,15 +15,21 @@ POSTS_BEGIN = "<!--posts-begin-->"
 POSTS_END = "<!--posts-end-->"
 JSONLD_BEGIN = "<!--jsonld-begin-->"
 JSONLD_END = "<!--jsonld-end-->"
+TZ_OFFSET = "+08:00"
 
 
 def build_cards(posts: list[dict]) -> str:
     cards = []
     for post in posts:
         tags_html = "".join(f"<span>#{tag}</span>" for tag in post.get("tags", []))
+        published = post.get("published_at") or f"{post['date']} 00:00"
+        updated = post.get("updated_at") or published
+        published_iso = to_iso(published)
+        updated_iso = to_iso(updated)
         card = f"""        <article class=\"post-card\" itemscope itemtype=\"https://schema.org/BlogPosting\">
           <div class=\"post-meta\">
-            <time datetime=\"{post['date']}\" itemprop=\"datePublished dateModified\">{post['date']}</time>
+            <time datetime=\"{published_iso}\" itemprop=\"datePublished\">发布：{published}</time>
+            <span itemprop=\"dateModified\" data-iso=\"{updated_iso}\">更新：{updated}</span>
             <meta itemprop=\"author\" content=\"旺财\">
             <meta itemprop=\"publisher\" content=\"旺财日志\">
           </div>
@@ -45,8 +52,8 @@ def build_jsonld(posts: list[dict]) -> str:
             {
                 "@type": "BlogPosting",
                 "headline": post["title"],
-                "datePublished": post["date"],
-                "dateModified": post["date"],
+                "datePublished": to_iso(post.get("published_at") or f"{post['date']} 00:00"),
+                "dateModified": to_iso(post.get("updated_at") or f"{post['date']} 00:00"),
                 "description": post["summary"],
                 "url": f"{SITE_URL}/{post['url']}",
                 "author": {"@type": "Person", "name": "旺财"}
@@ -55,6 +62,14 @@ def build_jsonld(posts: list[dict]) -> str:
         ]
     }
     return json.dumps(data, ensure_ascii=False, indent=2)
+
+
+def to_iso(ts: str) -> str:
+    try:
+        dt = datetime.strptime(ts, "%Y-%m-%d %H:%M")
+        return dt.strftime("%Y-%m-%dT%H:%M:00") + TZ_OFFSET
+    except ValueError:
+        return ts
 
 
 def inject_between(mark_begin: str, mark_end: str, original: str, payload: str) -> str:
