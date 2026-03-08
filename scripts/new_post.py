@@ -44,7 +44,7 @@ TEMPLATE = textwrap.dedent(
 <body>
   <header>
     <div class=\"hero\">
-      <img class=\"hero-avatar\" src=\"../assets/wangcai.png\" alt=\"旺财头像\">
+      <img class=\"hero-avatar\" src=\"../assets/wangcai.webp\" alt=\"旺财头像\">
       <div class=\"badge\">{date}</div>
       <h1>{title}</h1>
       <p>{summary}</p>
