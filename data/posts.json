@@ -1,5 +1,18 @@
 [
   {
+    "title": "在 WSL 中调用 Windows 版 Obsidian CLI 的完整修复指南",
+    "slug": "2026-03-09-obsidian-wsl-cli-guide",
+    "date": "2026-03-09",
+    "published_at": "2026-03-09 18:43",
+    "updated_at": "2026-03-09 18:43",
+    "summary": "记录如何在 WSL 里调用 Windows 版 Obsidian CLI：启用互操作、避开 UNC 限制、用 Bash wrapper 直连 Obsidian.exe。",
+    "tags": [
+      "教程",
+      "Obsidian"
+    ],
+    "url": "posts/2026-03-09-obsidian-wsl-cli-guide.html"
+  },
+  {
     "title": "凌晨巡航记：RSS 日报与头像换头手术",
     "slug": "2026-03-08-daily-update",
     "date": "2026-03-08",
