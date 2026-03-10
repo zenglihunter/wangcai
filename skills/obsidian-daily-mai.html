@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>obsidian-daily-mai · 旺财技能</title>
-  <meta name="description" content="面向 Obsidian 的每日笔记工作流，提供命名、模板、分类与明日待办的规范。">
+  <title>Obsidian Daily Note · 旺财技能</title>
+  <meta name="description" content="Create and manage Obsidian daily notes. Use when asked to write daily notes, record today's work, log session activities, or create daily summaries. T">
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
@@ -19,9 +19,9 @@
   <header>
     <div class="hero">
       <a href="../index.html" class="hero-avatar-link"><img class="hero-avatar" src="../assets/wangcai.webp" alt="旺财头像"></a>
-      <div class="badge">技能 · obsidian-daily-mai</div>
-      <h1>Obsidian 日志流水线</h1>
-      <p class="tagline">定义 daily note 的命名方式、模版结构与分类标签，确保每天的工作记录规范统一。</p>
+      <div class="badge">技能 · Obsidian Daily</div>
+      <h1>Obsidian Daily Note</h1>
+      <p class="tagline">Create and manage Obsidian daily notes. Use when asked to write daily notes, record today's work, log session activities, or create daily summaries. Triggers on keywords like &quot;daily note&quot;, &quot;today's log&quot;, &quot;write daily&quot;, &quot;daily summary&quot;.</p>
     </div>
   </header>
   <main>
@@ -31,9 +31,59 @@
       <span aria-current="page">obsidian-daily-mai</span>
     </nav>
     <article>
-      <p class="skill-meta">收录：2026-03-09 · 更新：2026-03-09</p>
-      <h2>简介</h2>
-      <p>围绕 PARA 结构（00.DAILY / 01.PROJECT / ...）的日记规范：文件名 <code>YYYY-MM-DD_摘要</code>，节构含 Completed Today / Tomorrow's Actions，并强调 UTF-8 写入与 Windows 同步注意事项。帮助我在 WSL 里写 Obsidian 日志时保持格式统一。</p>
+      <p class="skill-meta">收录：2026-02-28 · 更新：2026-03-09</p>
+      <h1>Obsidian Daily Note</h1>
+      <h2>Configuration</h2>
+      <p>Set these to match your vault:</p>
+      <ul>
+      <li><strong>Base path</strong>: path to your <code>DAILY</code> folder inside the vault</li>
+      <li><strong>Sync</strong>: adjust if using OneDrive / iCloud / Obsidian Sync</li>
+      </ul>
+      <h2>File Naming</h2>
+      <pre><code>YYYY-MM-DD_short-summary.md
+      </code></pre>
+      <p>Examples:</p>
+      <ul>
+      <li><code>2026-02-18_fix-env-gsudo-chrome.md</code></li>
+      <li><code>2026-02-19_maibotalks-app-submit.md</code></li>
+      </ul>
+      <p>The title should briefly summarize the day&#39;s main activities.</p>
+      <h2>Template</h2>
+      <pre><code class="language-markdown"># YYYY-MM-DD (Day) — Daily Note
+      
+      ## Completed Today
+      
+      ### [Category]
+      - **Task** → Result
+        - Details
+      
+      ## Tomorrow&#39;s Actions
+      
+      - [ ] Action 1
+      - [ ] Action 2
+      </code></pre>
+      <p>Category emoji prefixes: 🔧 Dev, 📱 Mobile, 🚀 Deploy, 🔗 Integration, 📝 Docs, 💡 Ideas, 📋 Planning</p>
+      <h2>Encoding</h2>
+      <p><strong>CRITICAL on Windows</strong>: Never use <code>Set-Content</code>. Always use:</p>
+      <pre><code class="language-powershell">[System.IO.File]::WriteAllText($path, $content, [System.Text.Encoding]::UTF8)
+      </code></pre>
+      <h2>Workflow</h2>
+      <ol>
+      <li>Collect today&#39;s activities from session context</li>
+      <li>Group by category</li>
+      <li>Generate filename with descriptive title</li>
+      <li>Write using UTF-8 encoding</li>
+      <li>Include tomorrow&#39;s action items from pending tasks</li>
+      </ol>
+      <h2>Vault Structure (PARA)</h2>
+      <ul>
+      <li><code>00.DAILY/</code> — daily notes</li>
+      <li><code>01.PROJECT/</code> — project dashboards and kanban</li>
+      <li><code>02.AREA/</code> — ongoing areas of interest</li>
+      <li><code>03.RESOURCES/</code> — reference material</li>
+      <li><code>04.ARCHIVE/</code> — archived notes</li>
+      </ul>
+      <p>Project docs live in <code>PROJECT_ROOT/docs/</code> with A/D/I/T prefixes (Analysis / Design / Implementation / Test).</p>
     </article>
   </main>
   <footer>

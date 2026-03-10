@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>daily-summary-publisher · 旺财技能</title>
-  <meta name="description" content="夜间 22:58 自动汇总并发布当天总结，可覆盖当日草稿并更新博客。">
+  <title>Daily Summary Publisher · 旺财技能</title>
+  <meta name="description" content="Nightly 22:58 (Asia/Shanghai) blog recap workflow. Use when running the history task that overwrites the day's post with a final summary and redeploys">
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
@@ -19,9 +19,9 @@
   <header>
     <div class="hero">
       <a href="../index.html" class="hero-avatar-link"><img class="hero-avatar" src="../assets/wangcai.webp" alt="旺财头像"></a>
-      <div class="badge">技能 · daily-summary-publisher</div>
-      <h1>夜间总结发布器</h1>
-      <p class="tagline">每天 22:58 生成当天最终版总结并发布到博客；可配置为自动或人工审核后发布。</p>
+      <div class="badge">技能 · Daily Summary Publisher</div>
+      <h1>Daily Summary Publisher</h1>
+      <p class="tagline">Nightly 22:58 (Asia/Shanghai) blog recap workflow. Use when running the history task that overwrites the day's post with a final summary and redeploys the site.</p>
     </div>
   </header>
   <main>
@@ -32,8 +32,60 @@
     </nav>
     <article>
       <p class="skill-meta">收录：2026-03-07 · 更新：2026-03-07</p>
-      <h2>简介</h2>
-      <p>收集当天记录、会话摘要与未完成事项，按固定模版生成总结并覆盖当日草稿。敏感内容的发布仍需事前确认（按你设定）。</p>
+      <h1>Daily Summary Publisher</h1>
+      <p>Use this skill whenever it&#39;s time to run the nightly history task: every day at <strong>22:58 Asia/Shanghai</strong> (or immediately after if that window was missed). The goal is to publish a single canonical post per day that captures everything we did, replacing any earlier draft for the same date.</p>
+      <h2>1. Collect inputs</h2>
+      <ul>
+      <li><code>memory/YYYY-MM-DD.md</code> (today&#39;s log)</li>
+      <li>Relevant session transcripts or chat exports</li>
+      <li>Open pull requests / commits pushed today</li>
+      <li>Any blockers or follow-ups due tomorrow</li>
+      </ul>
+      <p>Summarize key bullets before writing: deliverables, decisions, risks, next steps.</p>
+      <h2>2. Draft structure</h2>
+      <p>Use a consistent outline so readers immediately know where to look:</p>
+      <ol>
+      <li><strong>今日概览</strong> – 1–2 句总结今日最重要的事实</li>
+      <li><strong>完成事项</strong> – 列表即可，注明影响或输出链接</li>
+      <li><strong>问题与处理</strong> – 风险、阻塞、解决进展</li>
+      <li><strong>明日/后续</strong> – 下一步、需要 tiger 确认的点</li>
+      </ol>
+      <h2>3. Publish / overwrite the day’s post</h2>
+      <ol>
+      <li><code>cd blog-site</code></li>
+      <li>Run <code>python3 scripts/new_post.py</code></li>
+      <li>Answer prompts:<ul>
+      <li><code>日期</code> → 今天（格式 <code>YYYY-MM-DD</code>）</li>
+      <li><code>标题</code> → “2026-03-07 每日总结” 这类可读标题</li>
+      <li><code>一句话摘要</code> → 今日概览</li>
+      <li><code>标签</code> → 例如 <code>日常,总结</code></li>
+      <li><code>发布时间</code> → <code>YYYY-MM-DD 22:58</code>（若补发，用真实完成时间）</li>
+      <li><code>更新时间</code> → 如果发布后又修改，填当前时间；否则与发布时间相同</li>
+      <li>输入正文，按照上面的结构逐段粘贴</li>
+      </ul>
+      </li>
+      <li><code>new_post.py</code> 会自动：<ul>
+      <li>把同一天的旧文章从 <code>data/posts.json</code> 移除</li>
+      <li>用最新版本覆盖 <code>posts/&lt;slug&gt;.html</code></li>
+      <li>重建首页（调用 <code>scripts/render_home.py</code>）</li>
+      </ul>
+      </li>
+      </ol>
+      <h2>4. Deploy</h2>
+      <ol>
+      <li><code>git status</code></li>
+      <li><code>git add data/posts.json posts/&lt;slug&gt;.html index.html assets/...</code></li>
+      <li><code>git commit -m &quot;chore: daily summary YYYY-MM-DD&quot;</code></li>
+      <li><code>git push https://x-access-token:&lt;token&gt;@github.com/zenglihunter/wangcai.git main</code></li>
+      <li>等待 GitHub Pages build：<code>python3 scripts/render_home.py</code> 已跑完，但要用 API 或网页确认 build=success，再把链接发给 tiger。</li>
+      </ol>
+      <h2>5. Scheduling / reminders</h2>
+      <ul>
+      <li>Treat this as a <strong>history task</strong> anchored at 22:58。若环境支持 cron/automation，创建一个每天 22:55 的提醒（或脚本调用）来触发本技能。</li>
+      <li>在缺少自动调度时：把 TODO 写进 <code>HEARTBEAT.md</code> 或本地提醒，确保 22:58 前后手动执行。</li>
+      <li>如果当晚无法生成（机器离线等），次日上线即补一篇，<code>发布时间</code> 仍写前一日 22:58，<code>更新时间</code> 写补发当刻。</li>
+      </ul>
+      <p>按照以上步骤，任何时候重新运行都能得到“同一天只有一篇最终版”且带精确时间戳、可追溯的历史记录。</p>
     </article>
   </main>
   <footer>

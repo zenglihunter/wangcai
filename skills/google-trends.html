@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>google-trends · 旺财技能</title>
-  <meta name="description" content="基于 trendspyg 的 Google Trends 技能，可抓取 125+ 国家与 20 类别的实时热搜榜。">
+  <title>Google Trends Skill · 旺财技能</title>
+  <meta name="description" content="Use this skill when the user wants to fetch, search, or analyze Google Trends data for any country or category. Triggers when users say &quot;what's trendi">
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
@@ -19,9 +19,9 @@
   <header>
     <div class="hero">
       <a href="../index.html" class="hero-avatar-link"><img class="hero-avatar" src="../assets/wangcai.webp" alt="旺财头像"></a>
-      <div class="badge">技能 · google-trends</div>
-      <h1>Google 热搜榜</h1>
-      <p class="tagline">使用 trendspyg 抓取各国 Top / Rising 趋势，支持不同类别、时间窗和输出条数。</p>
+      <div class="badge">技能 · Google Trends</div>
+      <h1>Google Trends Skill</h1>
+      <p class="tagline">Use this skill when the user wants to fetch, search, or analyze Google Trends data for any country or category. Triggers when users say &quot;what's trending in [country]&quot;, &quot;popular [topic] in [country]&quot;, &quot;Google Trends for [country]&quot;, or invoke /google-trends. Fetches real-time trending data using trendspyg for 125+ countries and 20 categories.</p>
     </div>
   </header>
   <main>
@@ -32,8 +32,202 @@
     </nav>
     <article>
       <p class="skill-meta">收录：2026-03-09 · 更新：2026-03-09</p>
-      <h2>简介</h2>
-      <p>通过官方技能 <code>python scripts/run.py --geo US --category games --hours 24</code> 等命令抓取不同国家/类别的热搜榜，输出 JSON 供整理成中文榜单。页面不含任何 cookie、代理或私密配置。</p>
+      <h1>Google Trends Skill</h1>
+      <p>Fetch real-time trending searches from Google Trends for any country and category.</p>
+      <h2>When to Use This Skill</h2>
+      <p>Trigger when the user:</p>
+      <ul>
+      <li>Asks &quot;what&#39;s trending in [country]?&quot;</li>
+      <li>Asks &quot;popular [games/AI/tech/sports/etc.] in [country]&quot;</li>
+      <li>Says &quot;Google Trends for [country]&quot;</li>
+      <li>Wants to compare trends between countries</li>
+      <li>Invokes <code>/google-trends</code></li>
+      </ul>
+      <h2>Parameters</h2>
+      <table>
+      <thead>
+      <tr>
+      <th>Flag</th>
+      <th>Default</th>
+      <th>Options</th>
+      </tr>
+      </thead>
+      <tbody><tr>
+      <td><code>--geo</code></td>
+      <td>US</td>
+      <td>Any 2-letter country code: <code>US</code>, <code>BR</code>, <code>ID</code>, <code>GB</code>, <code>JP</code>, <code>IN</code>, <code>DE</code>, <code>FR</code>, <code>AU</code>, <code>MX</code>, ...</td>
+      </tr>
+      <tr>
+      <td><code>--category</code></td>
+      <td>all</td>
+      <td><code>all</code>, <code>games</code>, <code>technology</code>, <code>sports</code>, <code>entertainment</code>, <code>business</code>, <code>health</code>, <code>science</code>, <code>food</code>, <code>travel</code>, <code>beauty</code>, <code>politics</code>, <code>shopping</code></td>
+      </tr>
+      <tr>
+      <td><code>--hours</code></td>
+      <td>24</td>
+      <td><code>4</code>, <code>24</code>, <code>48</code>, <code>168</code> (7 days)</td>
+      </tr>
+      <tr>
+      <td><code>--top</code></td>
+      <td>20</td>
+      <td>Any integer</td>
+      </tr>
+      <tr>
+      <td><code>--method</code></td>
+      <td>auto</td>
+      <td><code>rss</code> (fast, no category filter), <code>csv</code> (Selenium, supports categories)</td>
+      </tr>
+      </tbody></table>
+      <p><strong>Auto method logic:</strong> Uses <code>rss</code> when <code>--category all</code>, uses <code>csv</code> when a specific category is given.</p>
+      <h2>Country Code Reference</h2>
+      <table>
+      <thead>
+      <tr>
+      <th>Country</th>
+      <th>Code</th>
+      <th>Country</th>
+      <th>Code</th>
+      </tr>
+      </thead>
+      <tbody><tr>
+      <td>Brazil</td>
+      <td><code>BR</code></td>
+      <td>Indonesia</td>
+      <td><code>ID</code></td>
+      </tr>
+      <tr>
+      <td>USA</td>
+      <td><code>US</code></td>
+      <td>India</td>
+      <td><code>IN</code></td>
+      </tr>
+      <tr>
+      <td>UK</td>
+      <td><code>GB</code></td>
+      <td>Japan</td>
+      <td><code>JP</code></td>
+      </tr>
+      <tr>
+      <td>Germany</td>
+      <td><code>DE</code></td>
+      <td>France</td>
+      <td><code>FR</code></td>
+      </tr>
+      <tr>
+      <td>Australia</td>
+      <td><code>AU</code></td>
+      <td>Mexico</td>
+      <td><code>MX</code></td>
+      </tr>
+      <tr>
+      <td>Canada</td>
+      <td><code>CA</code></td>
+      <td>South Korea</td>
+      <td><code>KR</code></td>
+      </tr>
+      <tr>
+      <td>Argentina</td>
+      <td><code>AR</code></td>
+      <td>Nigeria</td>
+      <td><code>NG</code></td>
+      </tr>
+      <tr>
+      <td>Philippines</td>
+      <td><code>PH</code></td>
+      <td>Thailand</td>
+      <td><code>TH</code></td>
+      </tr>
+      </tbody></table>
+      <h2>Script Execution</h2>
+      <p><strong>CRITICAL</strong>: Always use the <code>run.py</code> wrapper. It handles venv setup automatically.</p>
+      <h3>Basic Usage (general trends, fast)</h3>
+      <pre><code class="language-bash">python scripts/run.py --geo BR
+      </code></pre>
+      <h3>Category-specific trends (uses Selenium)</h3>
+      <pre><code class="language-bash">python scripts/run.py --geo BR --category games
+      python scripts/run.py --geo ID --category technology
+      python scripts/run.py --geo US --category sports --hours 48
+      </code></pre>
+      <h3>Multiple countries (run in parallel)</h3>
+      <pre><code class="language-bash">python scripts/run.py --geo BR --category games &amp;
+      python scripts/run.py --geo ID --category games &amp;
+      wait
+      </code></pre>
+      <h3>Top N results with longer period</h3>
+      <pre><code class="language-bash">python scripts/run.py --geo JP --category entertainment --hours 168 --top 30
+      </code></pre>
+      <h2>Workflow</h2>
+      <ol>
+      <li><strong>Parse user intent</strong> → extract country, category, time period</li>
+      <li><strong>Map to parameters:</strong><ul>
+      <li>&quot;Brazil&quot; → <code>--geo BR</code></li>
+      <li>&quot;Indonesia&quot; → <code>--geo ID</code></li>
+      <li>&quot;games&quot; → <code>--category games</code></li>
+      <li>&quot;AI/tech/technology&quot; → <code>--category technology</code></li>
+      <li>&quot;past week&quot; / &quot;7 days&quot; → <code>--hours 168</code></li>
+      </ul>
+      </li>
+      <li><strong>Inform user:</strong> &quot;Fetching [category] trends for [country] (past [N] hours)...&quot;</li>
+      <li><strong>Run script</strong> and parse JSON output</li>
+      <li><strong>Present results</strong> as a formatted table with rank, trend name, and search volume</li>
+      </ol>
+      <h2>Output Format</h2>
+      <p>Script outputs JSON:</p>
+      <pre><code class="language-json">{
+        &quot;geo&quot;: &quot;BR&quot;,
+        &quot;category&quot;: &quot;games&quot;,
+        &quot;hours&quot;: 24,
+        &quot;method&quot;: &quot;csv&quot;,
+        &quot;count&quot;: 20,
+        &quot;trends&quot;: [
+          {&quot;rank&quot;: 1, &quot;trend&quot;: &quot;grêmio x internacional&quot;, &quot;volume&quot;: &quot;500K+&quot;, &quot;started&quot;: &quot;...&quot;},
+          {&quot;rank&quot;: 2, &quot;trend&quot;: &quot;arsenal x chelsea&quot;, &quot;volume&quot;: &quot;500K+&quot;, &quot;started&quot;: &quot;...&quot;}
+        ]
+      }
+      </code></pre>
+      <h2>Presenting Results</h2>
+      <p>Format output as a clean markdown table:</p>
+      <pre><code>## 🔥 Trending in Brazil — Games (past 24h)
+      
+      | # | Trend | Volume |
+      |---|-------|--------|
+      | 1 | grêmio x internacional | 500K+ |
+      | 2 | arsenal x chelsea | 500K+ |
+      ...
+      </code></pre>
+      <p>Add brief context/insights after the table when relevant (e.g., &quot;Football dominates Brazil&#39;s trending games — the Grenal derby between Grêmio and Internacional was the biggest search spike.&quot;).</p>
+      <h2>Error Handling</h2>
+      <table>
+      <thead>
+      <tr>
+      <th>Error</th>
+      <th>Action</th>
+      </tr>
+      </thead>
+      <tbody><tr>
+      <td><code>BrowserError</code> / timeout</td>
+      <td>Retry with <code>--method rss</code> (drops category filter)</td>
+      </tr>
+      <tr>
+      <td><code>InvalidParameterError</code></td>
+      <td>Check geo code or category name</td>
+      </tr>
+      <tr>
+      <td>venv setup failure</td>
+      <td>Check Python 3.8+ is available</td>
+      </tr>
+      <tr>
+      <td>No trends returned</td>
+      <td>Try broader category or different time window</td>
+      </tr>
+      </tbody></table>
+      <h2>Troubleshooting</h2>
+      <ul>
+      <li><strong>CSS method slow</strong>: normal — Selenium launches Chrome headlessly</li>
+      <li><strong>Category filter not working with RSS</strong>: RSS doesn&#39;t support categories, use <code>--method csv</code></li>
+      <li><strong>Empty results</strong>: try <code>--hours 168</code> for a wider time window</li>
+      <li><strong>Country not found</strong>: run <code>python scripts/run.py --list-countries</code> to see all supported codes</li>
+      </ul>
     </article>
   </main>
   <footer>

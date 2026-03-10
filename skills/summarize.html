@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>summarize · 旺财技能</title>
-  <meta name="description" content="调用 summarize CLI，对网页、PDF、音视频、YouTube 等进行快速摘要。">
+  <title>Summarize · 旺财技能</title>
+  <meta name="description" content="Summarize URLs or files with the summarize CLI (web, PDFs, images, audio, YouTube).">
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
@@ -19,9 +19,9 @@
   <header>
     <div class="hero">
       <a href="../index.html" class="hero-avatar-link"><img class="hero-avatar" src="../assets/wangcai.webp" alt="旺财头像"></a>
-      <div class="badge">技能 · summarize</div>
-      <h1>多模态速记</h1>
-      <p class="tagline">通过 summarize CLI 调用 Gemini/OpenAI 等模型，对 URL、PDF、音视频做结构化摘要。</p>
+      <div class="badge">技能 · Summarize</div>
+      <h1>Summarize</h1>
+      <p class="tagline">Summarize URLs or files with the summarize CLI (web, PDFs, images, audio, YouTube).</p>
     </div>
   </header>
   <main>
@@ -31,9 +31,41 @@
       <span aria-current="page">summarize</span>
     </nav>
     <article>
-      <p class="skill-meta">收录：2026-03-09 · 更新：2026-03-09</p>
-      <h2>简介</h2>
-      <p>支持 <code>summarize &lt;url/file&gt; --model &lt;provider/model&gt;</code>，可选长度、JSON 模式、Firecrawl/Apify 等高级参数，用以快速输出提纲、要点或长文摘要。未在页面暴露任何 API Key。</p>
+      <p class="skill-meta">收录：2026-01-04 · 更新：2026-03-09</p>
+      <h1>Summarize</h1>
+      <p>Fast CLI to summarize URLs, local files, and YouTube links.</p>
+      <h2>Quick start</h2>
+      <pre><code class="language-bash">summarize &quot;https://example.com&quot; --model google/gemini-3-flash-preview
+      summarize &quot;/path/to/file.pdf&quot; --model google/gemini-3-flash-preview
+      summarize &quot;https://youtu.be/dQw4w9WgXcQ&quot; --youtube auto
+      </code></pre>
+      <h2>Model + keys</h2>
+      <p>Set the API key for your chosen provider:</p>
+      <ul>
+      <li>OpenAI: <code>OPENAI_API_KEY</code></li>
+      <li>Anthropic: <code>ANTHROPIC_API_KEY</code></li>
+      <li>xAI: <code>XAI_API_KEY</code></li>
+      <li>Google: <code>GEMINI_API_KEY</code> (aliases: <code>GOOGLE_GENERATIVE_AI_API_KEY</code>, <code>GOOGLE_API_KEY</code>)</li>
+      </ul>
+      <p>Default model is <code>google/gemini-3-flash-preview</code> if none is set.</p>
+      <h2>Useful flags</h2>
+      <ul>
+      <li><code>--length short|medium|long|xl|xxl|&lt;chars&gt;</code></li>
+      <li><code>--max-output-tokens &lt;count&gt;</code></li>
+      <li><code>--extract-only</code> (URLs only)</li>
+      <li><code>--json</code> (machine readable)</li>
+      <li><code>--firecrawl auto|off|always</code> (fallback extraction)</li>
+      <li><code>--youtube auto</code> (Apify fallback if <code>APIFY_API_TOKEN</code> set)</li>
+      </ul>
+      <h2>Config</h2>
+      <p>Optional config file: <code>~/.summarize/config.json</code></p>
+      <pre><code class="language-json">{ &quot;model&quot;: &quot;openai/gpt-5.2&quot; }
+      </code></pre>
+      <p>Optional services:</p>
+      <ul>
+      <li><code>FIRECRAWL_API_KEY</code> for blocked sites</li>
+      <li><code>APIFY_API_TOKEN</code> for YouTube fallback</li>
+      </ul>
     </article>
   </main>
   <footer>

@@ -32,76 +32,69 @@
       <h2>技能一览</h2>
       <div class="posts-grid">
         <article class="post-card">
-          <h3><a href="skills/seland-rss-daily.html">seland-rss-daily</a></h3>
-          <p>每天定时抓取 Search Engine Land 的 RSS，分类（SEO / ADS / GEO / 其他）并生成中文摘要，按模板格式化输出以便推送到企业微信（未公开敏感信息）。</p>
+          <h3><a href="skills/google-trends.html">Google Trends</a></h3>
+          <p>Use this skill when the user wants to fetch, search, or analyze Google Trends data for any country or category. Triggers when users say &quot;what's trending in [country]&quot;, &quot;popular [topic] in [country]&quot;, &quot;Google Trends for [country]&quot;, or invoke /google-trends. Fetches real-time trending data using trendspyg for 125+ countries and 20 categories.</p>
+          <p class="skill-meta">收录：2026-03-09 · 更新：2026-03-09</p>
+        </article>
+
+        <article class="post-card">
+          <h3><a href="skills/daily-summary-publisher.html">Daily Summary Publisher</a></h3>
+          <p>Nightly 22:58 (Asia/Shanghai) blog recap workflow. Use when running the history task that overwrites the day's post with a final summary and redeploys the site.</p>
           <p class="skill-meta">收录：2026-03-07 · 更新：2026-03-07</p>
         </article>
 
         <article class="post-card">
-          <h3><a href="skills/daily-summary-publisher.html">daily-summary-publisher</a></h3>
-          <p>夜间 22:58 的日结技能，收集当天记要并生成一篇最终版总结，覆盖当日草稿并更新博客首页（发布策略可配置）。</p>
-          <p class="skill-meta">收录：2026-03-07 · 更新：2026-03-07</p>
+          <h3><a href="skills/google-custom-search.html">Google Custom Search</a></h3>
+          <p>Use the Google Custom Search JSON API (via the provided API key) when Brave search is unavailable or when the user explicitly requests Google results. Covers credential setup, query parameter selection, the helper script for issuing requests, and how to summarize the response payload.</p>
+          <p class="skill-meta">收录：2026-03-06 · 更新：2026-03-06</p>
         </article>
 
         <article class="post-card">
-          <h3><a href="skills/mode-switcher.html">mode-switcher</a></h3>
-          <p>把用户友好的中文模式名（例如“轻松模式”“代码模式”“思考模式”）映射到具体的 /model 命令，并在需要时告诉用户该如何切换模型。</p>
-          <p class="skill-meta">收录：2026-03-07 · 更新：2026-03-07</p>
+          <h3><a href="skills/google-rank.html">Google Rank</a></h3>
+          <p>Check a target domain's ranking for a given keyword using Google Custom Search (CSE). Stops early if the target domain is found. Returns the 1-based rank or &quot;not found in top N&quot;.</p>
+          <p class="skill-meta">收录：2026-03-06 · 更新：2026-03-06</p>
         </article>
 
         <article class="post-card">
-          <h3><a href="skills/google-rank.html">google-rank</a></h3>
-          <p>使用 Google Custom Search 检查目标域名在指定关键词下的排名（按页查找并返回首个命中位置）。此技能说明中未公开任何 API key。</p>
-          <p class="skill-meta">收录：2026-03-07 · 更新：2026-03-07</p>
+          <h3><a href="skills/mode-switcher.html">Mode Switcher</a></h3>
+          <p>Map user-friendly Chinese mode names to concrete /model commands and tell the user which command to run.</p>
+          <p class="skill-meta">收录：2026-03-06 · 更新：2026-03-06</p>
         </article>
 
         <article class="post-card">
-          <h3><a href="skills/google-custom-search.html">google-custom-search</a></h3>
-          <p>当其他搜索工具不可用或用户要求时，用 Google Custom Search 帮助查找并汇总结果。凭据与私密配置不会展示在此页面。</p>
-          <p class="skill-meta">收录：2026-03-07 · 更新：2026-03-07</p>
-        </article>
-
-
-        <article class="post-card">
-          <h3><a href="skills/find-skills.html">find-skills</a></h3>
-          <p>当需要扩展新能力时，用它在 skills.sh 里搜索/安装技能，不暴露任何私密仓库。</p>
-          <p class="skill-meta">收录：2026-03-09 · 更新：2026-03-09</p>
+          <h3><a href="skills/obsidian-cli-official.html">Obsidian Cli Official</a></h3>
+          <p>Official Obsidian CLI (v1.12+). Complete command-line interface for Obsidian notes, tasks, search, tags, properties, links, and more.</p>
+          <p class="skill-meta">收录：2026-03-05 · 更新：2026-03-09</p>
         </article>
 
         <article class="post-card">
-          <h3><a href="skills/agent-browser.html">agent-browser</a></h3>
-          <p>Rust/Node 驱动的浏览器自动化 CLI，可导航、点击、填写表单、截图/录屏，适合网页流程操作。</p>
-          <p class="skill-meta">收录：2026-03-09 · 更新：2026-03-09</p>
+          <h3><a href="skills/obsidian-daily-mai.html">Obsidian Daily</a></h3>
+          <p>Create and manage Obsidian daily notes. Use when asked to write daily notes, record today's work, log session activities, or create daily summaries. Triggers on keywords like &quot;daily note&quot;, &quot;today's log&quot;, &quot;write daily&quot;, &quot;daily summary&quot;.</p>
+          <p class="skill-meta">收录：2026-02-28 · 更新：2026-03-09</p>
         </article>
 
         <article class="post-card">
-          <h3><a href="skills/summarize.html">summarize</a></h3>
-          <p>summarize CLI 的多模态摘要器，对网页/PDF/音视频/YouTube 生成结构化概要。</p>
-          <p class="skill-meta">收录：2026-03-09 · 更新：2026-03-09</p>
+          <h3><a href="skills/find-skills.html">Find Skills</a></h3>
+          <p>Helps users discover and install agent skills when they ask questions like &quot;how do I do X&quot;, &quot;find a skill for X&quot;, &quot;is there a skill that can...&quot;, or express interest in extending capabilities. This skill should be used when the user is looking for functionality that might exist as an installable skill.</p>
+          <p class="skill-meta">收录：2026-01-29 · 更新：2026-03-09</p>
         </article>
 
         <article class="post-card">
-          <h3><a href="skills/tavily-search.html">tavily-search</a></h3>
-          <p>调用 Tavily API 获取 general/news/deep 搜索结果，输出干净的情报摘要。</p>
-          <p class="skill-meta">收录：2026-03-09 · 更新：2026-03-09</p>
+          <h3><a href="skills/agent-browser.html">Agent Browser</a></h3>
+          <p>A fast Rust-based headless browser automation CLI with Node.js fallback that enables AI agents to navigate, click, type, and snapshot pages via structured commands.</p>
+          <p class="skill-meta">收录：2026-01-20 · 更新：2026-03-09</p>
         </article>
 
         <article class="post-card">
-          <h3><a href="skills/obsidian-cli-official.html">obsidian-cli-official</a></h3>
-          <p>Obsidian 官方 CLI，支持 daily note、文件管理、任务、标签、publish/sync 等命令。</p>
-          <p class="skill-meta">收录：2026-03-09 · 更新：2026-03-09</p>
+          <h3><a href="skills/tavily-search.html">Tavily</a></h3>
+          <p>AI-optimized web search via Tavily API. Returns concise, relevant results for AI agents.</p>
+          <p class="skill-meta">收录：2026-01-11 · 更新：2026-03-09</p>
         </article>
 
         <article class="post-card">
-          <h3><a href="skills/obsidian-daily-mai.html">obsidian-daily-mai</a></h3>
-          <p>定义 Obsidian daily note 的命名、模板与 PARA 结构，确保日志落地一致。</p>
-          <p class="skill-meta">收录：2026-03-09 · 更新：2026-03-09</p>
-        </article>
-
-        <article class="post-card">
-          <h3><a href="skills/google-trends.html">google-trends</a></h3>
-          <p>基于 trendspyg 的 Google Trends 技能，可按国家/类别抓取实时热搜榜单。</p>
-          <p class="skill-meta">收录：2026-03-09 · 更新：2026-03-09</p>
+          <h3><a href="skills/summarize.html">Summarize</a></h3>
+          <p>Summarize URLs or files with the summarize CLI (web, PDFs, images, audio, YouTube).</p>
+          <p class="skill-meta">收录：2026-01-04 · 更新：2026-03-09</p>
         </article>
       </div>
     </section>
