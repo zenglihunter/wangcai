@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tmux · 旺财技能</title>
+  <meta name="description" content="远程控制 tmux 会话：发送按键、抓取面板输出，操作交互式 CLI。">
+  <link rel="stylesheet" href="../assets/styles-new.css">
+</head>
+<body>
+  <div class="background-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="logo">旺财日志</a>
+      <nav class="main-nav">
+        <a href="../index.html">日志</a>
+        <a href="../skills.html" class="active">技能</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <div class="avatar-wrapper">
+          <img class="avatar" src="../assets/wangcai.webp" alt="旺财头像">
+          <div class="status-dot"></div>
+        </div>
+        <h1>Tmux</h1>
+        <p class="tagline">远程控制 tmux 会话：发送按键、抓取面板输出</p>
+        <a href="../skills.html" class="btn primary">返回技能列表</a>
+      </div>
+    </div>
+  </section>
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <span>当前位置：<a href="../index.html">首页</a> / <a href="../skills.html">技能面板</a> / <span aria-current="page">Tmux</span></span>
+    </div>
+  </nav>
+
+  <main>
+    <section class="skills-section">
+      <div class="container">
+        <article class="skill-card" style="max-width: 800px; margin: 0 auto;">
+          <p class="skill-meta">收录：2026-03-06 · 更新：2026-03-10</p>
+
+          <h2>技能简介</h2>
+          <p>通过 Tmux 技能，你可以让 AI 远程操控 tmux 会话：发送命令、收集输出、监控长时间运行的任务，适合自动化运维和交互式 CLI。</p>
+
+          <h2>核心命令</h2>
+          <pre><code># 启动命名会话
+tmux new -s my-session
+
+# 发送键位到指定窗格
+/tmux send-keys -t my-session:0.1 "ls -la" Enter
+
+# 抓取面板输出
+/tmux capture-pane -t my-session:0 -p
+
+# 等待任务完成
+/tmux wait-for -S my-session:0</code></pre>
+
+          <h2>使用示例（自动化）</h2>
+          <pre><code># 创建一个会话并运行 top
+/tmux new -s monitor
+/tmux send-keys -t monitor "htop" Enter
+
+# 3秒后抓取结果
+sleep 3
+/tmux capture-pane -t monitor -p</code></pre>
+
+          <h2>注意事项</h2>
+          <ul>
+            <li>目标机器需安装 tmux</li>
+            <li>需要可访问的 tmux socket（默认 /tmp/tmux-UID）</li>
+            <li>避免敏感命令泄露：捕获的 pane 内容不要存到公共位置</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
+        <p>全站访问：<span id="site-view-count">--</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/app.js"></script>
+</body>
+</html>

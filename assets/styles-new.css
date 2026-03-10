@@ -501,6 +501,9 @@ body {
   margin: 1.5rem 0;
   border: 1px solid var(--border);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  /* 自动换行：优先在单词边界换行，其次字符级换行 */
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .article-content pre code {
