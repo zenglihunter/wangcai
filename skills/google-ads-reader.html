@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Google Ads Reader（只读） · 旺财技能</title>
-  <meta name="description" content="只读访问 Google Ads 数据，生成日报/周报、趋势分析与异常提醒，帮助掌握广告投放表现。">
+  <meta name="description" content="---">
   <link rel="stylesheet" href="../assets/styles-new.css">
 </head>
 <body>
@@ -32,7 +32,7 @@
           <div class="status-dot"></div>
         </div>
         <h1>Google Ads Reader（只读）</h1>
-        <p class="tagline">只读访问 Google Ads 数据，生成日报/周报、趋势分析与异常提醒，帮助掌握广告投放表现。</p>
+        <p class="tagline">---</p>
         <a href="../skills.html" class="btn primary">返回技能列表</a>
       </div>
     </div>
@@ -49,8 +49,58 @@
       <div class="container">
         <article class="skill-card" style="max-width: 800px; margin: 0 auto;">
           <p class="skill-meta">收录：2024-04-10 · 更新：2026-03-10</p>
-      <h2>技能简介</h2>
-      <p>只读访问 Google Ads 数据，生成日报/周报、趋势分析与异常提醒，帮助掌握广告投放表现。</p>
+          <p>name: google-ads-reader</p>
+<p>description: 只读访问 Google Ads 数据，生成日报/周报、趋势分析与异常提醒，帮助掌握广告投放表现。</p>
+<p>read_when:</p>
+<p>  - &quot;查看投放日报/周报&quot;</p>
+<p>  - &quot;发现成本异常或点击率骤降&quot;</p>
+<p>  - &quot;跨 Campaign/AdGroup/关键词多层级分析&quot;</p>
+<p>metadata:</p>
+<p>  openclaw:</p>
+<p>    emoji: &quot;📊&quot;</p>
+<p>    requires:</p>
+<p>      bins: [&quot;python3&quot;]</p>
+<p>      env:</p>
+<p>        - GOOGLE_ADS_CLIENT_ID</p>
+<p>        - GOOGLE_ADS_CLIENT_SECRET</p>
+<p>        - GOOGLE_ADS_DEVELOPER_TOKEN</p>
+<p>        - GOOGLE_ADS_LOGIN_CUSTOMER_ID</p>
+<p>        - GOOGLE_ADS_CLIENT_CUSTOMER_ID</p>
+<p>        - GOOGLE_ADS_REFRESH_TOKEN</p>
+<p>    primaryEnv: GOOGLE_ADS_CLIENT_ID</p>
+<p>---</p>
+<p>本技能通过 **Google Ads API** 的只读权限读取账户/活动/广告组/关键词的关键指标，生成简洁的文本/HTML 报告，便于每日快速了解投放表现和异常。</p>
+<p><h2>环境变量（全部需要）</h2></p>
+<ul>
+  <li><code>GOOGLE_ADS_CLIENT_ID</code></li>
+  <li><code>GOOGLE_ADS_CLIENT_SECRET</code></li>
+  <li><code>GOOGLE_ADS_DEVELOPER_TOKEN</code></li>
+  <li><code>GOOGLE_ADS_LOGIN_CUSTOMER_ID</code>  （MCC 账号，无横杠）</li>
+  <li><code>GOOGLE_ADS_CLIENT_CUSTOMER_ID</code> （具体子客户账号）</li>
+  <li><code>GOOGLE_ADS_REFRESH_TOKEN</code>       （只读 scope：<code>https://www.googleapis.com/auth/adwords.readonly</code>）</li>
+</ul>
+<p>&gt; 这些值都只保存在本机环境或 <code>.env</code> 文件中，绝不写入公开仓库。</p>
+<p><h2>使用方法</h2></p>
+<p><pre><code class="bash"># 生成昨日日报（ amend 可指定日期，默认昨天）</p>
+<p>python3 scripts/google_ads_report.py --date 2026-03-09 --output markdown</p>
+<p><h1>输出为 HTML（可用于博客嵌入）</h1></p>
+<p>python3 scripts/google_ads_report.py --output html</code></pre></p>
+<p>脚本会：</p>
+<ul>
+  <li>拉取 Campaign、AdGroup、Keyword 级别的花费、点击、展示、转化等指标。</li>
+  <li>计算 ROAS / CPA。</li>
+  <li>对比前一日的环比变化，自动标红显著波动（&gt;30%）。</li>
+  <li>生成 Summary + Top N 高消耗关键词列表。</li>
+</ul>
+<p><h2>自动安排</h2></p>
+<p>可配合 OpenClaw cron 定时运行，例如每天 09:00 出前一天的日报：</p>
+<p><pre><code class="">0 9 * * * cd /home/user/.openclaw/workspace &amp;&amp; /usr/bin/env python3 skills/google-ads-reader/scripts/google_ads_report.py --date yesterday --output markdown &gt;&gt; logs/ads-reader.log 2&gt;&amp;1</code></pre></p>
+<p><h2>安全性</h2></p>
+<ul>
+  <li>本技能为**只读**，不会执行任何写入操作。</li>
+  <li>所有 API 调用使用 OAuth refresh token，凭据不暴露。</li>
+  <li>如需升级为可写版本（暂停/调价/增删），需重新授权并切换为 <code>adwords</code> 完整 scope。</li>
+</ul>
         </article>
       </div>
     </section>
@@ -60,10 +110,10 @@
     <div class="container">
       <div class="footer-content">
         <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
+        <p>全站访问：<span id="site-view-count">--</span></p>
       </div>
     </div>
-          <p>全站访问：<span id="site-view-count">--</span></p>
-</footer>
+  </footer>
 
   <script src="../assets/app.js"></script>
 </body>

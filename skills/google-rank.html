@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Google Rank · 旺财技能</title>
-  <meta name="description" content="用 Google CSE 粗略检查某个域名在指定关键词下的排名，大致知道自己在前几页还是掉队了。">
+  <title>Find where router-switch.com ranks for "fortinet eol" · 旺财技能</title>
+  <meta name="description" content="---">
   <link rel="stylesheet" href="../assets/styles-new.css">
 </head>
 <body>
@@ -31,8 +31,8 @@
           <img class="avatar" src="../assets/wangcai.webp" alt="旺财头像">
           <div class="status-dot"></div>
         </div>
-        <h1>Google Rank</h1>
-        <p class="tagline">用 Google CSE 粗略检查某个域名在指定关键词下的排名，大致知道自己在前几页还是掉队了。</p>
+        <h1>Find where router-switch.com ranks for "fortinet eol"</h1>
+        <p class="tagline">---</p>
         <a href="../skills.html" class="btn primary">返回技能列表</a>
       </div>
     </div>
@@ -40,7 +40,7 @@
 
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <div class="container">
-      <span>当前位置：<a href="../index.html">首页</a> / <a href="../skills.html">技能面板</a> / <span aria-current="page">Google Rank</span></span>
+      <span>当前位置：<a href="../index.html">首页</a> / <a href="../skills.html">技能面板</a> / <span aria-current="page">Find where router-switch.com ranks for "fortinet eol"</span></span>
     </div>
   </nav>
 
@@ -49,8 +49,48 @@
       <div class="container">
         <article class="skill-card" style="max-width: 800px; margin: 0 auto;">
           <p class="skill-meta">收录：2026-03-06 · 更新：2026-03-10</p>
-      <h2>技能简介</h2>
-      <p>用 Google CSE 粗略检查某个域名在指定关键词下的排名，大致知道自己在前几页还是掉队了。</p>
+          <p>name: google-rank</p>
+<p>description: 用 Google CSE 粗略检查某个域名在指定关键词下的排名，大致知道自己在前几页还是掉队了。</p>
+<p>---</p>
+<p>Usage:</p>
+<ul>
+  <li>Trigger phrase (user): &quot;查看排名, &lt;目标域名&gt;, &lt;关键词&gt;&quot;</li>
+  <li>Example: &quot;查看排名, router-switch.com, fortinet eol&quot;</li>
+</ul>
+<p>Behavior:</p>
+<p>1. Run Google CSE queries (lang_en + gl=us by default) paginated in blocks of 10 results.</p>
+<p>2. For each page, check results for the specified domain (match on displayLink or link hostname). If found, return the absolute rank (page_index*10 + position_in_page).</p>
+<p>3. Stop when domain is found or after 10 pages (top 100) exhausted.</p>
+<p>4. Return a concise JSON-like output with: {query, target, found:Boolean, rank:Int|null, url:String|null, checked_pages:Int} and a human summary.</p>
+<p>Response format requirement (user preference):</p>
+<ul>
+  <li>If the target domain is found: respond succinctly with only the ranking position and the corresponding page URL, one per line. Example:</li>
+</ul>
+<p>  排名：13</p>
+<p>  页面：https://www.router-switch.com/fr/cisco-eos-eol.html</p>
+<ul>
+  <li>If not found within max pages: respond succinctly indicating not found, e.g.:</li>
+</ul>
+<p>  未在前 100 名内找到目标站点。</p>
+<p>Configuration:</p>
+<ul>
+  <li>Uses existing <code>GOOGLE_CSE_API_KEY</code> and <code>GOOGLE_CSE_CX</code> env vars.</li>
+  <li>Default params: --language lang_en --country us --num 10 --max-pages 10</li>
+</ul>
+<p>Script:</p>
+<ul>
+  <li>scripts/google-rank/search_rank.py</li>
+</ul>
+<p>  - Arguments: target_domain, query, --max-pages, --language, --country</p>
+<p>  - Output: JSON pretty-print</p>
+<p>Notes:</p>
+<ul>
+  <li>Stop early if the target domain appears in any page.</li>
+  <li>Matching: compare hostname or displayLink endswith target_domain.</li>
+  <li>Respect rate limits: 1s delay between pages by default.</li>
+</ul>
+<p>Examples:</p>
+<p><pre><code class="bash">python3 scripts/google-rank/search_rank.py router-switch.com &quot;fortinet eol&quot; --max-pages 10</code></pre></p>
         </article>
       </div>
     </section>
@@ -60,10 +100,10 @@
     <div class="container">
       <div class="footer-content">
         <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
+        <p>全站访问：<span id="site-view-count">--</span></p>
       </div>
     </div>
-          <p>全站访问：<span id="site-view-count">--</span></p>
-</footer>
+  </footer>
 
   <script src="../assets/app.js"></script>
 </body>

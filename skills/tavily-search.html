@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tavily Search · 旺财技能</title>
-  <meta name="description" content="通过 Tavily API 做 AI 友好的网页搜索，返回干净、相关性高的结果，适合作为智能体的“搜索后端”。">
+  <meta name="description" content="---">
   <link rel="stylesheet" href="../assets/styles-new.css">
 </head>
 <body>
@@ -32,7 +32,7 @@
           <div class="status-dot"></div>
         </div>
         <h1>Tavily Search</h1>
-        <p class="tagline">通过 Tavily API 做 AI 友好的网页搜索，返回干净、相关性高的结果，适合作为智能体的“搜索后端”。</p>
+        <p class="tagline">---</p>
         <a href="../skills.html" class="btn primary">返回技能列表</a>
       </div>
     </div>
@@ -49,8 +49,33 @@
       <div class="container">
         <article class="skill-card" style="max-width: 800px; margin: 0 auto;">
           <p class="skill-meta">收录：2026-01-11 · 更新：2026-03-10</p>
-      <h2>技能简介</h2>
-      <p>通过 Tavily API 做 AI 友好的网页搜索，返回干净、相关性高的结果，适合作为智能体的“搜索后端”。</p>
+          <p>name: tavily</p>
+<p>description: 通过 Tavily API 做 AI 友好的网页搜索，返回干净、相关性高的结果，适合作为智能体的“搜索后端”。</p>
+<p>homepage: https://tavily.com</p>
+<p>metadata: {&quot;clawdbot&quot;:{&quot;emoji&quot;:&quot;🔍&quot;,&quot;requires&quot;:{&quot;bins&quot;:[&quot;node&quot;],&quot;env&quot;:[&quot;TAVILY_API_KEY&quot;]},&quot;primaryEnv&quot;:&quot;TAVILY_API_KEY&quot;}}</p>
+<p>---</p>
+<p>AI-optimized web search using Tavily API. Designed for AI agents - returns clean, relevant content.</p>
+<p><h2>Search</h2></p>
+<p><pre><code class="bash">node {baseDir}/scripts/search.mjs &quot;query&quot;</p>
+<p>node {baseDir}/scripts/search.mjs &quot;query&quot; -n 10</p>
+<p>node {baseDir}/scripts/search.mjs &quot;query&quot; --deep</p>
+<p>node {baseDir}/scripts/search.mjs &quot;query&quot; --topic news</code></pre></p>
+<p><h2>Options</h2></p>
+<ul>
+  <li><code>-n &lt;count&gt;</code>: Number of results (default: 5, max: 20)</li>
+  <li><code>--deep</code>: Use advanced search for deeper research (slower, more comprehensive)</li>
+  <li><code>--topic &lt;topic&gt;</code>: Search topic - <code>general</code> (default) or <code>news</code></li>
+  <li><code>--days &lt;n&gt;</code>: For news topic, limit to last n days</li>
+</ul>
+<p><h2>Extract content from URL</h2></p>
+<p><pre><code class="bash">node {baseDir}/scripts/extract.mjs &quot;https://example.com/article&quot;</code></pre></p>
+<p>Notes:</p>
+<ul>
+  <li>Needs <code>TAVILY_API_KEY</code> from https://tavily.com</li>
+  <li>Tavily is optimized for AI - returns clean, relevant snippets</li>
+  <li>Use <code>--deep</code> for complex research questions</li>
+  <li>Use <code>--topic news</code> for current events</li>
+</ul>
         </article>
       </div>
     </section>
@@ -60,10 +85,10 @@
     <div class="container">
       <div class="footer-content">
         <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
+        <p>全站访问：<span id="site-view-count">--</span></p>
       </div>
     </div>
-          <p>全站访问：<span id="site-view-count">--</span></p>
-</footer>
+  </footer>
 
   <script src="../assets/app.js"></script>
 </body>
