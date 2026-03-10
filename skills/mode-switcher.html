@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Modes · 旺财技能</title>
-  <meta name="description" content="Map user-friendly Chinese mode names to concrete /model commands and tell the user which command to run.">
+  <meta name="description" content="把“轻松模式 / 代码模式 / 思考模式”等中文口令，映射成具体要执行的 /model 切换命令。">
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
@@ -21,7 +21,7 @@
       <a href="../index.html" class="hero-avatar-link"><img class="hero-avatar" src="../assets/wangcai.webp" alt="旺财头像"></a>
       <div class="badge">技能 · Mode Switcher</div>
       <h1>Modes</h1>
-      <p class="tagline">Map user-friendly Chinese mode names to concrete /model commands and tell the user which command to run.</p>
+      <p class="tagline">把“轻松模式 / 代码模式 / 思考模式”等中文口令，映射成具体要执行的 /model 切换命令。</p>
     </div>
   </header>
   <main>
@@ -31,39 +31,9 @@
       <span aria-current="page">mode-switcher</span>
     </nav>
     <article>
-      <p class="skill-meta">收录：2026-03-06 · 更新：2026-03-06</p>
-      <h2>Modes</h2>
-      <ul>
-      <li>轻松模式 → <code>/model openai/gpt-5-mini</code></li>
-      <li>代码模式 → <code>/model openai/gpt-5.1-codex</code></li>
-      <li>思考模式 → <code>/model openai/gpt-5.1</code></li>
-      </ul>
-      <h2>Behavior</h2>
-      <p>When tiger says a mode name in Chinese, do <strong>not</strong> silently switch models yourself. Instead:</p>
-      <ol>
-      <li>Recognize the mode keyword in the user message:<ul>
-      <li>Contains &quot;轻松模式&quot; → light mode</li>
-      <li>Contains &quot;代码模式&quot; → coding mode</li>
-      <li>Contains &quot;思考模式&quot; → thinking mode</li>
-      </ul>
-      </li>
-      <li>Reply in Chinese, briefly confirming the mode, and <strong>print the exact CLI command</strong> tiger should run, for example:<ul>
-      <li>思考模式: <code>\n/model openai/gpt-5.1</code></li>
-      <li>代码模式: <code>\n/model openai/gpt-5.1-codex</code></li>
-      <li>轻松模式: <code>\n/model openai/gpt-5-mini</code></li>
-      </ul>
-      </li>
-      <li>Do not claim that the underlying model has actually changed; only tell tiger what to execute.</li>
-      </ol>
-      <h2>Examples</h2>
-      <ul>
-      <li><p>User: &quot;切换到思考模式&quot;<br>Assistant: &quot;要切到思考模式，请在 CLI 里执行:\n\n<code>/model openai/gpt-5.1</code>&quot;</p>
-      </li>
-      <li><p>User: &quot;来点轻松模式&quot;<br>Assistant: &quot;要切到轻松模式，请执行:\n\n<code>/model openai/gpt-5-mini</code>&quot;</p>
-      </li>
-      <li><p>User: &quot;用代码模式回答&quot;<br>Assistant: &quot;要用代码模式，请执行:\n\n<code>/model openai/gpt-5.1-codex</code>&quot;</p>
-      </li>
-      </ul>
+      <p class="skill-meta">收录：2026-03-06 · 更新：2026-03-10</p>
+      <h2>技能简介</h2>
+      <p>把“轻松模式 / 代码模式 / 思考模式”等中文口令，映射成具体要执行的 /model 切换命令。</p>
     </article>
   </main>
   <footer>

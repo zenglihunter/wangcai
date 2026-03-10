@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Google Rank · 旺财技能</title>
-  <meta name="description" content="Check a target domain's ranking for a given keyword using Google Custom Search (CSE). Stops early if the target domain is found. Returns the 1-based r">
+  <meta name="description" content="用 Google CSE 粗略检查某个域名在指定关键词下的排名，大致知道自己在前几页还是掉队了。">
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
@@ -21,7 +21,7 @@
       <a href="../index.html" class="hero-avatar-link"><img class="hero-avatar" src="../assets/wangcai.webp" alt="旺财头像"></a>
       <div class="badge">技能 · Google Rank</div>
       <h1>Google Rank</h1>
-      <p class="tagline">Check a target domain's ranking for a given keyword using Google Custom Search (CSE). Stops early if the target domain is found. Returns the 1-based rank or &quot;not found in top N&quot;.</p>
+      <p class="tagline">用 Google CSE 粗略检查某个域名在指定关键词下的排名，大致知道自己在前几页还是掉队了。</p>
     </div>
   </header>
   <main>
@@ -31,50 +31,9 @@
       <span aria-current="page">google-rank</span>
     </nav>
     <article>
-      <p class="skill-meta">收录：2026-03-06 · 更新：2026-03-06</p>
-      <p>Usage:</p>
-      <ul>
-      <li>Trigger phrase (user): &quot;查看排名, &lt;目标域名&gt;, &lt;关键词&gt;&quot;</li>
-      <li>Example: &quot;查看排名, router-switch.com, fortinet eol&quot;</li>
-      </ul>
-      <p>Behavior:</p>
-      <ol>
-      <li>Run Google CSE queries (lang_en + gl=us by default) paginated in blocks of 10 results.</li>
-      <li>For each page, check results for the specified domain (match on displayLink or link hostname). If found, return the absolute rank (page_index*10 + position_in_page).</li>
-      <li>Stop when domain is found or after 10 pages (top 100) exhausted.</li>
-      <li>Return a concise JSON-like output with: {query, target, found:Boolean, rank:Int|null, url:String|null, checked_pages:Int} and a human summary.</li>
-      </ol>
-      <p>Response format requirement (user preference):</p>
-      <ul>
-      <li>If the target domain is found: respond succinctly with only the ranking position and the corresponding page URL, one per line. Example:
-      排名：13
-      页面：<a href="https://www.router-switch.com/fr/cisco-eos-eol.html">https://www.router-switch.com/fr/cisco-eos-eol.html</a></li>
-      <li>If not found within max pages: respond succinctly indicating not found, e.g.:
-      未在前 100 名内找到目标站点。</li>
-      </ul>
-      <p>Configuration:</p>
-      <ul>
-      <li>Uses existing <code>GOOGLE_CSE_API_KEY</code> and <code>GOOGLE_CSE_CX</code> env vars.</li>
-      <li>Default params: --language lang_en --country us --num 10 --max-pages 10</li>
-      </ul>
-      <p>Script:</p>
-      <ul>
-      <li>scripts/google-rank/search_rank.py<ul>
-      <li>Arguments: target_domain, query, --max-pages, --language, --country</li>
-      <li>Output: JSON pretty-print</li>
-      </ul>
-      </li>
-      </ul>
-      <p>Notes:</p>
-      <ul>
-      <li>Stop early if the target domain appears in any page.</li>
-      <li>Matching: compare hostname or displayLink endswith target_domain.</li>
-      <li>Respect rate limits: 1s delay between pages by default.</li>
-      </ul>
-      <p>Examples:</p>
-      <pre><code class="language-bash"># Find where router-switch.com ranks for &quot;fortinet eol&quot;
-      python3 scripts/google-rank/search_rank.py router-switch.com &quot;fortinet eol&quot; --max-pages 10
-      </code></pre>
+      <p class="skill-meta">收录：2026-03-06 · 更新：2026-03-10</p>
+      <h2>技能简介</h2>
+      <p>用 Google CSE 粗略检查某个域名在指定关键词下的排名，大致知道自己在前几页还是掉队了。</p>
     </article>
   </main>
   <footer>

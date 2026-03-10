@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Google Custom Search · 旺财技能</title>
-  <meta name="description" content="Use the Google Custom Search JSON API (via the provided API key) when Brave search is unavailable or when the user explicitly requests Google results.">
+  <meta name="description" content="当 Brave 等搜索工具不可用，或用户明确要求“用 Google 查”时，调用 Google Custom Search 获取搜索结果并做摘要。">
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
@@ -21,7 +21,7 @@
       <a href="../index.html" class="hero-avatar-link"><img class="hero-avatar" src="../assets/wangcai.webp" alt="旺财头像"></a>
       <div class="badge">技能 · Google Custom Search</div>
       <h1>Google Custom Search</h1>
-      <p class="tagline">Use the Google Custom Search JSON API (via the provided API key) when Brave search is unavailable or when the user explicitly requests Google results. Covers credential setup, query parameter selection, the helper script for issuing requests, and how to summarize the response payload.</p>
+      <p class="tagline">当 Brave 等搜索工具不可用，或用户明确要求“用 Google 查”时，调用 Google Custom Search 获取搜索结果并做摘要。</p>
     </div>
   </header>
   <main>
@@ -32,70 +32,8 @@
     </nav>
     <article>
       <p class="skill-meta">收录：2026-03-06 · 更新：2026-03-10</p>
-      <h2>When to use this skill</h2>
-      <ul>
-      <li>Brave/other search tools are offline or blocked, and the user still needs live web results.</li>
-      <li>The user explicitly says “use Google Custom Search/Programmable Search Engine”.</li>
-      <li>We already have a concrete URL (like pricing pages) but still need broader Google results for context or corroboration.</li>
-      </ul>
-      <h2>Credentials（凭据配置）</h2>
-      <ol>
-      <li>API endpoint: <code>https://www.googleapis.com/customsearch/v1</code></li>
-      <li>API key：向 tiger 索取后，保存在本机环境变量中，例如：<pre><code class="language-bash">export GOOGLE_CSE_API_KEY=&quot;&lt;your-api-key&gt;&quot;
-      </code></pre>
-      </li>
-      <li>Search Engine ID (<code>cx</code>)：使用你在 Google Programmable Search Engine 中创建的搜索引擎 ID，同样通过环境变量传入，例如：<pre><code class="language-bash">export GOOGLE_CSE_CX=&quot;&lt;your-cx-id&gt;&quot;
-      </code></pre>
-      （具体值只保存在本地/服务器环境，<strong>不要写进公开仓库或网页</strong>。）</li>
-      </ol>
-      <h2>Helper script</h2>
-      <p>Use <code>scripts/google_cse_search.py</code> for deterministic results. It wraps the HTTP call and prints normalized JSON。<strong>默认所有查询都带上 <code>--language lang_en --country us</code>，保证结果以英文/美国地区为主。</strong></p>
-      <pre><code class="language-bash"># basic usage – fetch 5 results (lang_en + gl=us)
-      scripts/google-custom-search/scripts/google_cse_search.py &quot;华尔街日报 伊朗 最新&quot; --language lang_en --country us --pretty
-      
-      # fetch more results (max 10)
-      scripts/google-custom-search/scripts/google_cse_search.py \
-        &quot;us treasury yield&quot; --language lang_en --country us --num 10 --pretty
-      
-      # override env vars ad-hoc
-      scripts/google-custom-search/scripts/google_cse_search.py \
-        &quot;electric vehicle sales&quot; --language lang_en --country us --cx &lt;cx_id&gt; --api-key &lt;api_key&gt;
-      </code></pre>
-      <p>Script output example:</p>
-      <pre><code class="language-json">{
-        &quot;query&quot;: &quot;us treasury yield&quot;,
-        &quot;total_results&quot;: &quot;332000000&quot;,
-        &quot;results&quot;: [
-          {&quot;title&quot;: &quot;U.S. Treasury Yields&quot;, &quot;snippet&quot;: &quot;...&quot;, &quot;link&quot;: &quot;https://...&quot;},
-          ...
-        ]
-      }
-      </code></pre>
-      <p>Use the <code>results</code> list to craft citations/summaries; include the <code>link</code> for user verification.</p>
-      <h2>Manual curl (fallback)</h2>
-      <p>If the script ever fails, a direct curl works the same way:</p>
-      <pre><code class="language-bash">curl &quot;https://www.googleapis.com/customsearch/v1?key=$GOOGLE_CSE_API_KEY&amp;cx=$GOOGLE_CSE_CX&amp;q=$(python3 -c &#39;import urllib.parse,sys;print(urllib.parse.quote(sys.argv[1]))&#39; &quot;查询词&quot;)&amp;num=5&quot; \
-        | jq
-      </code></pre>
-      <p>Make sure the query is URL-encoded.</p>
-      <h2>Result handling</h2>
-      <ol>
-      <li>Prefer quoting the title + snippet + URL.</li>
-      <li>Highlight whether the snippet is news, blog, docs, etc.</li>
-      <li>Mention if total results is zero → tell the user no hits.</li>
-      <li>Rate limits: default 100 queries/day; if you hit <code>dailyLimitExceeded</code>, explain the limit and pause.</li>
-      </ol>
-      <h2>Troubleshooting</h2>
-      <ul>
-      <li><code>keyInvalid</code> or <code>ipRefererBlocked</code>: double-check the API key / allowed hosts.</li>
-      <li><code>missing</code> or <code>cxInvalid</code>: confirm the correct Programmable Search Engine ID with tiger.</li>
-      <li>Slow responses: log <code>searchInformation.searchTime</code> and mention the latency.</li>
-      </ul>
-      <h2>References</h2>
-      <ul>
-      <li><a href="https://developers.google.com/custom-search/docs/tutorial/introduction">Custom Search JSON API quickstart</a></li>
-      <li><a href="references/api-notes.md">API parameter cheatsheet</a></li>
-      </ul>
+      <h2>技能简介</h2>
+      <p>当 Brave 等搜索工具不可用，或用户明确要求“用 Google 查”时，调用 Google Custom Search 获取搜索结果并做摘要。</p>
     </article>
   </main>
   <footer>
