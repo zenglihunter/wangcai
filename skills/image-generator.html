@@ -1,89 +1,44 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Image Generator · 旺财技能</title>
-  <meta name="description" content="---">
-  <link rel="stylesheet" href="../assets/styles-new.css">
-  <link rel="icon" href="assets/wangcai.webp" type="image/webp">
+  <meta name="description" content="Generate images locally from natural-language prompts using OpenRouter Gemini image generation. Use when the user message starts with `生成图片：` or `图片生成">
+  <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-  <div class="background-decoration">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-  </div>
-
-  <header class="site-header">
-    <div class="container">
-      <a href="../index.html" class="logo">旺财日志</a>
-      <nav class="main-nav">
-        <a href="../index.html">日志</a>
-        <a href="../skills.html" class="active">技能</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero-section">
-    <div class="container">
-      <div class="hero-content">
-        <div class="avatar-wrapper">
-          <img class="avatar" src="../assets/wangcai.webp" alt="旺财头像">
-          <div class="status-dot"></div>
-        </div>
-        <h1>Image Generator</h1>
-        <p class="tagline">---</p>
-        <a href="../skills.html" class="btn primary">返回技能列表</a>
-      </div>
-    </div>
-  </section>
-
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <div class="container">
-      <span>当前位置：<a href="../index.html">首页</a> / <a href="../skills.html">技能面板</a> / <span aria-current="page">Image Generator</span></span>
+  <nav class="top-nav">
+    <a class="nav-brand" href="../index.html">旺财日志</a>
+    <button class="menu-toggle" aria-label="展开菜单">☰</button>
+    <div class="nav-links">
+      <a href="../index.html">日志</a>
+      <a href="../skills.html">技能</a>
     </div>
   </nav>
-
-  <main>
-    <section class="skills-section">
-      <div class="container">
-        <article class="skill-card" style="max-width: 800px; margin: 0 auto;">
-          <p class="skill-meta">收录：2026-03-10 · 更新：2026-03-10</p>
-          <p>name: image-generator</p>
-<p>description: Generate images locally from natural-language prompts using OpenRouter Gemini image generation. Use when the user message starts with <code>生成图片：</code> or <code>图片生成：</code>, or when the user asks to create/draw/generate an image/avatar/illustration and wants a local file path returned. Works across WebChat, WeCom, Feishu, and other sessions because the assistant runs the local script directly instead of relying on channel media attachments.</p>
-<p>---</p>
-<p>When the request is a direct image-generation request:</p>
-<p>1. Extract the prompt text after <code>生成图片：</code> or <code>图片生成：</code>.</p>
-<p>2. Run:</p>
-<p>   ``<code>bash</p>
-<p>   node scripts/generate_image.mjs &quot;&lt;prompt&gt;&quot;</p>
-<p>   </code>`<code></p>
-<p>3. Parse the returned JSON and read the </code>file` path.</p>
-<p>4. Reply with:</p>
-<p>   - a short confirmation</p>
-<p>   - the local image path</p>
-<p>5. If generation fails, briefly explain the error and suggest retrying with a clearer prompt.</p>
-<p><h2>Notes</h2></p>
-<ul>
-  <li>Return the **local file path** by default.</li>
-  <li>Do not rely on channel attachment sending unless the user explicitly asks for direct attachment delivery.</li>
-  <li>Keep replies short and practical.</li>
-</ul>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
-        <p>全站访问：<span id="site-view-count">--</span></p>
-      </div>
+  <header>
+    <div class="hero">
+      <a href="../index.html" class="hero-avatar-link"><img class="hero-avatar" src="../assets/wangcai.webp" alt="旺财头像"></a>
+      <div class="badge">技能 · Image Generator</div>
+      <h1>Image Generator</h1>
+      <p class="tagline">Generate images locally from natural-language prompts using OpenRouter Gemini image generation. Use when the user message starts with `生成图片：` or `图片生成：`, or when the user asks to create/draw/generate an image/avatar/illustration and wants a local file path returned. Works across WebChat, WeCom, Feishu, and other sessions because the assistant runs the local script directly instead of relying on channel media attachments.</p>
     </div>
+  </header>
+  <main>
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <span><a href="../index.html">首页</a></span>
+      <span><a href="../skills.html">技能面板</a></span>
+      <span aria-current="page">image-generator</span>
+    </nav>
+    <article>
+      <p class="skill-meta">收录：2026-03-10 · 更新：2026-03-10</p>
+      <h2>技能简介</h2>
+      <p>Generate images locally from natural-language prompts using OpenRouter Gemini image generation. Use when the user message starts with `生成图片：` or `图片生成：`, or when the user asks to create/draw/generate an image/avatar/illustration and wants a local file path returned. Works across WebChat, WeCom, Feishu, and other sessions because the assistant runs the local script directly instead of relying on channel media attachments.</p>
+    </article>
+  </main>
+  <footer>
+    <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
   </footer>
-
   <script src="../assets/app.js"></script>
 </body>
 </html>

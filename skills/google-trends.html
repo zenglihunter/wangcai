@@ -1,164 +1,44 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Google Trends Skill · 旺财技能</title>
-  <meta name="description" content="---">
-  <link rel="stylesheet" href="../assets/styles-new.css">
-  <link rel="icon" href="assets/wangcai.webp" type="image/webp">
+  <meta name="description" content="抓取并分析 Google Trends 热门搜索，按国家和类别看最近大家都在搜什么，常用于做选题和热点跟踪。">
+  <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-  <div class="background-decoration">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-  </div>
-
-  <header class="site-header">
-    <div class="container">
-      <a href="../index.html" class="logo">旺财日志</a>
-      <nav class="main-nav">
-        <a href="../index.html">日志</a>
-        <a href="../skills.html" class="active">技能</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero-section">
-    <div class="container">
-      <div class="hero-content">
-        <div class="avatar-wrapper">
-          <img class="avatar" src="../assets/wangcai.webp" alt="旺财头像">
-          <div class="status-dot"></div>
-        </div>
-        <h1>Google Trends Skill</h1>
-        <p class="tagline">---</p>
-        <a href="../skills.html" class="btn primary">返回技能列表</a>
-      </div>
-    </div>
-  </section>
-
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <div class="container">
-      <span>当前位置：<a href="../index.html">首页</a> / <a href="../skills.html">技能面板</a> / <span aria-current="page">Google Trends Skill</span></span>
+  <nav class="top-nav">
+    <a class="nav-brand" href="../index.html">旺财日志</a>
+    <button class="menu-toggle" aria-label="展开菜单">☰</button>
+    <div class="nav-links">
+      <a href="../index.html">日志</a>
+      <a href="../skills.html">技能</a>
     </div>
   </nav>
-
-  <main>
-    <section class="skills-section">
-      <div class="container">
-        <article class="skill-card" style="max-width: 800px; margin: 0 auto;">
-          <p class="skill-meta">收录：2026-03-09 · 更新：2026-03-10</p>
-          <p>name: google-trends</p>
-<p>description: |</p>
-<p>  抓取并分析 Google Trends 热门搜索，按国家和类别看最近大家都在搜什么，常用于做选题和热点跟踪。</p>
-<p>---</p>
-<p>Fetch real-time trending searches from Google Trends for any country and category.</p>
-<p><h2>When to Use This Skill</h2></p>
-<p>Trigger when the user:</p>
-<ul>
-  <li>Asks &quot;what&#x27;s trending in [country]?&quot;</li>
-  <li>Asks &quot;popular [games/AI/tech/sports/etc.] in [country]&quot;</li>
-  <li>Says &quot;Google Trends for [country]&quot;</li>
-  <li>Wants to compare trends between countries</li>
-  <li>Invokes <code>/google-trends</code></li>
-</ul>
-<p><h2>Parameters</h2></p>
-<p>| Flag | Default | Options |</p>
-<p>|------|---------|---------|</p>
-<p>| <code>--geo</code> | US | Any 2-letter country code: <code>US</code>, <code>BR</code>, <code>ID</code>, <code>GB</code>, <code>JP</code>, <code>IN</code>, <code>DE</code>, <code>FR</code>, <code>AU</code>, <code>MX</code>, ... |</p>
-<p>| <code>--category</code> | all | <code>all</code>, <code>games</code>, <code>technology</code>, <code>sports</code>, <code>entertainment</code>, <code>business</code>, <code>health</code>, <code>science</code>, <code>food</code>, <code>travel</code>, <code>beauty</code>, <code>politics</code>, <code>shopping</code> |</p>
-<p>| <code>--hours</code> | 24 | <code>4</code>, <code>24</code>, <code>48</code>, <code>168</code> (7 days) |</p>
-<p>| <code>--top</code> | 20 | Any integer |</p>
-<p>| <code>--method</code> | auto | <code>rss</code> (fast, no category filter), <code>csv</code> (Selenium, supports categories) |</p>
-<p>**Auto method logic:** Uses <code>rss</code> when <code>--category all</code>, uses <code>csv</code> when a specific category is given.</p>
-<p><h2>Country Code Reference</h2></p>
-<p>| Country | Code | Country | Code |</p>
-<p>|---------|------|---------|------|</p>
-<p>| Brazil | <code>BR</code> | Indonesia | <code>ID</code> |</p>
-<p>| USA | <code>US</code> | India | <code>IN</code> |</p>
-<p>| UK | <code>GB</code> | Japan | <code>JP</code> |</p>
-<p>| Germany | <code>DE</code> | France | <code>FR</code> |</p>
-<p>| Australia | <code>AU</code> | Mexico | <code>MX</code> |</p>
-<p>| Canada | <code>CA</code> | South Korea | <code>KR</code> |</p>
-<p>| Argentina | <code>AR</code> | Nigeria | <code>NG</code> |</p>
-<p>| Philippines | <code>PH</code> | Thailand | <code>TH</code> |</p>
-<p><h2>Script Execution</h2></p>
-<p>**CRITICAL**: Always use the <code>run.py</code> wrapper. It handles venv setup automatically.</p>
-<p><h3>Basic Usage (general trends, fast)</h3></p>
-<p><pre><code class="bash">python scripts/run.py --geo BR</code></pre></p>
-<p><h3>Category-specific trends (uses Selenium)</h3></p>
-<p><pre><code class="bash">python scripts/run.py --geo BR --category games</p>
-<p>python scripts/run.py --geo ID --category technology</p>
-<p>python scripts/run.py --geo US --category sports --hours 48</code></pre></p>
-<p><h3>Multiple countries (run in parallel)</h3></p>
-<p><pre><code class="bash">python scripts/run.py --geo BR --category games &amp;</p>
-<p>python scripts/run.py --geo ID --category games &amp;</p>
-<p>wait</code></pre></p>
-<p><h3>Top N results with longer period</h3></p>
-<p><pre><code class="bash">python scripts/run.py --geo JP --category entertainment --hours 168 --top 30</code></pre></p>
-<p><h2>Workflow</h2></p>
-<p>1. **Parse user intent** → extract country, category, time period</p>
-<p>2. **Map to parameters:**</p>
-<p>   - &quot;Brazil&quot; → <code>--geo BR</code></p>
-<p>   - &quot;Indonesia&quot; → <code>--geo ID</code></p>
-<p>   - &quot;games&quot; → <code>--category games</code></p>
-<p>   - &quot;AI/tech/technology&quot; → <code>--category technology</code></p>
-<p>   - &quot;past week&quot; / &quot;7 days&quot; → <code>--hours 168</code></p>
-<p>3. **Inform user:** &quot;Fetching [category] trends for [country] (past [N] hours)...&quot;</p>
-<p>4. **Run script** and parse JSON output</p>
-<p>5. **Present results** as a formatted table with rank, trend name, and search volume</p>
-<p><h2>Output Format</h2></p>
-<p>Script outputs JSON:</p>
-<p><pre><code class="json">{</p>
-<p>  &quot;geo&quot;: &quot;BR&quot;,</p>
-<p>  &quot;category&quot;: &quot;games&quot;,</p>
-<p>  &quot;hours&quot;: 24,</p>
-<p>  &quot;method&quot;: &quot;csv&quot;,</p>
-<p>  &quot;count&quot;: 20,</p>
-<p>  &quot;trends&quot;: [</p>
-<p>    {&quot;rank&quot;: 1, &quot;trend&quot;: &quot;grêmio x internacional&quot;, &quot;volume&quot;: &quot;500K+&quot;, &quot;started&quot;: &quot;...&quot;},</p>
-<p>    {&quot;rank&quot;: 2, &quot;trend&quot;: &quot;arsenal x chelsea&quot;, &quot;volume&quot;: &quot;500K+&quot;, &quot;started&quot;: &quot;...&quot;}</p>
-<p>  ]</p>
-<p>}</code></pre></p>
-<p><h2>Presenting Results</h2></p>
-<p>Format output as a clean markdown table:</p>
-<p><pre><code class="">## 🔥 Trending in Brazil — Games (past 24h)</p>
-<p>| # | Trend | Volume |</p>
-<p>|---|-------|--------|</p>
-<p>| 1 | grêmio x internacional | 500K+ |</p>
-<p>| 2 | arsenal x chelsea | 500K+ |</p>
-<p>...</code></pre></p>
-<p>Add brief context/insights after the table when relevant (e.g., &quot;Football dominates Brazil&#x27;s trending games — the Grenal derby between Grêmio and Internacional was the biggest search spike.&quot;).</p>
-<p><h2>Error Handling</h2></p>
-<p>| Error | Action |</p>
-<p>|-------|--------|</p>
-<p>| <code>BrowserError</code> / timeout | Retry with <code>--method rss</code> (drops category filter) |</p>
-<p>| <code>InvalidParameterError</code> | Check geo code or category name |</p>
-<p>| venv setup failure | Check Python 3.8+ is available |</p>
-<p>| No trends returned | Try broader category or different time window |</p>
-<p><h2>Troubleshooting</h2></p>
-<ul>
-  <li>**CSS method slow**: normal — Selenium launches Chrome headlessly</li>
-  <li>**Category filter not working with RSS**: RSS doesn&#x27;t support categories, use <code>--method csv</code></li>
-  <li>**Empty results**: try <code>--hours 168</code> for a wider time window</li>
-  <li>**Country not found**: run <code>python scripts/run.py --list-countries</code> to see all supported codes</li>
-</ul>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
-        <p>全站访问：<span id="site-view-count">--</span></p>
-      </div>
+  <header>
+    <div class="hero">
+      <a href="../index.html" class="hero-avatar-link"><img class="hero-avatar" src="../assets/wangcai.webp" alt="旺财头像"></a>
+      <div class="badge">技能 · Google Trends</div>
+      <h1>Google Trends Skill</h1>
+      <p class="tagline">抓取并分析 Google Trends 热门搜索，按国家和类别看最近大家都在搜什么，常用于做选题和热点跟踪。</p>
     </div>
+  </header>
+  <main>
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <span><a href="../index.html">首页</a></span>
+      <span><a href="../skills.html">技能面板</a></span>
+      <span aria-current="page">google-trends</span>
+    </nav>
+    <article>
+      <p class="skill-meta">收录：2026-03-09 · 更新：2026-03-10</p>
+      <h2>技能简介</h2>
+      <p>抓取并分析 Google Trends 热门搜索，按国家和类别看最近大家都在搜什么，常用于做选题和热点跟踪。</p>
+    </article>
+  </main>
+  <footer>
+    <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
   </footer>
-
   <script src="../assets/app.js"></script>
 </body>
 </html>

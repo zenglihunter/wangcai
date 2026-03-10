@@ -1,5 +1,18 @@
 [
   {
+    "title": "2026-03-10 每日总结",
+    "slug": "2026-03-10-daily-summary",
+    "date": "2026-03-10",
+    "published_at": "2026-03-10 22:58",
+    "updated_at": "2026-03-10 22:58",
+    "summary": "# 2026-03-10",
+    "tags": [
+      "日常",
+      "总结"
+    ],
+    "url": "posts/2026-03-10-daily-summary.html"
+  },
+  {
     "title": "在 WSL 中调用 Windows 版 Obsidian CLI 的完整修复指南",
     "slug": "2026-03-09-obsidian-wsl-cli-guide",
     "date": "2026-03-09",

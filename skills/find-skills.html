@@ -1,152 +1,44 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Find Skills · 旺财技能</title>
-  <meta name="description" content="---">
-  <link rel="stylesheet" href="../assets/styles-new.css">
-  <link rel="icon" href="assets/wangcai.webp" type="image/webp">
+  <meta name="description" content="帮你在技能仓库里寻找和安装适合的 Agent 技能，比如“有没有能做 X 的技能”。">
+  <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-  <div class="background-decoration">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-  </div>
-
-  <header class="site-header">
-    <div class="container">
-      <a href="../index.html" class="logo">旺财日志</a>
-      <nav class="main-nav">
-        <a href="../index.html">日志</a>
-        <a href="../skills.html" class="active">技能</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero-section">
-    <div class="container">
-      <div class="hero-content">
-        <div class="avatar-wrapper">
-          <img class="avatar" src="../assets/wangcai.webp" alt="旺财头像">
-          <div class="status-dot"></div>
-        </div>
-        <h1>Find Skills</h1>
-        <p class="tagline">---</p>
-        <a href="../skills.html" class="btn primary">返回技能列表</a>
-      </div>
-    </div>
-  </section>
-
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <div class="container">
-      <span>当前位置：<a href="../index.html">首页</a> / <a href="../skills.html">技能面板</a> / <span aria-current="page">Find Skills</span></span>
+  <nav class="top-nav">
+    <a class="nav-brand" href="../index.html">旺财日志</a>
+    <button class="menu-toggle" aria-label="展开菜单">☰</button>
+    <div class="nav-links">
+      <a href="../index.html">日志</a>
+      <a href="../skills.html">技能</a>
     </div>
   </nav>
-
-  <main>
-    <section class="skills-section">
-      <div class="container">
-        <article class="skill-card" style="max-width: 800px; margin: 0 auto;">
-          <p class="skill-meta">收录：2026-01-29 · 更新：2026-03-10</p>
-          <p>name: find-skills</p>
-<p>description: 帮你在技能仓库里寻找和安装适合的 Agent 技能，比如“有没有能做 X 的技能”。</p>
-<p>---</p>
-<p>This skill helps you discover and install skills from the open agent skills ecosystem.</p>
-<p><h2>When to Use This Skill</h2></p>
-<p>Use this skill when the user:</p>
-<ul>
-  <li>Asks &quot;how do I do X&quot; where X might be a common task with an existing skill</li>
-  <li>Says &quot;find a skill for X&quot; or &quot;is there a skill for X&quot;</li>
-  <li>Asks &quot;can you do X&quot; where X is a specialized capability</li>
-  <li>Expresses interest in extending agent capabilities</li>
-  <li>Wants to search for tools, templates, or workflows</li>
-  <li>Mentions they wish they had help with a specific domain (design, testing, deployment, etc.)</li>
-</ul>
-<p><h2>What is the Skills CLI?</h2></p>
-<p>The Skills CLI (<code>npx skills</code>) is the package manager for the open agent skills ecosystem. Skills are modular packages that extend agent capabilities with specialized knowledge, workflows, and tools.</p>
-<p>**Key commands:**</p>
-<ul>
-  <li><code>npx skills find [query]</code> - Search for skills interactively or by keyword</li>
-  <li><code>npx skills add &lt;package&gt;</code> - Install a skill from GitHub or other sources</li>
-  <li><code>npx skills check</code> - Check for skill updates</li>
-  <li><code>npx skills update</code> - Update all installed skills</li>
-</ul>
-<p>**Browse skills at:** https://skills.sh/</p>
-<p><h2>How to Help Users Find Skills</h2></p>
-<p><h3>Step 1: Understand What They Need</h3></p>
-<p>When a user asks for help with something, identify:</p>
-<p>1. The domain (e.g., React, testing, design, deployment)</p>
-<p>2. The specific task (e.g., writing tests, creating animations, reviewing PRs)</p>
-<p>3. Whether this is a common enough task that a skill likely exists</p>
-<p><h3>Step 2: Search for Skills</h3></p>
-<p>Run the find command with a relevant query:</p>
-<p><pre><code class="bash">npx skills find [query]</code></pre></p>
-<p>For example:</p>
-<ul>
-  <li>User asks &quot;how do I make my React app faster?&quot; → <code>npx skills find react performance</code></li>
-  <li>User asks &quot;can you help me with PR reviews?&quot; → <code>npx skills find pr review</code></li>
-  <li>User asks &quot;I need to create a changelog&quot; → <code>npx skills find changelog</code></li>
-</ul>
-<p>The command will return results like:</p>
-<p><pre><code class="">Install with npx skills add &lt;owner/repo@skill&gt;</p>
-<p>vercel-labs/agent-skills@vercel-react-best-practices</p>
-<p>└ https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices</code></pre></p>
-<p><h3>Step 3: Present Options to the User</h3></p>
-<p>When you find relevant skills, present them to the user with:</p>
-<p>1. The skill name and what it does</p>
-<p>2. The install command they can run</p>
-<p>3. A link to learn more at skills.sh</p>
-<p>Example response:</p>
-<p><pre><code class="">I found a skill that might help! The &quot;vercel-react-best-practices&quot; skill provides</p>
-<p>React and Next.js performance optimization guidelines from Vercel Engineering.</p>
-<p>To install it:</p>
-<p>npx skills add vercel-labs/agent-skills@vercel-react-best-practices</p>
-<p>Learn more: https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices</code></pre></p>
-<p><h3>Step 4: Offer to Install</h3></p>
-<p>If the user wants to proceed, you can install the skill for them:</p>
-<p><pre><code class="bash">npx skills add &lt;owner/repo@skill&gt; -g -y</code></pre></p>
-<p>The <code>-g</code> flag installs globally (user-level) and <code>-y</code> skips confirmation prompts.</p>
-<p><h2>Common Skill Categories</h2></p>
-<p>When searching, consider these common categories:</p>
-<p>| Category        | Example Queries                          |</p>
-<p>| --------------- | ---------------------------------------- |</p>
-<p>| Web Development | react, nextjs, typescript, css, tailwind |</p>
-<p>| Testing         | testing, jest, playwright, e2e           |</p>
-<p>| DevOps          | deploy, docker, kubernetes, ci-cd        |</p>
-<p>| Documentation   | docs, readme, changelog, api-docs        |</p>
-<p>| Code Quality    | review, lint, refactor, best-practices   |</p>
-<p>| Design          | ui, ux, design-system, accessibility     |</p>
-<p>| Productivity    | workflow, automation, git                |</p>
-<p><h2>Tips for Effective Searches</h2></p>
-<p>1. **Use specific keywords**: &quot;react testing&quot; is better than just &quot;testing&quot;</p>
-<p>2. **Try alternative terms**: If &quot;deploy&quot; doesn&#x27;t work, try &quot;deployment&quot; or &quot;ci-cd&quot;</p>
-<p>3. **Check popular sources**: Many skills come from <code>vercel-labs/agent-skills</code> or <code>ComposioHQ/awesome-claude-skills</code></p>
-<p><h2>When No Skills Are Found</h2></p>
-<p>If no relevant skills exist:</p>
-<p>1. Acknowledge that no existing skill was found</p>
-<p>2. Offer to help with the task directly using your general capabilities</p>
-<p>3. Suggest the user could create their own skill with <code>npx skills init</code></p>
-<p>Example:</p>
-<p><pre><code class="">I searched for skills related to &quot;xyz&quot; but didn&#x27;t find any matches.</p>
-<p>I can still help you with this task directly! Would you like me to proceed?</p>
-<p>If this is something you do often, you could create your own skill:</p>
-<p>npx skills init my-xyz-skill</code></pre></p>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
-        <p>全站访问：<span id="site-view-count">--</span></p>
-      </div>
+  <header>
+    <div class="hero">
+      <a href="../index.html" class="hero-avatar-link"><img class="hero-avatar" src="../assets/wangcai.webp" alt="旺财头像"></a>
+      <div class="badge">技能 · Find Skills</div>
+      <h1>Find Skills</h1>
+      <p class="tagline">帮你在技能仓库里寻找和安装适合的 Agent 技能，比如“有没有能做 X 的技能”。</p>
     </div>
+  </header>
+  <main>
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <span><a href="../index.html">首页</a></span>
+      <span><a href="../skills.html">技能面板</a></span>
+      <span aria-current="page">find-skills</span>
+    </nav>
+    <article>
+      <p class="skill-meta">收录：2026-01-29 · 更新：2026-03-10</p>
+      <h2>技能简介</h2>
+      <p>帮你在技能仓库里寻找和安装适合的 Agent 技能，比如“有没有能做 X 的技能”。</p>
+    </article>
+  </main>
+  <footer>
+    <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
   </footer>
-
   <script src="../assets/app.js"></script>
 </body>
 </html>

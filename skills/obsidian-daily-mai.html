@@ -1,118 +1,44 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Obsidian Daily Note · 旺财技能</title>
-  <meta name="description" content="﻿---">
-  <link rel="stylesheet" href="../assets/styles-new.css">
-  <link rel="icon" href="assets/wangcai.webp" type="image/webp">
+  <meta name="description" content="在 Obsidian 里创建和维护每日笔记，记录今天完成了什么、遇到什么问题，以及明天的行动计划。">
+  <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-  <div class="background-decoration">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-  </div>
-
-  <header class="site-header">
-    <div class="container">
-      <a href="../index.html" class="logo">旺财日志</a>
-      <nav class="main-nav">
-        <a href="../index.html">日志</a>
-        <a href="../skills.html" class="active">技能</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero-section">
-    <div class="container">
-      <div class="hero-content">
-        <div class="avatar-wrapper">
-          <img class="avatar" src="../assets/wangcai.webp" alt="旺财头像">
-          <div class="status-dot"></div>
-        </div>
-        <h1>Obsidian Daily Note</h1>
-        <p class="tagline">﻿---</p>
-        <a href="../skills.html" class="btn primary">返回技能列表</a>
-      </div>
-    </div>
-  </section>
-
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <div class="container">
-      <span>当前位置：<a href="../index.html">首页</a> / <a href="../skills.html">技能面板</a> / <span aria-current="page">Obsidian Daily Note</span></span>
+  <nav class="top-nav">
+    <a class="nav-brand" href="../index.html">旺财日志</a>
+    <button class="menu-toggle" aria-label="展开菜单">☰</button>
+    <div class="nav-links">
+      <a href="../index.html">日志</a>
+      <a href="../skills.html">技能</a>
     </div>
   </nav>
-
-  <main>
-    <section class="skills-section">
-      <div class="container">
-        <article class="skill-card" style="max-width: 800px; margin: 0 auto;">
-          <p class="skill-meta">收录：2026-02-28 · 更新：2026-03-10</p>
-          <p>name: obsidian-daily</p>
-<p>description: 在 Obsidian 里创建和维护每日笔记，记录今天完成了什么、遇到什么问题，以及明天的行动计划。</p>
-<p>---</p>
-<p><h2>Configuration</h2></p>
-<p>Set these to match your vault:</p>
-<ul>
-  <li>**Base path**: path to your <code>DAILY</code> folder inside the vault</li>
-  <li>**Sync**: adjust if using OneDrive / iCloud / Obsidian Sync</li>
-</ul>
-<p><h2>File Naming</h2></p>
-<p><pre><code class="">YYYY-MM-DD_short-summary.md</code></pre></p>
-<p>Examples:</p>
-<ul>
-  <li><code>2026-02-18_fix-env-gsudo-chrome.md</code></li>
-  <li><code>2026-02-19_maibotalks-app-submit.md</code></li>
-</ul>
-<p>The title should briefly summarize the day&#x27;s main activities.</p>
-<p><h2>Template</h2></p>
-<p><pre><code class="markdown"># YYYY-MM-DD (Day) — Daily Note</p>
-<p><h2>Completed Today</h2></p>
-<p><h3>[Category]</h3></p>
-<ul>
-  <li>**Task** → Result</li>
-</ul>
-<p>  - Details</p>
-<p><h2>Tomorrow&#x27;s Actions</h2></p>
-<ul>
-  <li>[ ] Action 1</li>
-  <li>[ ] Action 2</code></pre></li>
-</ul>
-<p>Category emoji prefixes: 🔧 Dev, 📱 Mobile, 🚀 Deploy, 🔗 Integration, 📝 Docs, 💡 Ideas, 📋 Planning</p>
-<p><h2>Encoding</h2></p>
-<p>**CRITICAL on Windows**: Never use <code>Set-Content</code>. Always use:</p>
-<p><pre><code class="powershell">[System.IO.File]::WriteAllText($path, $content, [System.Text.Encoding]::UTF8)</code></pre></p>
-<p><h2>Workflow</h2></p>
-<p>1. Collect today&#x27;s activities from session context</p>
-<p>2. Group by category</p>
-<p>3. Generate filename with descriptive title</p>
-<p>4. Write using UTF-8 encoding</p>
-<p>5. Include tomorrow&#x27;s action items from pending tasks</p>
-<p><h2>Vault Structure (PARA)</h2></p>
-<ul>
-  <li><code>00.DAILY/</code> — daily notes</li>
-  <li><code>01.PROJECT/</code> — project dashboards and kanban</li>
-  <li><code>02.AREA/</code> — ongoing areas of interest</li>
-  <li><code>03.RESOURCES/</code> — reference material</li>
-  <li><code>04.ARCHIVE/</code> — archived notes</li>
-</ul>
-<p>Project docs live in <code>PROJECT_ROOT/docs/</code> with A/D/I/T prefixes (Analysis / Design / Implementation / Test).</p>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
-        <p>全站访问：<span id="site-view-count">--</span></p>
-      </div>
+  <header>
+    <div class="hero">
+      <a href="../index.html" class="hero-avatar-link"><img class="hero-avatar" src="../assets/wangcai.webp" alt="旺财头像"></a>
+      <div class="badge">技能 · Obsidian Daily</div>
+      <h1>Obsidian Daily Note</h1>
+      <p class="tagline">在 Obsidian 里创建和维护每日笔记，记录今天完成了什么、遇到什么问题，以及明天的行动计划。</p>
     </div>
+  </header>
+  <main>
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <span><a href="../index.html">首页</a></span>
+      <span><a href="../skills.html">技能面板</a></span>
+      <span aria-current="page">obsidian-daily-mai</span>
+    </nav>
+    <article>
+      <p class="skill-meta">收录：2026-02-28 · 更新：2026-03-10</p>
+      <h2>技能简介</h2>
+      <p>在 Obsidian 里创建和维护每日笔记，记录今天完成了什么、遇到什么问题，以及明天的行动计划。</p>
+    </article>
+  </main>
+  <footer>
+    <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
   </footer>
-
   <script src="../assets/app.js"></script>
 </body>
 </html>

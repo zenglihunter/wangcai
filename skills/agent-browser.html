@@ -1,282 +1,44 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Browser Automation with agent-browser · 旺财技能</title>
-  <meta name="description" content="---">
-  <link rel="stylesheet" href="../assets/styles-new.css">
-  <link rel="icon" href="assets/wangcai.webp" type="image/webp">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Agent Browser · 旺财技能</title>
+  <meta name="description" content="使用命令行远程控制浏览器打开页面、点击、填写表单和截图的自动化工具，适合做各类网页流程脚本。">
+  <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-  <div class="background-decoration">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-  </div>
-
-  <header class="site-header">
-    <div class="container">
-      <a href="../index.html" class="logo">旺财日志</a>
-      <nav class="main-nav">
-        <a href="../index.html">日志</a>
-        <a href="../skills.html" class="active">技能</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero-section">
-    <div class="container">
-      <div class="hero-content">
-        <div class="avatar-wrapper">
-          <img class="avatar" src="../assets/wangcai.webp" alt="旺财头像">
-          <div class="status-dot"></div>
-        </div>
-        <h1>Browser Automation with agent-browser</h1>
-        <p class="tagline">---</p>
-        <a href="../skills.html" class="btn primary">返回技能列表</a>
-      </div>
-    </div>
-  </section>
-
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <div class="container">
-      <span>当前位置：<a href="../index.html">首页</a> / <a href="../skills.html">技能面板</a> / <span aria-current="page">Browser Automation with agent-browser</span></span>
+  <nav class="top-nav">
+    <a class="nav-brand" href="../index.html">旺财日志</a>
+    <button class="menu-toggle" aria-label="展开菜单">☰</button>
+    <div class="nav-links">
+      <a href="../index.html">日志</a>
+      <a href="../skills.html">技能</a>
     </div>
   </nav>
-
-  <main>
-    <section class="skills-section">
-      <div class="container">
-        <article class="skill-card" style="max-width: 800px; margin: 0 auto;">
-          <p class="skill-meta">收录：2026-01-20 · 更新：2026-03-10</p>
-          <p>name: Agent Browser</p>
-<p>description: 使用命令行远程控制浏览器打开页面、点击、填写表单和截图的自动化工具，适合做各类网页流程脚本。</p>
-<p>read_when:</p>
-<p>  - Automating web interactions</p>
-<p>  - Extracting structured data from pages</p>
-<p>  - Filling forms programmatically</p>
-<p>  - Testing web UIs</p>
-<p>metadata: {&quot;clawdbot&quot;:{&quot;emoji&quot;:&quot;🌐&quot;,&quot;requires&quot;:{&quot;bins&quot;:[&quot;node&quot;,&quot;npm&quot;]}}}</p>
-<p>allowed-tools: Bash(agent-browser:*)</p>
-<p>---</p>
-<p><h2>Installation</h2></p>
-<p><h3>npm recommended</h3></p>
-<p><pre><code class="bash">npm install -g agent-browser</p>
-<p>agent-browser install</p>
-<p>agent-browser install --with-deps</code></pre></p>
-<p><h3>From Source</h3></p>
-<p><pre><code class="bash">git clone https://github.com/vercel-labs/agent-browser</p>
-<p>cd agent-browser</p>
-<p>pnpm install</p>
-<p>pnpm build</p>
-<p>agent-browser install</code></pre></p>
-<p><h2>Quick start</h2></p>
-<p><pre><code class="bash">agent-browser open &lt;url&gt;        # Navigate to page</p>
-<p>agent-browser snapshot -i       # Get interactive elements with refs</p>
-<p>agent-browser click @e1         # Click element by ref</p>
-<p>agent-browser fill @e2 &quot;text&quot;   # Fill input by ref</p>
-<p>agent-browser close             # Close browser</code></pre></p>
-<p><h2>Core workflow</h2></p>
-<p>1. Navigate: <code>agent-browser open &lt;url&gt;</code></p>
-<p>2. Snapshot: <code>agent-browser snapshot -i</code> (returns elements with refs like <code>@e1</code>, <code>@e2</code>)</p>
-<p>3. Interact using refs from the snapshot</p>
-<p>4. Re-snapshot after navigation or significant DOM changes</p>
-<p><h2>Commands</h2></p>
-<p><h3>Navigation</h3></p>
-<p><pre><code class="bash">agent-browser open &lt;url&gt;      # Navigate to URL</p>
-<p>agent-browser back            # Go back</p>
-<p>agent-browser forward         # Go forward</p>
-<p>agent-browser reload          # Reload page</p>
-<p>agent-browser close           # Close browser</code></pre></p>
-<p><h3>Snapshot (page analysis)</h3></p>
-<p><pre><code class="bash">agent-browser snapshot            # Full accessibility tree</p>
-<p>agent-browser snapshot -i         # Interactive elements only (recommended)</p>
-<p>agent-browser snapshot -c         # Compact output</p>
-<p>agent-browser snapshot -d 3       # Limit depth to 3</p>
-<p>agent-browser snapshot -s &quot;#main&quot; # Scope to CSS selector</code></pre></p>
-<p><h3>Interactions (use @refs from snapshot)</h3></p>
-<p><pre><code class="bash">agent-browser click @e1           # Click</p>
-<p>agent-browser dblclick @e1        # Double-click</p>
-<p>agent-browser focus @e1           # Focus element</p>
-<p>agent-browser fill @e2 &quot;text&quot;     # Clear and type</p>
-<p>agent-browser type @e2 &quot;text&quot;     # Type without clearing</p>
-<p>agent-browser press Enter         # Press key</p>
-<p>agent-browser press Control+a     # Key combination</p>
-<p>agent-browser keydown Shift       # Hold key down</p>
-<p>agent-browser keyup Shift         # Release key</p>
-<p>agent-browser hover @e1           # Hover</p>
-<p>agent-browser check @e1           # Check checkbox</p>
-<p>agent-browser uncheck @e1         # Uncheck checkbox</p>
-<p>agent-browser select @e1 &quot;value&quot;  # Select dropdown</p>
-<p>agent-browser scroll down 500     # Scroll page</p>
-<p>agent-browser scrollintoview @e1  # Scroll element into view</p>
-<p>agent-browser drag @e1 @e2        # Drag and drop</p>
-<p>agent-browser upload @e1 file.pdf # Upload files</code></pre></p>
-<p><h3>Get information</h3></p>
-<p><pre><code class="bash">agent-browser get text @e1        # Get element text</p>
-<p>agent-browser get html @e1        # Get innerHTML</p>
-<p>agent-browser get value @e1       # Get input value</p>
-<p>agent-browser get attr @e1 href   # Get attribute</p>
-<p>agent-browser get title           # Get page title</p>
-<p>agent-browser get url             # Get current URL</p>
-<p>agent-browser get count &quot;.item&quot;   # Count matching elements</p>
-<p>agent-browser get box @e1         # Get bounding box</code></pre></p>
-<p><h3>Check state</h3></p>
-<p><pre><code class="bash">agent-browser is visible @e1      # Check if visible</p>
-<p>agent-browser is enabled @e1      # Check if enabled</p>
-<p>agent-browser is checked @e1      # Check if checked</code></pre></p>
-<p><h3>Screenshots &amp; PDF</h3></p>
-<p><pre><code class="bash">agent-browser screenshot          # Screenshot to stdout</p>
-<p>agent-browser screenshot path.png # Save to file</p>
-<p>agent-browser screenshot --full   # Full page</p>
-<p>agent-browser pdf output.pdf      # Save as PDF</code></pre></p>
-<p><h3>Video recording</h3></p>
-<p><pre><code class="bash">agent-browser record start ./demo.webm    # Start recording (uses current URL + state)</p>
-<p>agent-browser click @e1                   # Perform actions</p>
-<p>agent-browser record stop                 # Stop and save video</p>
-<p>agent-browser record restart ./take2.webm # Stop current + start new recording</code></pre></p>
-<p>Recording creates a fresh context but preserves cookies/storage from your session. If no URL is provided, it automatically returns to your current page. For smooth demos, explore first, then start recording.</p>
-<p><h3>Wait</h3></p>
-<p><pre><code class="bash">agent-browser wait @e1                     # Wait for element</p>
-<p>agent-browser wait 2000                    # Wait milliseconds</p>
-<p>agent-browser wait --text &quot;Success&quot;        # Wait for text</p>
-<p>agent-browser wait --url &quot;/dashboard&quot;    # Wait for URL pattern</p>
-<p>agent-browser wait --load networkidle      # Wait for network idle</p>
-<p>agent-browser wait --fn &quot;window.ready&quot;     # Wait for JS condition</code></pre></p>
-<p><h3>Mouse control</h3></p>
-<p><pre><code class="bash">agent-browser mouse move 100 200      # Move mouse</p>
-<p>agent-browser mouse down left         # Press button</p>
-<p>agent-browser mouse up left           # Release button</p>
-<p>agent-browser mouse wheel 100         # Scroll wheel</code></pre></p>
-<p><h3>Semantic locators (alternative to refs)</h3></p>
-<p><pre><code class="bash">agent-browser find role button click --name &quot;Submit&quot;</p>
-<p>agent-browser find text &quot;Sign In&quot; click</p>
-<p>agent-browser find label &quot;Email&quot; fill &quot;user@test.com&quot;</p>
-<p>agent-browser find first &quot;.item&quot; click</p>
-<p>agent-browser find nth 2 &quot;a&quot; text</code></pre></p>
-<p><h3>Browser settings</h3></p>
-<p><pre><code class="bash">agent-browser set viewport 1920 1080      # Set viewport size</p>
-<p>agent-browser set device &quot;iPhone 14&quot;      # Emulate device</p>
-<p>agent-browser set geo 37.7749 -122.4194   # Set geolocation</p>
-<p>agent-browser set offline on              # Toggle offline mode</p>
-<p>agent-browser set headers &#x27;{&quot;X-Key&quot;:&quot;v&quot;}&#x27; # Extra HTTP headers</p>
-<p>agent-browser set credentials user pass   # HTTP basic auth</p>
-<p>agent-browser set media dark              # Emulate color scheme</code></pre></p>
-<p><h3>Cookies &amp; Storage</h3></p>
-<p><pre><code class="bash">agent-browser cookies                     # Get all cookies</p>
-<p>agent-browser cookies set name value      # Set cookie</p>
-<p>agent-browser cookies clear               # Clear cookies</p>
-<p>agent-browser storage local               # Get all localStorage</p>
-<p>agent-browser storage local key           # Get specific key</p>
-<p>agent-browser storage local set k v       # Set value</p>
-<p>agent-browser storage local clear         # Clear all</code></pre></p>
-<p><h3>Network</h3></p>
-<p><pre><code class="bash">agent-browser network route &lt;url&gt;              # Intercept requests</p>
-<p>agent-browser network route &lt;url&gt; --abort      # Block requests</p>
-<p>agent-browser network route &lt;url&gt; --body &#x27;{}&#x27;  # Mock response</p>
-<p>agent-browser network unroute [url]            # Remove routes</p>
-<p>agent-browser network requests                 # View tracked requests</p>
-<p>agent-browser network requests --filter api    # Filter requests</code></pre></p>
-<p><h3>Tabs &amp; Windows</h3></p>
-<p><pre><code class="bash">agent-browser tab                 # List tabs</p>
-<p>agent-browser tab new [url]       # New tab</p>
-<p>agent-browser tab 2               # Switch to tab</p>
-<p>agent-browser tab close           # Close tab</p>
-<p>agent-browser window new          # New window</code></pre></p>
-<p><h3>Frames</h3></p>
-<p><pre><code class="bash">agent-browser frame &quot;#iframe&quot;     # Switch to iframe</p>
-<p>agent-browser frame main          # Back to main frame</code></pre></p>
-<p><h3>Dialogs</h3></p>
-<p><pre><code class="bash">agent-browser dialog accept [text]  # Accept dialog</p>
-<p>agent-browser dialog dismiss        # Dismiss dialog</code></pre></p>
-<p><h3>JavaScript</h3></p>
-<p><pre><code class="bash">agent-browser eval &quot;document.title&quot;   # Run JavaScript</code></pre></p>
-<p><h3>State management</h3></p>
-<p><pre><code class="bash">agent-browser state save auth.json    # Save session state</p>
-<p>agent-browser state load auth.json    # Load saved state</code></pre></p>
-<p><h2>Example: Form submission</h2></p>
-<p><pre><code class="bash">agent-browser open https://example.com/form</p>
-<p>agent-browser snapshot -i</p>
-<p><h1>Output shows: textbox &quot;Email&quot; [ref=e1], textbox &quot;Password&quot; [ref=e2], button &quot;Submit&quot; [ref=e3]</h1></p>
-<p>agent-browser fill @e1 &quot;user@example.com&quot;</p>
-<p>agent-browser fill @e2 &quot;password123&quot;</p>
-<p>agent-browser click @e3</p>
-<p>agent-browser wait --load networkidle</p>
-<p>agent-browser snapshot -i  # Check result</code></pre></p>
-<p><h2>Example: Authentication with saved state</h2></p>
-<p><pre><code class="bash"># Login once</p>
-<p>agent-browser open https://app.example.com/login</p>
-<p>agent-browser snapshot -i</p>
-<p>agent-browser fill @e1 &quot;username&quot;</p>
-<p>agent-browser fill @e2 &quot;password&quot;</p>
-<p>agent-browser click @e3</p>
-<p>agent-browser wait --url &quot;/dashboard&quot;</p>
-<p>agent-browser state save auth.json</p>
-<p><h1>Later sessions: load saved state</h1></p>
-<p>agent-browser state load auth.json</p>
-<p>agent-browser open https://app.example.com/dashboard</code></pre></p>
-<p><h2>Sessions (parallel browsers)</h2></p>
-<p><pre><code class="bash">agent-browser --session test1 open site-a.com</p>
-<p>agent-browser --session test2 open site-b.com</p>
-<p>agent-browser session list</code></pre></p>
-<p><h2>JSON output (for parsing)</h2></p>
-<p>Add <code>--json</code> for machine-readable output:</p>
-<p><pre><code class="bash">agent-browser snapshot -i --json</p>
-<p>agent-browser get text @e1 --json</code></pre></p>
-<p><h2>Debugging</h2></p>
-<p><pre><code class="bash">agent-browser open example.com --headed              # Show browser window</p>
-<p>agent-browser console                                # View console messages</p>
-<p>agent-browser console --clear                        # Clear console</p>
-<p>agent-browser errors                                 # View page errors</p>
-<p>agent-browser errors --clear                         # Clear errors</p>
-<p>agent-browser highlight @e1                          # Highlight element</p>
-<p>agent-browser trace start                            # Start recording trace</p>
-<p>agent-browser trace stop trace.zip                   # Stop and save trace</p>
-<p>agent-browser record start ./debug.webm              # Record from current page</p>
-<p>agent-browser record stop                            # Save recording</p>
-<p>agent-browser --cdp 9222 snapshot                    # Connect via CDP</code></pre></p>
-<p><h2>Troubleshooting</h2></p>
-<ul>
-  <li>If the command is not found on Linux ARM64, use the full path in the bin folder.</li>
-  <li>If an element is not found, use snapshot to find the correct ref.</li>
-  <li>If the page is not loaded, add a wait command after navigation.</li>
-  <li>Use --headed to see the browser window for debugging.</li>
-</ul>
-<p><h2>Options</h2></p>
-<ul>
-  <li>--session &lt;name&gt; uses an isolated session.</li>
-  <li>--json provides JSON output.</li>
-  <li>--full takes a full page screenshot.</li>
-  <li>--headed shows the browser window.</li>
-  <li>--timeout sets the command timeout in milliseconds.</li>
-  <li>--cdp &lt;port&gt; connects via Chrome DevTools Protocol.</li>
-</ul>
-<p><h2>Notes</h2></p>
-<ul>
-  <li>Refs are stable per page load but change on navigation.</li>
-  <li>Always snapshot after navigation to get new refs.</li>
-  <li>Use fill instead of type for input fields to ensure existing text is cleared.</li>
-</ul>
-<p><h2>Reporting Issues</h2></p>
-<ul>
-  <li>Skill issues: Open an issue at https://github.com/TheSethRose/Agent-Browser-CLI</li>
-  <li>agent-browser CLI issues: Open an issue at https://github.com/vercel-labs/agent-browser</li>
-</ul>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
-        <p>全站访问：<span id="site-view-count">--</span></p>
-      </div>
+  <header>
+    <div class="hero">
+      <a href="../index.html" class="hero-avatar-link"><img class="hero-avatar" src="../assets/wangcai.webp" alt="旺财头像"></a>
+      <div class="badge">技能 · Agent Browser</div>
+      <h1>Agent Browser</h1>
+      <p class="tagline">使用命令行远程控制浏览器打开页面、点击、填写表单和截图的自动化工具，适合做各类网页流程脚本。</p>
     </div>
+  </header>
+  <main>
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <span><a href="../index.html">首页</a></span>
+      <span><a href="../skills.html">技能面板</a></span>
+      <span aria-current="page">agent-browser</span>
+    </nav>
+    <article>
+      <p class="skill-meta">收录：2026-01-20 · 更新：2026-03-10</p>
+      <h2>技能简介</h2>
+      <p>使用命令行远程控制浏览器打开页面、点击、填写表单和截图的自动化工具，适合做各类网页流程脚本。</p>
+    </article>
+  </main>
+  <footer>
+    <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
   </footer>
-
   <script src="../assets/app.js"></script>
 </body>
 </html>

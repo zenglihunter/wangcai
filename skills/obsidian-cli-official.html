@@ -1,377 +1,44 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Obsidian Official CLI · 旺财技能</title>
-  <meta name="description" content="---">
-  <link rel="stylesheet" href="../assets/styles-new.css">
-  <link rel="icon" href="assets/wangcai.webp" type="image/webp">
+  <meta name="description" content="Obsidian 官方命令行工具，用脚本方式创建/管理笔记、搜索内容、处理任务和标签等，适合把 Obsidian 接入各种自动化流程。">
+  <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-  <div class="background-decoration">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-  </div>
-
-  <header class="site-header">
-    <div class="container">
-      <a href="../index.html" class="logo">旺财日志</a>
-      <nav class="main-nav">
-        <a href="../index.html">日志</a>
-        <a href="../skills.html" class="active">技能</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero-section">
-    <div class="container">
-      <div class="hero-content">
-        <div class="avatar-wrapper">
-          <img class="avatar" src="../assets/wangcai.webp" alt="旺财头像">
-          <div class="status-dot"></div>
-        </div>
-        <h1>Obsidian Official CLI</h1>
-        <p class="tagline">---</p>
-        <a href="../skills.html" class="btn primary">返回技能列表</a>
-      </div>
-    </div>
-  </section>
-
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <div class="container">
-      <span>当前位置：<a href="../index.html">首页</a> / <a href="../skills.html">技能面板</a> / <span aria-current="page">Obsidian Official CLI</span></span>
+  <nav class="top-nav">
+    <a class="nav-brand" href="../index.html">旺财日志</a>
+    <button class="menu-toggle" aria-label="展开菜单">☰</button>
+    <div class="nav-links">
+      <a href="../index.html">日志</a>
+      <a href="../skills.html">技能</a>
     </div>
   </nav>
-
-  <main>
-    <section class="skills-section">
-      <div class="container">
-        <article class="skill-card" style="max-width: 800px; margin: 0 auto;">
-          <p class="skill-meta">收录：2026-03-05 · 更新：2026-03-10</p>
-          <p>name: obsidian-cli-official</p>
-<p>description: |</p>
-<p>  Obsidian 官方命令行工具，用脚本方式创建/管理笔记、搜索内容、处理任务和标签等，适合把 Obsidian 接入各种自动化流程。</p>
-<p>homepage: https://help.obsidian.md/cli</p>
-<p>metadata:</p>
-<p>  openclaw:</p>
-<p>    emoji: &quot;💎&quot;</p>
-<p>    requires:</p>
-<p>      bins: [&quot;obsidian&quot;]</p>
-<p>    platform: [&quot;macos&quot;, &quot;windows&quot;, &quot;linux&quot;]</p>
-<p>---</p>
-<p>Official command-line interface for Obsidian (v1.12+). 115 commands.</p>
-<p><h2>Prerequisites</h2></p>
-<ul>
-  <li>**Obsidian 1.12+** (free, public release since v1.12)</li>
-  <li>**Obsidian must be running** (CLI connects via IPC)</li>
-  <li>**Enable CLI**: Settings → General → Enable CLI</li>
-</ul>
-<p><h2>Setup</h2></p>
-<p>Add Obsidian to PATH:</p>
-<p>**macOS:**</p>
-<p><pre><code class="bash">export PATH=&quot;$PATH:/Applications/Obsidian.app/Contents/MacOS&quot;</code></pre></p>
-<p>**Windows:**</p>
-<p><pre><code class="powershell">$env:PATH += &quot;;$env:LOCALAPPDATA\Obsidian&quot;</code></pre></p>
-<p>**Linux:**</p>
-<ul>
-  <li>Snap: Already in PATH</li>
-  <li>Flatpak: <code>alias obsidian=&#x27;flatpak run md.obsidian.Obsidian&#x27;</code></li>
-  <li>AppImage: Move to <code>~/.local/bin</code> and <code>chmod +x</code></li>
-</ul>
-<p>**Test:** <code>obsidian version</code></p>
-<p><h2>Syntax</h2></p>
-<ul>
-  <li>**Parameters**: <code>name=value</code> or <code>name=&quot;value with spaces&quot;</code></li>
-  <li>**Flags**: just the name, e.g. <code>open</code>, <code>overwrite</code></li>
-  <li>**Newlines**: use <code>\n</code> in content strings</li>
-  <li>**Target vault**: <code>obsidian vault=&quot;My Vault&quot; &lt;command&gt;</code> (must be first)</li>
-  <li>**Target file**: <code>file=&lt;name&gt;</code> (wikilink-style) or <code>path=&lt;folder/file.md&gt;</code> (exact)</li>
-  <li>**Copy output**: append <code>--copy</code> to any command</li>
-</ul>
-<p><h2>Common Commands (with examples)</h2></p>
-<p><h3>Daily Notes</h3></p>
-<p><pre><code class="bash">obsidian daily                                    # Open today</p>
-<p>obsidian daily:append content=&quot;- [ ] Buy milk&quot;    # Add to today</p>
-<p>obsidian daily:prepend content=&quot;# Important&quot;      # Add to top</p>
-<p>obsidian daily:read                               # Read today&#x27;s content</p>
-<p>obsidian daily:path                               # Get daily note path</code></pre></p>
-<p><h3>Files</h3></p>
-<p><pre><code class="bash">obsidian create name=&quot;Note&quot; content=&quot;# Hello&quot;     # Create note</p>
-<p>obsidian create name=&quot;Note&quot; template=Meeting       # Create from template</p>
-<p>obsidian read file=&quot;Note&quot;                          # Read note</p>
-<p>obsidian append file=&quot;Note&quot; content=&quot;More text&quot;    # Append to note</p>
-<p>obsidian prepend file=&quot;Note&quot; content=&quot;Top text&quot;    # Prepend to note</p>
-<p>obsidian move file=&quot;Note&quot; to=&quot;Archive/Note.md&quot;     # Move note</p>
-<p>obsidian rename file=&quot;Note&quot; name=&quot;New Name&quot;        # Rename note</p>
-<p>obsidian delete file=&quot;Note&quot;                        # Delete note</p>
-<p>obsidian open file=&quot;Note&quot;                          # Open note</code></pre></p>
-<p><h3>Search</h3></p>
-<p><pre><code class="bash">obsidian search query=&quot;meeting notes&quot;              # Search vault</p>
-<p>obsidian search:context query=&quot;TODO&quot;               # Search with context</p>
-<p>obsidian search:open query=&quot;project&quot;               # Open search view</code></pre></p>
-<p><h3>Tasks</h3></p>
-<p><pre><code class="bash">obsidian tasks daily todo                          # Incomplete tasks in daily</p>
-<p>obsidian tasks todo                                # All incomplete tasks</p>
-<p>obsidian task daily line=3 toggle                  # Toggle task at line 3</code></pre></p>
-<p><h3>Tags &amp; Properties</h3></p>
-<p><pre><code class="bash">obsidian tags counts                               # List all tags</p>
-<p>obsidian tags counts sort=count                    # Sort by frequency</p>
-<p>obsidian property:set name=&quot;status&quot; value=&quot;done&quot; file=&quot;Note&quot;</p>
-<p>obsidian property:read name=&quot;status&quot; file=&quot;Note&quot;</p>
-<p>obsidian property:remove name=&quot;status&quot; file=&quot;Note&quot;</p>
-<p>obsidian properties file=&quot;Note&quot;                    # List all properties</code></pre></p>
-<p><h3>Links</h3></p>
-<p><pre><code class="bash">obsidian backlinks file=&quot;Note&quot;                     # Incoming links</p>
-<p>obsidian links file=&quot;Note&quot;                         # Outgoing links</p>
-<p>obsidian orphans                                   # No incoming links</p>
-<p>obsidian deadends                                  # No outgoing links</p>
-<p>obsidian unresolved                                # Broken links</code></pre></p>
-<p><h3>Developer</h3></p>
-<p><pre><code class="bash">obsidian devtools                                  # Open dev tools</p>
-<p>obsidian eval code=&quot;app.vault.getFiles().length&quot;   # Run JavaScript</p>
-<p>obsidian dev:screenshot path=screenshot.png         # Screenshot</p>
-<p>obsidian plugin:reload id=my-plugin                # Reload plugin</code></pre></p>
-<p><h2>All Commands (115 total)</h2></p>
-<p><h3>General (4)</h3></p>
-<ul>
-  <li><code>help</code> - Show help / help for specific command</li>
-  <li><code>version</code> - Show Obsidian version</li>
-  <li><code>reload</code> - Reload the app window</li>
-  <li><code>restart</code> - Restart the app</li>
-</ul>
-<p><h3>Daily Notes (5)</h3></p>
-<ul>
-  <li><code>daily</code> - Open daily note</li>
-  <li><code>daily:path</code> - Get daily note path</li>
-  <li><code>daily:read</code> - Read daily note contents</li>
-  <li><code>daily:append</code> - Append content to daily note</li>
-  <li><code>daily:prepend</code> - Prepend content to daily note</li>
-</ul>
-<p><h3>Files &amp; Folders (12)</h3></p>
-<ul>
-  <li><code>file</code> - Show file info</li>
-  <li><code>files</code> - List files in vault</li>
-  <li><code>folder</code> - Show folder info</li>
-  <li><code>folders</code> - List folders in vault</li>
-  <li><code>open</code> - Open a file</li>
-  <li><code>create</code> - Create a new file</li>
-  <li><code>read</code> - Read file contents</li>
-  <li><code>append</code> - Append content to a file</li>
-  <li><code>prepend</code> - Prepend content to a file</li>
-  <li><code>move</code> - Move or rename a file</li>
-  <li><code>rename</code> - Rename a file</li>
-  <li><code>delete</code> - Delete a file</li>
-</ul>
-<p><h3>Search (3)</h3></p>
-<ul>
-  <li><code>search</code> - Search vault for text</li>
-  <li><code>search:context</code> - Search with matching line context</li>
-  <li><code>search:open</code> - Open search view</li>
-</ul>
-<p><h3>Tasks (2)</h3></p>
-<ul>
-  <li><code>tasks</code> - List tasks in the vault</li>
-  <li><code>task</code> - Show or update a task</li>
-</ul>
-<p><h3>Tags (2)</h3></p>
-<ul>
-  <li><code>tags</code> - List tags in the vault</li>
-  <li><code>tag</code> - Get tag info</li>
-</ul>
-<p><h3>Properties (4)</h3></p>
-<ul>
-  <li><code>properties</code> - List properties in the vault</li>
-  <li><code>property:set</code> - Set a property on a file</li>
-  <li><code>property:remove</code> - Remove a property from a file</li>
-  <li><code>property:read</code> - Read a property value</li>
-</ul>
-<p><h3>Aliases (1)</h3></p>
-<ul>
-  <li><code>aliases</code> - List aliases in the vault</li>
-</ul>
-<p><h3>Links (5)</h3></p>
-<ul>
-  <li><code>backlinks</code> - List backlinks to a file</li>
-  <li><code>links</code> - List outgoing links from a file</li>
-  <li><code>unresolved</code> - List unresolved links</li>
-  <li><code>orphans</code> - Files with no incoming links</li>
-  <li><code>deadends</code> - Files with no outgoing links</li>
-</ul>
-<p><h3>Outline (1)</h3></p>
-<ul>
-  <li><code>outline</code> - Show headings for a file</li>
-</ul>
-<p><h3>Bookmarks (2)</h3></p>
-<ul>
-  <li><code>bookmarks</code> - List bookmarks</li>
-  <li><code>bookmark</code> - Add a bookmark</li>
-</ul>
-<p><h3>Bases / Database (4)</h3></p>
-<ul>
-  <li><code>bases</code> - List all base files</li>
-  <li><code>base:views</code> - List views in a base</li>
-  <li><code>base:create</code> - Create a new item in a base</li>
-  <li><code>base:query</code> - Query a base and return results</li>
-</ul>
-<p><h3>Templates (3)</h3></p>
-<ul>
-  <li><code>templates</code> - List templates</li>
-  <li><code>template:read</code> - Read template content</li>
-  <li><code>template:insert</code> - Insert template into active file</li>
-</ul>
-<p><h3>Commands &amp; Hotkeys (4)</h3></p>
-<ul>
-  <li><code>commands</code> - List available command IDs</li>
-  <li><code>command</code> - Execute an Obsidian command</li>
-  <li><code>hotkeys</code> - List hotkeys</li>
-  <li><code>hotkey</code> - Get hotkey for a command</li>
-</ul>
-<p><h3>Tabs &amp; Workspaces (7)</h3></p>
-<ul>
-  <li><code>tabs</code> - List open tabs</li>
-  <li><code>tab:open</code> - Open a new tab</li>
-  <li><code>workspace</code> - Show workspace tree</li>
-  <li><code>workspaces</code> - List saved workspaces</li>
-  <li><code>workspace:load</code> - Load a saved workspace</li>
-  <li><code>workspace:save</code> - Save current layout</li>
-  <li><code>workspace:delete</code> - Delete a saved workspace</li>
-</ul>
-<p><h3>File History &amp; Diff (6)</h3></p>
-<ul>
-  <li><code>diff</code> - List or diff local/sync versions</li>
-  <li><code>history</code> - List file history versions</li>
-  <li><code>history:list</code> - List files with history</li>
-  <li><code>history:read</code> - Read a file history version</li>
-  <li><code>history:restore</code> - Restore a file history version</li>
-  <li><code>history:open</code> - Open file recovery</li>
-</ul>
-<p><h3>Sync (7)</h3></p>
-<ul>
-  <li><code>sync</code> - Pause or resume sync (on/off)</li>
-  <li><code>sync:status</code> - Show sync status</li>
-  <li><code>sync:history</code> - List sync version history</li>
-  <li><code>sync:read</code> - Read a sync version</li>
-  <li><code>sync:restore</code> - Restore a sync version</li>
-  <li><code>sync:open</code> - Open sync history</li>
-  <li><code>sync:deleted</code> - List deleted files in sync</li>
-</ul>
-<p><h3>Publish (6)</h3></p>
-<ul>
-  <li><code>publish:site</code> - Show publish site info</li>
-  <li><code>publish:list</code> - List published files</li>
-  <li><code>publish:status</code> - Show publish status</li>
-  <li><code>publish:add</code> - Publish files</li>
-  <li><code>publish:remove</code> - Unpublish files</li>
-  <li><code>publish:open</code> - Open published site</li>
-</ul>
-<p><h3>Themes &amp; Snippets (9)</h3></p>
-<ul>
-  <li><code>themes</code> - List installed themes</li>
-  <li><code>theme</code> - Show active theme or get info</li>
-  <li><code>theme:set</code> - Set active theme</li>
-  <li><code>theme:install</code> - Install a community theme</li>
-  <li><code>theme:uninstall</code> - Uninstall a theme</li>
-  <li><code>snippets</code> - List installed CSS snippets</li>
-  <li><code>snippets:enabled</code> - List enabled CSS snippets</li>
-  <li><code>snippet:enable</code> - Enable a CSS snippet</li>
-  <li><code>snippet:disable</code> - Disable a CSS snippet</li>
-</ul>
-<p><h3>Plugins (9)</h3></p>
-<ul>
-  <li><code>plugins</code> - List installed plugins</li>
-  <li><code>plugins:enabled</code> - List enabled plugins</li>
-  <li><code>plugins:restrict</code> - Toggle restricted mode</li>
-  <li><code>plugin</code> - Get plugin info</li>
-  <li><code>plugin:enable</code> - Enable a plugin</li>
-  <li><code>plugin:disable</code> - Disable a plugin</li>
-  <li><code>plugin:install</code> - Install a community plugin</li>
-  <li><code>plugin:uninstall</code> - Uninstall a community plugin</li>
-  <li><code>plugin:reload</code> - Reload a plugin</li>
-</ul>
-<p><h3>Vault (3)</h3></p>
-<ul>
-  <li><code>vault</code> - Show vault info</li>
-  <li><code>vaults</code> - List known vaults</li>
-  <li><code>vault:open</code> - Open a vault (TUI only)</li>
-</ul>
-<p><h3>Random Notes (2)</h3></p>
-<ul>
-  <li><code>random</code> - Open a random note</li>
-  <li><code>random:read</code> - Read a random note</li>
-</ul>
-<p><h3>Unique Notes (1)</h3></p>
-<ul>
-  <li><code>unique</code> - Create unique note</li>
-</ul>
-<p><h3>Web Viewer (1)</h3></p>
-<ul>
-  <li><code>web</code> - Open URL in web viewer</li>
-</ul>
-<p><h3>Word Count (1)</h3></p>
-<ul>
-  <li><code>wordcount</code> - Count words and characters</li>
-</ul>
-<p><h3>Recently Opened (1)</h3></p>
-<ul>
-  <li><code>recents</code> - List recently opened files</li>
-</ul>
-<p><h3>Developer (10)</h3></p>
-<ul>
-  <li><code>devtools</code> - Toggle Electron dev tools</li>
-  <li><code>eval</code> - Execute JavaScript</li>
-  <li><code>dev:screenshot</code> - Take a screenshot</li>
-  <li><code>dev:console</code> - Show captured console messages</li>
-  <li><code>dev:errors</code> - Show captured errors</li>
-  <li><code>dev:css</code> - Inspect CSS with source locations</li>
-  <li><code>dev:dom</code> - Query DOM elements</li>
-  <li><code>dev:cdp</code> - Run Chrome DevTools Protocol command</li>
-  <li><code>dev:debug</code> - Attach/detach CDP debugger</li>
-  <li><code>dev:mobile</code> - Toggle mobile emulation</li>
-</ul>
-<p><h2>Troubleshooting</h2></p>
-<p>**&quot;Cannot connect to Obsidian&quot;**</p>
-<ul>
-  <li>Ensure Obsidian is running</li>
-  <li>Enable CLI in Settings → General → Enable CLI</li>
-</ul>
-<p>**&quot;Command not found: obsidian&quot;**</p>
-<ul>
-  <li>Add Obsidian to PATH (see Setup above)</li>
-</ul>
-<p>**&quot;File not found&quot;**</p>
-<ul>
-  <li><code>file=Name</code> resolves like wikilinks (no path, no .md)</li>
-  <li><code>path=folder/file.md</code> for exact paths</li>
-</ul>
-<p><h2>中文说明</h2></p>
-<p><h3>前置条件</h3></p>
-<ul>
-  <li>Obsidian 1.12+（免费公开版本）</li>
-  <li>Obsidian 必须运行中</li>
-  <li>启用 CLI：设置 → 通用 → 启用 CLI</li>
-</ul>
-<p><h3>常用命令</h3></p>
-<p><pre><code class="bash">obsidian daily                    # 打开今日日记</p>
-<p>obsidian create name=&quot;笔记&quot;       # 创建笔记</p>
-<p>obsidian search query=&quot;关键词&quot;    # 搜索</p>
-<p>obsidian tasks daily todo         # 列出未完成任务</p>
-<p>obsidian tags counts              # 列出标签</code></pre></p>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
-        <p>全站访问：<span id="site-view-count">--</span></p>
-      </div>
+  <header>
+    <div class="hero">
+      <a href="../index.html" class="hero-avatar-link"><img class="hero-avatar" src="../assets/wangcai.webp" alt="旺财头像"></a>
+      <div class="badge">技能 · Obsidian Cli Official</div>
+      <h1>Obsidian Official CLI</h1>
+      <p class="tagline">Obsidian 官方命令行工具，用脚本方式创建/管理笔记、搜索内容、处理任务和标签等，适合把 Obsidian 接入各种自动化流程。</p>
     </div>
+  </header>
+  <main>
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <span><a href="../index.html">首页</a></span>
+      <span><a href="../skills.html">技能面板</a></span>
+      <span aria-current="page">obsidian-cli-official</span>
+    </nav>
+    <article>
+      <p class="skill-meta">收录：2026-03-05 · 更新：2026-03-10</p>
+      <h2>技能简介</h2>
+      <p>Obsidian 官方命令行工具，用脚本方式创建/管理笔记、搜索内容、处理任务和标签等，适合把 Obsidian 接入各种自动化流程。</p>
+    </article>
+  </main>
+  <footer>
+    <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
   </footer>
-
   <script src="../assets/app.js"></script>
 </body>
 </html>
