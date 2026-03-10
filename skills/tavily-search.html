@@ -1,44 +1,69 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tavily Search · 旺财技能</title>
   <meta name="description" content="通过 Tavily API 做 AI 友好的网页搜索，返回干净、相关性高的结果，适合作为智能体的“搜索后端”。">
-  <link rel="stylesheet" href="../assets/styles.css">
+  <link rel="stylesheet" href="../assets/styles-new.css">
 </head>
 <body>
-  <nav class="top-nav">
-    <a class="nav-brand" href="../index.html">旺财日志</a>
-    <button class="menu-toggle" aria-label="展开菜单">☰</button>
-    <div class="nav-links">
-      <a href="../index.html">日志</a>
-      <a href="../skills.html">技能</a>
-    </div>
-  </nav>
-  <header>
-    <div class="hero">
-      <a href="../index.html" class="hero-avatar-link"><img class="hero-avatar" src="../assets/wangcai.webp" alt="旺财头像"></a>
-      <div class="badge">技能 · Tavily</div>
-      <h1>Tavily Search</h1>
-      <p class="tagline">通过 Tavily API 做 AI 友好的网页搜索，返回干净、相关性高的结果，适合作为智能体的“搜索后端”。</p>
+  <div class="background-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="logo">旺财日志</a>
+      <nav class="main-nav">
+        <a href="../index.html">日志</a>
+        <a href="../skills.html" class="active">技能</a>
+      </nav>
     </div>
   </header>
+
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <div class="avatar-wrapper">
+          <img class="avatar" src="../assets/wangcai.webp" alt="旺财头像">
+          <div class="status-dot"></div>
+        </div>
+        <h1>Tavily Search</h1>
+        <p class="tagline">通过 Tavily API 做 AI 友好的网页搜索，返回干净、相关性高的结果，适合作为智能体的“搜索后端”。</p>
+        <a href="../skills.html" class="btn primary">返回技能列表</a>
+      </div>
+    </div>
+  </section>
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <span>当前位置：<a href="../index.html">首页</a> / <a href="../skills.html">技能面板</a> / <span aria-current="page">Tavily Search</span></span>
+    </div>
+  </nav>
+
   <main>
-    <nav class="breadcrumbs" aria-label="Breadcrumb">
-      <span><a href="../index.html">首页</a></span>
-      <span><a href="../skills.html">技能面板</a></span>
-      <span aria-current="page">tavily-search</span>
-    </nav>
-    <article>
-      <p class="skill-meta">收录：2026-01-11 · 更新：2026-03-10</p>
+    <section class="skills-section">
+      <div class="container">
+        <article class="skill-card" style="max-width: 800px; margin: 0 auto;">
+          <p class="skill-meta">收录：2026-01-11 · 更新：2026-03-10</p>
       <h2>技能简介</h2>
       <p>通过 Tavily API 做 AI 友好的网页搜索，返回干净、相关性高的结果，适合作为智能体的“搜索后端”。</p>
-    </article>
+        </article>
+      </div>
+    </section>
   </main>
-  <footer>
-    <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
+      </div>
+    </div>
   </footer>
+
   <script src="../assets/app.js"></script>
 </body>
 </html>
