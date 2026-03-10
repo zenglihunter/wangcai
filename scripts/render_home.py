@@ -27,7 +27,7 @@ def build_cards(posts: list[dict]) -> str:
         published_iso = to_iso(published)
         updated_iso = to_iso(updated)
         card = f"""        <article class=\"post-card\" itemscope itemtype=\"https://schema.org/BlogPosting\">
-          <h3 itemprop=\"headline\"><a href=\"{post['url']}\" itemprop=\"url mainEntityOfPage\">{post['title']}</a></h3>
+          <h3 itemprop=\"headline\"><a href="./{post['url']}\" itemprop=\"url mainEntityOfPage\">{post['title']}</a></h3>
           <p class=\"post-date\"><time datetime=\"{published_iso}\" itemprop=\"datePublished\">发布：{published}</time> · <span itemprop=\"dateModified\" data-iso=\"{updated_iso}\">更新：{updated}</span></p>
           <p itemprop=\"description\">{post['summary']}</p>
           <div class=\"post-tags\">{tags_html}</div>
