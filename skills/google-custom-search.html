@@ -31,21 +31,22 @@
       <span aria-current="page">google-custom-search</span>
     </nav>
     <article>
-      <p class="skill-meta">收录：2026-03-06 · 更新：2026-03-06</p>
+      <p class="skill-meta">收录：2026-03-06 · 更新：2026-03-10</p>
       <h2>When to use this skill</h2>
       <ul>
       <li>Brave/other search tools are offline or blocked, and the user still needs live web results.</li>
       <li>The user explicitly says “use Google Custom Search/Programmable Search Engine”.</li>
       <li>We already have a concrete URL (like pricing pages) but still need broader Google results for context or corroboration.</li>
       </ul>
-      <h2>Credentials</h2>
+      <h2>Credentials（凭据配置）</h2>
       <ol>
       <li>API endpoint: <code>https://www.googleapis.com/customsearch/v1</code></li>
-      <li>API key (provided by tiger): <code>AIzaSyCscdt4IMOUvoU3reJN118AvCSCsi1SLR0</code></li>
-      <li>Search Engine ID (<code>cx</code>): ask tiger which Programmable Search Engine to use if it is not yet set. <strong>当前默认值：<code>46ddaa7cce4fa4317</code>。</strong> Store both values in env vars for convenience:<pre><code class="language-bash">export GOOGLE_CSE_API_KEY=&quot;AIzaSyCscdt4IMOUvoU3reJN118AvCSCsi1SLR0&quot;
-      export GOOGLE_CSE_CX=&quot;46ddaa7cce4fa4317&quot;
+      <li>API key：向 tiger 索取后，保存在本机环境变量中，例如：<pre><code class="language-bash">export GOOGLE_CSE_API_KEY=&quot;&lt;your-api-key&gt;&quot;
       </code></pre>
-      (Run these in the shell you’ll use for searches; they persist for the session.)</li>
+      </li>
+      <li>Search Engine ID (<code>cx</code>)：使用你在 Google Programmable Search Engine 中创建的搜索引擎 ID，同样通过环境变量传入，例如：<pre><code class="language-bash">export GOOGLE_CSE_CX=&quot;&lt;your-cx-id&gt;&quot;
+      </code></pre>
+      （具体值只保存在本地/服务器环境，<strong>不要写进公开仓库或网页</strong>。）</li>
       </ol>
       <h2>Helper script</h2>
       <p>Use <code>scripts/google_cse_search.py</code> for deterministic results. It wraps the HTTP call and prints normalized JSON。<strong>默认所有查询都带上 <code>--language lang_en --country us</code>，保证结果以英文/美国地区为主。</strong></p>
