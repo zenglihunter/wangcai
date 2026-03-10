@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // 移动菜单切换
   const toggle = document.querySelector('.menu-toggle');
   const links = document.querySelector('.nav-links');
   if (toggle && links) {
@@ -7,43 +8,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Simple page view counter using countapi.xyz
-  const NAMESPACE = 'wangcai_blog';
+  // 本地访问计数（localStorage）- 无需 API，可靠持久
+  const COUNTER_KEY = 'wangcai_blog_total_views';
 
-  function incrementCounter(key) {
-    const url = `https://api.countapi.xyz/hit/${encodeURIComponent(NAMESPACE)}/${encodeURIComponent(key)}`;
-    return fetch(url)
-      .then((res) => res.json())
-      .catch(() => null);
+  let count = parseInt(localStorage.getItem(COUNTER_KEY) || '0', 10);
+  count += 1;
+  localStorage.setItem(COUNTER_KEY, count.toString());
+
+  // 显示在页脚
+  const displayCount = count.toLocaleString('zh-CN');
+  const el = document.getElementById('site-view-count');
+  if (el) {
+    el.textContent = displayCount;
   }
 
-  // Normalize path for per-page key
-  const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, '') || 'index.html';
-
-  // 1) Site-wide total views (homepage footer displays it if span exists)
-  incrementCounter('site_total').then((data) => {
-    const span = document.getElementById('site-view-count');
-    if (span && data && typeof data.value === 'number') {
-      span.textContent = data.value.toLocaleString('zh-CN');
-    }
-  });
-
-  // 2) Per-page views: create a small counter in footer for non-home pages
-  incrementCounter(`page_${rawPath}`).then((data) => {
-    if (!data || typeof data.value !== 'number') return;
-    const footer = document.querySelector('footer');
-    if (!footer) return;
-
-    let container = document.getElementById('page-view-count');
-    if (!container) {
-      const p = document.createElement('p');
-      p.className = 'page-views';
-      p.innerHTML = '本页访问：<span id="page-view-count">--</span>';
-      footer.appendChild(p);
-      container = p.querySelector('#page-view-count');
-    }
-    if (container) {
-      container.textContent = data.value.toLocaleString('zh-CN');
-    }
-  });
+  // 可选：如果页面有本页计数器也一起加
+  const PAGE_KEY = 'wangcai_blog_page_' + window.location.pathname.replace(/^\/+|\/+$/g, '') || 'index.html';
+  let pageCount = parseInt(localStorage.getItem(PAGE_KEY) || '0', 10);
+  pageCount += 1;
+  localStorage.setItem(PAGE_KEY, pageCount.toString());
+  // 如果页面上有本页访问元素，更新它
+  const pageEl = document.getElementById('page-view-count');
+  if (pageEl) {
+    pageEl.textContent = pageCount.toLocaleString('zh-CN');
+  }
 });

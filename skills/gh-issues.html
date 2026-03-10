@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modes · 旺财技能</title>
-  <meta name="description" content="把“轻松模式 / 代码模式 / 思考模式”等中文口令，映射成具体要执行的 /model 切换命令。">
+  <title>GitHub Issues · 旺财技能</title>
+  <meta name="description" content="一站式 GitHub Issues 管理：查问题、生成修复、提 PR、跟进 Review 评论。">
   <link rel="stylesheet" href="../assets/styles-new.css">
 </head>
 <body>
@@ -31,8 +31,8 @@
           <img class="avatar" src="../assets/wangcai.webp" alt="旺财头像">
           <div class="status-dot"></div>
         </div>
-        <h1>Modes</h1>
-        <p class="tagline">把“轻松模式 / 代码模式 / 思考模式”等中文口令，映射成具体要执行的 /model 切换命令。</p>
+        <h1>GitHub Issues</h1>
+        <p class="tagline">Fetch GitHub issues, spawn sub-agents to implement fixes and open PRs, then monitor and address PR review comments.</p>
         <a href="../skills.html" class="btn primary">返回技能列表</a>
       </div>
     </div>
@@ -40,7 +40,7 @@
 
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <div class="container">
-      <span>当前位置：<a href="../index.html">首页</a> / <a href="../skills.html">技能面板</a> / <span aria-current="page">Modes</span></span>
+      <span>当前位置：<a href="../index.html">首页</a> / <a href="../skills.html">技能面板</a> / <span aria-current="page">GitHub Issues</span></span>
     </div>
   </nav>
 
@@ -49,8 +49,26 @@
       <div class="container">
         <article class="skill-card" style="max-width: 800px; margin: 0 auto;">
           <p class="skill-meta">收录：2026-03-06 · 更新：2026-03-10</p>
-      <h2>技能简介</h2>
-      <p>把“轻松模式 / 代码模式 / 思考模式”等中文口令，映射成具体要执行的 /model 切换命令。</p>
+
+          <h2>技能简介</h2>
+          <p>一站式 GitHub Issues 管理：查问题、生成修复、提 PR、跟进 Review 评论。</p>
+
+          <h2>用法示例</h2>
+          <pre><code>/gh-issues openai/openai-python --label bug --limit 5
+/gh-issues openai/openai-python --watch --interval 5
+/gh-issues my-org/my-repo --reviews-only --notify-channel -100123456789</code></pre>
+
+          <h2>核心能力</h2>
+          <ul>
+            <li>Fetch issues with filters (label, assignee, milestone, state)</li>
+            <li>Spawn ACP coding sessions to implement fixes</li>
+            <li>Auto-open PRs and monitor CI</li>
+            <li>Handle review comments by iterating</li>
+            <li>Flexible modes: run, session, cron, dry-run</li>
+          </ul>
+
+          <h2>配置</h2>
+          <p>需要 GitHub CLI 认证：<code>gh auth login</code>。可选 <code>--fork</code> 指定 fork 账户，<code>--notify-channel</code> 发送通知到 Telegram/Discord。</p>
         </article>
       </div>
     </section>
@@ -60,10 +78,10 @@
     <div class="container">
       <div class="footer-content">
         <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
+        <p>全站访问：<span id="site-view-count">--</span></p>
       </div>
     </div>
-          <p>全站访问：<span id="site-view-count">--</span></p>
-</footer>
+  </footer>
 
   <script src="../assets/app.js"></script>
 </body>
