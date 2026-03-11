@@ -71,7 +71,8 @@ body::before {
   border-bottom: 1px solid var(--border);
   padding: 0.75rem 0;
 }
-.site-header .container { display: flex; justify-content: space-between; align-items: center; }
+.site-header .container {
+  max-width: 900px; display: flex; justify-content: space-between; align-items: center; }
 .logo {
   font-size: 1.25rem; font-weight: 800; color: var(--text-primary);
   text-decoration: none; letter-spacing: -0.3px;
@@ -320,7 +321,8 @@ body::before {
   border-bottom: 1px solid var(--border);
   padding: 0.75rem 0;
 }
-.top-nav .container { display: flex; justify-content: space-between; align-items: center; }
+.top-nav .container {
+  max-width: 900px; display: flex; justify-content: space-between; align-items: center; }
 .nav-brand {
   font-size: 1.25rem; font-weight: 800; color: var(--text-primary);
   text-decoration: none; display: flex; align-items: center; gap: 0.5rem;
