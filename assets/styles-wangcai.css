@@ -51,7 +51,7 @@ body::before {
 .container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.25rem;  /* 调整为 1.25rem，更紧凑 */
 }
 
 .background-decoration {
@@ -80,7 +80,7 @@ body::before {
 }
 .site-header .container {
   max-width: 900px; margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.25rem;
   display: flex; justify-content: space-between; align-items: center; }
 .logo {
   font-size: 1.25rem; font-weight: 800; color: var(--text-primary);
@@ -333,7 +333,7 @@ body::before {
 .top-nav .container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.25rem;
 
   max-width: 900px; display: flex; justify-content: space-between; align-items: center; }
 .nav-brand {
@@ -363,6 +363,32 @@ body::before {
 .hero h1 { font-size: 2.25rem; font-weight: 800; margin: 0.5rem 0; color: var(--text-primary); }
 .hero .tagline { font-size: 1.1rem; color: var(--primary); font-weight: 600; margin-bottom: 0.75rem; }
 .hero p:not(.tagline) { color: var(--text-secondary); max-width: 600px; margin: 0 auto 1.5rem; line-height: 1.7; }
+.hero .badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--primary-dark);
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+/* 移动端菜单按钮（兼容旧结构） */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+}
+@media (max-width: 600px) {
+  .menu-toggle { display: block; }
+  .nav-links { display: none; }
+}
 
 .breadcrumbs { padding: 0.75rem 0; font-size: 0.9rem; color: var(--text-secondary); }
 .breadcrumbs a { color: var(--primary); text-decoration: none; }
