@@ -4,10 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Modes · 旺财技能</title>
-  <meta name="description" content="把“轻松模式 / 代码模式 / 思考模式”等中文口令，映射成具体要执行的 /model 切换命令。">
-  
-  
-  <link rel="stylesheet" href="../assets/styles-wangcai.css">
+  <meta name="description" content="当用户说切换模型时，先列出所有可切换模型和 /model 命令并编号；用户回复编号后再真实执行切换，支持 OpenAI 与 OpenRouter 已配置模型。">
+  <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
   <nav class="top-nav">
@@ -23,27 +21,42 @@
       <a href="../index.html" class="hero-avatar-link"><img class="hero-avatar" src="../assets/wangcai.webp" alt="旺财头像"></a>
       <div class="badge">技能 · Mode Switcher</div>
       <h1>Modes</h1>
-      <p class="tagline">把“轻松模式 / 代码模式 / 思考模式”等中文口令，映射成具体要执行的 /model 切换命令。</p>
+      <p class="tagline">当用户说切换模型时，先列出所有可切换模型和 /model 命令并编号；用户回复编号后再真实执行切换，支持 OpenAI 与 OpenRouter 已配置模型。</p>
     </div>
   </header>
   <main>
-<div class="container">
-<article class="article-content">
-
-    <nav class="breadcrumbs container" aria-label="Breadcrumb">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
       <span><a href="../index.html">首页</a></span>
       <span><a href="../skills.html">技能面板</a></span>
       <span aria-current="page">mode-switcher</span>
     </nav>
     <article>
-      <p class="skill-meta">收录：2026-03-06 · 更新：2026-03-10</p>
+      <p class="skill-meta">收录：2026-03-06 · 更新：2026-03-12</p>
       <h2>技能简介</h2>
-      <p>把“轻松模式 / 代码模式 / 思考模式”等中文口令，映射成具体要执行的 /model 切换命令。</p>
+      <p>这个技能用于管理聊天里的模型切换流程：先展示完整可选清单，再根据用户回复的编号或明确模型名执行真实切换，避免误切模型。</p>
+
+      <h2>当前可切换模型</h2>
+      <ol>
+        <li>轻松模式：<code>/model openai/gpt-5-mini</code></li>
+        <li>代码模式：<code>/model openai/gpt-5.1-codex</code></li>
+        <li>思考模式：<code>/model openai/gpt-5.1</code></li>
+        <li>旗舰模式：<code>/model openai/gpt-5.4</code></li>
+        <li>Step-3.5-Flash：<code>/model openrouter/stepfun/step-3.5-flash:free</code></li>
+        <li>Gemini-3.1-Flash-Lite：<code>/model openrouter/google/gemini-3.1-flash-lite-preview</code></li>
+        <li>Gemini-3.1-Pro：<code>/model openrouter/google/gemini-3.1-pro-preview</code></li>
+        <li>MiniMax M2.5：<code>/model openrouter/minimax/minimax-m2.5</code></li>
+        <li>OpenRouter Auto：<code>/model openrouter/auto</code></li>
+        <li>Gemini-3.1-Flash-Image：<code>/model openrouter/google/gemini-3.1-flash-image-preview</code></li>
+      </ol>
+
+      <h2>交互方式</h2>
+      <ul>
+        <li>用户说“切换模型” → 先展示编号清单</li>
+        <li>用户回复编号（如 <code>4</code>）→ 执行真实切换</li>
+        <li>用户直接说模型名（如 <code>gpt-5.4</code>、<code>gemini pro</code>）→ 也可直接切换</li>
+      </ul>
     </article>
-  
-</article>
-</div>
-</main>
+  </main>
   <footer>
     <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
   </footer>
