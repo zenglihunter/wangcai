@@ -47,6 +47,13 @@ body::before {
   pointer-events: none; z-index: -1;
 }
 
+/* 通用容器：居中排版 + 左右留白 */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
 .background-decoration {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
   pointer-events: none; z-index: -1; overflow: hidden;
@@ -72,7 +79,9 @@ body::before {
   padding: 0.75rem 0;
 }
 .site-header .container {
-  max-width: 900px; display: flex; justify-content: space-between; align-items: center; }
+  max-width: 900px; margin: 0 auto;
+  padding: 0 2rem;
+  display: flex; justify-content: space-between; align-items: center; }
 .logo {
   font-size: 1.25rem; font-weight: 800; color: var(--text-primary);
   text-decoration: none; letter-spacing: -0.3px;
@@ -322,6 +331,10 @@ body::before {
   padding: 0.75rem 0;
 }
 .top-nav .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+
   max-width: 900px; display: flex; justify-content: space-between; align-items: center; }
 .nav-brand {
   font-size: 1.25rem; font-weight: 800; color: var(--text-primary);
