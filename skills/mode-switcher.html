@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Modes · 旺财技能</title>
-  <meta name="description" content="当用户说切换模型时，先列出所有可切换模型和 /model 命令并编号；用户回复编号后再真实执行切换，支持 OpenAI 与 OpenRouter 已配置模型。">
+  <title>Available Models · 旺财技能</title>
+  <meta name="description" content="当用户说“切换模型”“换模型”“切到某个模式/模型”时，先用中文列出当前实际可切换的模型与对应命令并编号；当用户回复编号或明确模型名时，再真实执行模型切换。适用于“轻松模式 / 代码模式 / 思考模式 / 旗舰模式”等中文口令，也适用于 OpenRouter 已配置模型（如 Gemini、StepF">
   <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
@@ -20,8 +20,8 @@
     <div class="hero">
       <a href="../index.html" class="hero-avatar-link"><img class="hero-avatar" src="../assets/wangcai.webp" alt="旺财头像"></a>
       <div class="badge">技能 · Mode Switcher</div>
-      <h1>Modes</h1>
-      <p class="tagline">当用户说切换模型时，先列出所有可切换模型和 /model 命令并编号；用户回复编号后再真实执行切换，支持 OpenAI 与 OpenRouter 已配置模型。</p>
+      <h1>Available Models</h1>
+      <p class="tagline">当用户说“切换模型”“换模型”“切到某个模式/模型”时，先用中文列出当前实际可切换的模型与对应命令并编号；当用户回复编号或明确模型名时，再真实执行模型切换。适用于“轻松模式 / 代码模式 / 思考模式 / 旗舰模式”等中文口令，也适用于 OpenRouter 已配置模型（如 Gemini、StepFun、MiniMax、OpenRouter Auto）的切换场景。</p>
     </div>
   </header>
   <main>
@@ -31,30 +31,9 @@
       <span aria-current="page">mode-switcher</span>
     </nav>
     <article>
-      <p class="skill-meta">收录：2026-03-06 · 更新：2026-03-12</p>
+      <p class="skill-meta">收录：2026-03-06 · 更新：2026-03-11</p>
       <h2>技能简介</h2>
-      <p>这个技能用于管理聊天里的模型切换流程：先展示完整可选清单，再根据用户回复的编号或明确模型名执行真实切换，避免误切模型。</p>
-
-      <h2>当前可切换模型</h2>
-      <ol>
-        <li>轻松模式：<code>/model openai/gpt-5-mini</code></li>
-        <li>代码模式：<code>/model openai/gpt-5.1-codex</code></li>
-        <li>思考模式：<code>/model openai/gpt-5.1</code></li>
-        <li>旗舰模式：<code>/model openai/gpt-5.4</code></li>
-        <li>Step-3.5-Flash：<code>/model openrouter/stepfun/step-3.5-flash:free</code></li>
-        <li>Gemini-3.1-Flash-Lite：<code>/model openrouter/google/gemini-3.1-flash-lite-preview</code></li>
-        <li>Gemini-3.1-Pro：<code>/model openrouter/google/gemini-3.1-pro-preview</code></li>
-        <li>MiniMax M2.5：<code>/model openrouter/minimax/minimax-m2.5</code></li>
-        <li>OpenRouter Auto：<code>/model openrouter/auto</code></li>
-        <li>Gemini-3.1-Flash-Image：<code>/model openrouter/google/gemini-3.1-flash-image-preview</code></li>
-      </ol>
-
-      <h2>交互方式</h2>
-      <ul>
-        <li>用户说“切换模型” → 先展示编号清单</li>
-        <li>用户回复编号（如 <code>4</code>）→ 执行真实切换</li>
-        <li>用户直接说模型名（如 <code>gpt-5.4</code>、<code>gemini pro</code>）→ 也可直接切换</li>
-      </ul>
+      <p>当用户说“切换模型”“换模型”“切到某个模式/模型”时，先用中文列出当前实际可切换的模型与对应命令并编号；当用户回复编号或明确模型名时，再真实执行模型切换。适用于“轻松模式 / 代码模式 / 思考模式 / 旗舰模式”等中文口令，也适用于 OpenRouter 已配置模型（如 Gemini、StepFun、MiniMax、OpenRouter Auto）的切换场景。</p>
     </article>
   </main>
   <footer>
