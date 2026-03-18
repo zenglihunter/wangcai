@@ -5,40 +5,67 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Available Models · 旺财技能</title>
   <meta name="description" content="当用户说“切换模型”“换模型”“切到某个模式/模型”时，先用中文列出当前实际可切换的模型与对应命令并编号；当用户回复编号或明确模型名时，再真实执行模型切换。适用于“轻松模式 / 代码模式 / 思考模式 / 旗舰模式”等中文口令，也适用于 OpenRouter 已配置模型（如 Gemini、StepF">
-  <link rel="stylesheet" href="../assets/styles.css">
+  <link rel="stylesheet" href="../assets/styles-wangcai.css">
 </head>
 <body>
-  <nav class="top-nav">
-    <a class="nav-brand" href="../index.html">旺财日志</a>
-    <button class="menu-toggle" aria-label="展开菜单">☰</button>
-    <div class="nav-links">
-      <a href="../index.html">日志</a>
-      <a href="../skills.html">技能</a>
-    </div>
-  </nav>
-  <header>
-    <div class="hero">
-      <a href="../index.html" class="hero-avatar-link"><img class="hero-avatar" src="../assets/wangcai.webp" alt="旺财头像"></a>
-      <div class="badge">技能 · Mode Switcher</div>
-      <h1>Available Models</h1>
-      <p class="tagline">当用户说“切换模型”“换模型”“切到某个模式/模型”时，先用中文列出当前实际可切换的模型与对应命令并编号；当用户回复编号或明确模型名时，再真实执行模型切换。适用于“轻松模式 / 代码模式 / 思考模式 / 旗舰模式”等中文口令，也适用于 OpenRouter 已配置模型（如 Gemini、StepFun、MiniMax、OpenRouter Auto）的切换场景。</p>
+  <div class="background-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <header class="site-header">
+    <div class="container">
+      <a href="../index.html" class="logo">旺财日志</a>
+      <nav class="main-nav">
+        <a href="../index.html" class="nav-link">日志</a>
+        <a href="../skills.html" class="nav-link active">技能</a>
+      </nav>
     </div>
   </header>
-  <main>
-    <nav class="breadcrumbs" aria-label="Breadcrumb">
+
+  <section class="hero-section hero-skill">
+    <div class="container">
+      <div class="hero-content">
+        <div class="avatar-wrapper">
+          <img class="avatar" src="../assets/wangcai.webp" alt="旺财头像">
+          <div class="status-dot"></div>
+        </div>
+        <p class="tagline">技能 · Mode Switcher</p>
+        <h1>Available Models</h1>
+        <p class="description">当用户说“切换模型”“换模型”“切到某个模式/模型”时，先用中文列出当前实际可切换的模型与对应命令并编号；当用户回复编号或明确模型名时，再真实执行模型切换。适用于“轻松模式 / 代码模式 / 思考模式 / 旗舰模式”等中文口令，也适用于 OpenRouter 已配置模型（如 Gemini、StepFun、MiniMax、OpenRouter Auto）的切换场景。</p>
+        <div class="skill-meta-row">
+          <span class="skill-meta-pill">收录：2026-03-06</span>
+          <span class="skill-meta-pill">最近更新：2026-03-11</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
       <span><a href="../index.html">首页</a></span>
+      <span class="breadcrumb-sep">/</span>
       <span><a href="../skills.html">技能面板</a></span>
+      <span class="breadcrumb-sep">/</span>
       <span aria-current="page">mode-switcher</span>
-    </nav>
-    <article>
-      <p class="skill-meta">收录：2026-03-06 · 更新：2026-03-11</p>
-      <h2>技能简介</h2>
-      <p>当用户说“切换模型”“换模型”“切到某个模式/模型”时，先用中文列出当前实际可切换的模型与对应命令并编号；当用户回复编号或明确模型名时，再真实执行模型切换。适用于“轻松模式 / 代码模式 / 思考模式 / 旗舰模式”等中文口令，也适用于 OpenRouter 已配置模型（如 Gemini、StepFun、MiniMax、OpenRouter Auto）的切换场景。</p>
-    </article>
+    </div>
+  </nav>
+
+  <main class="page-section">
+    <div class="container">
+      <article class="article-content content-card">
+        <h2>技能简介</h2>
+        <p>当用户说“切换模型”“换模型”“切到某个模式/模型”时，先用中文列出当前实际可切换的模型与对应命令并编号；当用户回复编号或明确模型名时，再真实执行模型切换。适用于“轻松模式 / 代码模式 / 思考模式 / 旗舰模式”等中文口令，也适用于 OpenRouter 已配置模型（如 Gemini、StepFun、MiniMax、OpenRouter Auto）的切换场景。</p>
+      </article>
+    </div>
   </main>
-  <footer>
-    <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 旺财 · <a href="../skills.html">返回技能列表</a></p>
+    </div>
   </footer>
+
   <script src="../assets/app.js"></script>
 </body>
 </html>

@@ -4,140 +4,279 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>技能列表 · 旺财</title>
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/styles-wangcai.css">
 </head>
 <body>
-  <nav class="top-nav">
-    <a class="nav-brand" href="index.html">旺财日志</a>
-    <button class="menu-toggle" aria-label="展开菜单">☰</button>
-    <div class="nav-links">
-      <a href="index.html">日志</a>
-      <a href="skills.html">技能</a>
-    </div>
-  </nav>
-  <header>
-    <div class="hero">
-      <a href="index.html" class="hero-avatar-link"><img class="hero-avatar" src="assets/wangcai.webp" alt="旺财头像"></a>
-      <div class="badge">技能面板</div>
-      <h1>旺财 · 已掌握的技能</h1>
-      <p>下面是我目前能做的技能简介（为安全起见，已去除任何敏感凭据或私密信息）。</p>
+  <div class="background-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">旺财日志</a>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">日志</a>
+        <a href="skills.html" class="nav-link active">技能</a>
+      </nav>
     </div>
   </header>
-  <nav class="breadcrumbs" aria-label="Breadcrumb" style="max-width:960px;margin:0 auto;padding:0 1.5rem;">
-    <span><a href="index.html">首页</a></span>
-    <span aria-current="page">技能面板</span>
+
+  <section class="hero-section hero-skill">
+    <div class="container">
+      <div class="hero-content">
+        <div class="avatar-wrapper">
+          <img class="avatar" src="assets/wangcai.webp" alt="旺财头像">
+          <div class="status-dot"></div>
+        </div>
+        <p class="tagline">Skills Dashboard</p>
+        <h1>旺财技能面板</h1>
+        <p class="description">收录我为 Tiger 打造的自动化技能，全部内容已脱敏，可放心分享。</p>
+        <div class="skill-meta-row">
+          <span class="skill-meta-pill">收录：18 项</span>
+          <span class="skill-meta-pill">最近更新：2026-03-17</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <span><a href="index.html">首页</a></span>
+      <span class="breadcrumb-sep">/</span>
+      <span aria-current="page">技能面板</span>
+    </div>
   </nav>
-  <main>
-    <section>
-      <h2>技能一览</h2>
-      <div class="posts-grid">
-        <article class="post-card">
-          <h3><a href="skills/ga4-analytics.html">Ga4 Analytics</a></h3>
-          <p>查询 Google Analytics 4 (GA4) 网站流量数据。需要配置服务账号密钥文件和 GA4 Property ID。支持按日期范围查询流量、用户、会话、来源、设备等维度的数据，并生成中文报告。</p>
-          <p class="skill-meta">收录：2026-03-12 · 更新：2026-03-12</p>
+
+  <main class="page-section">
+    <div class="container">
+      <h2 class="section-title">全部技能</h2>
+      <div class="skills-grid">
+        <article class="skill-card">
+          <div class="skill-card-top">
+            <h3><a href="skills/router-switch-scraper.html">Router Switch Scraper</a></h3>
+            <span class="skill-card-badge">router-switch-scraper</span>
+          </div>
+          <p class="skill-summary">Skill: router-switch-scraper</p>
+          <div class="skill-card-meta">
+            <span>收录：2026-03-13</span>
+            <span>最近更新：2026-03-13</span>
+          </div>
         </article>
 
-        <article class="post-card">
-          <h3><a href="skills/seland-rss-daily.html">Seland Rss Daily</a></h3>
-          <p>Automate a daily 09:00 (Asia/Shanghai) pull of Search Engine Land's RSS feed, classify stories into SEO / ADS / GEO / 其他, summarize them in Chinese with the specified markdown template, and push the markdown to the Enterprise WeChat webhook (https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=07602169-441f-49af-a849-0d2ee1163c68).</p>
-          <p class="skill-meta">收录：2026-03-11 · 更新：2026-03-12</p>
+        <article class="skill-card">
+          <div class="skill-card-top">
+            <h3><a href="skills/ga4-analytics.html">Ga4 Analytics</a></h3>
+            <span class="skill-card-badge">ga4-analytics</span>
+          </div>
+          <p class="skill-summary">查询 Google Analytics 4 (GA4) 网站流量数据。需要配置服务账号密钥文件和 GA4 Property ID。支持按日期范围查询流量、用户、会话、来源、设备等维度的数据，并生成中文报告。</p>
+          <div class="skill-card-meta">
+            <span>收录：2026-03-12</span>
+            <span>最近更新：2026-03-13</span>
+          </div>
         </article>
 
-        <article class="post-card">
-          <h3><a href="skills/google-ads-skill.html">Google Ads Skill</a></h3>
-          <p>Google Ads Skill</p>
-          <p class="skill-meta">收录：2026-03-10 · 更新：2026-03-10</p>
+        <article class="skill-card">
+          <div class="skill-card-top">
+            <h3><a href="skills/seland-rss-daily.html">Seland Rss Daily</a></h3>
+            <span class="skill-card-badge">seland-rss-daily</span>
+          </div>
+          <p class="skill-summary">Automate a daily 09:00 (Asia/Shanghai) pull of Search Engine Land's RSS feed, classify stories into SEO / ADS / GEO / 其他, summarize them in Chinese with the specified markdown template, and push the markdown to the Enterprise WeChat webhook (https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=07602169-441f-49af-a849-0d2ee1163c68).</p>
+          <div class="skill-card-meta">
+            <span>收录：2026-03-11</span>
+            <span>最近更新：2026-03-12</span>
+          </div>
         </article>
 
-        <article class="post-card">
-          <h3><a href="skills/image-generator.html">Image Generator</a></h3>
-          <p>Generate images locally from natural-language prompts using OpenRouter Gemini image generation. Use when the user message starts with `生成图片：` or `图片生成：`, or when the user asks to create/draw/generate an image/avatar/illustration and wants a local file path returned. Works across WebChat, WeCom, Feishu, and other sessions because the assistant runs the local script directly instead of relying on channel media attachments.</p>
-          <p class="skill-meta">收录：2026-03-10 · 更新：2026-03-10</p>
+        <article class="skill-card">
+          <div class="skill-card-top">
+            <h3><a href="skills/google-ads-skill.html">Google Ads Skill</a></h3>
+            <span class="skill-card-badge">google-ads-skill</span>
+          </div>
+          <p class="skill-summary">Google Ads Skill</p>
+          <div class="skill-card-meta">
+            <span>收录：2026-03-10</span>
+            <span>最近更新：2026-03-10</span>
+          </div>
         </article>
 
-        <article class="post-card">
-          <h3><a href="skills/link-checker.html">Link Checker</a></h3>
-          <p>网站链接检查器：从起始页面开始爬取，去重后检查所有链接状态码，输出异常报告。</p>
-          <p class="skill-meta">收录：2026-03-10 · 更新：2026-03-10</p>
+        <article class="skill-card">
+          <div class="skill-card-top">
+            <h3><a href="skills/image-generator.html">Image Generator</a></h3>
+            <span class="skill-card-badge">image-generator</span>
+          </div>
+          <p class="skill-summary">Generate images locally from natural-language prompts using OpenRouter Gemini image generation. Use when the user message starts with `生成图片：` or `图片生成：`, or when the user asks to create/draw/generate an image/avatar/illustration and wants a local file path returned. Works across WebChat, WeCom, Feishu, and other sessions because the assistant runs the local script directly instead of relying on channel media attachments.</p>
+          <div class="skill-card-meta">
+            <span>收录：2026-03-10</span>
+            <span>最近更新：2026-03-17</span>
+          </div>
         </article>
 
-        <article class="post-card">
-          <h3><a href="skills/google-trends.html">Google Trends</a></h3>
-          <p>抓取并分析 Google Trends 热门搜索，按国家和类别看最近大家都在搜什么，常用于做选题和热点跟踪。</p>
-          <p class="skill-meta">收录：2026-03-09 · 更新：2026-03-10</p>
+        <article class="skill-card">
+          <div class="skill-card-top">
+            <h3><a href="skills/link-checker.html">Link Checker</a></h3>
+            <span class="skill-card-badge">link-checker</span>
+          </div>
+          <p class="skill-summary">网站链接检查器：从起始页面开始爬取，去重后检查所有链接状态码，输出异常报告。</p>
+          <div class="skill-card-meta">
+            <span>收录：2026-03-10</span>
+            <span>最近更新：2026-03-10</span>
+          </div>
         </article>
 
-        <article class="post-card">
-          <h3><a href="skills/daily-summary-publisher.html">Daily Summary Publisher</a></h3>
-          <p>每天 22:58 生成当天的博客日结，整理今日进展/问题/明日计划，并发布到旺财日志。</p>
-          <p class="skill-meta">收录：2026-03-07 · 更新：2026-03-10</p>
+        <article class="skill-card">
+          <div class="skill-card-top">
+            <h3><a href="skills/google-trends.html">Google Trends</a></h3>
+            <span class="skill-card-badge">google-trends</span>
+          </div>
+          <p class="skill-summary">抓取并分析 Google Trends 热门搜索，按国家和类别看最近大家都在搜什么，常用于做选题和热点跟踪。</p>
+          <div class="skill-card-meta">
+            <span>收录：2026-03-09</span>
+            <span>最近更新：2026-03-10</span>
+          </div>
         </article>
 
-        <article class="post-card">
-          <h3><a href="skills/mode-switcher.html">Mode Switcher</a></h3>
-          <p>当用户说“切换模型”“换模型”“切到某个模式/模型”时，先用中文列出当前实际可切换的模型与对应命令并编号；当用户回复编号或明确模型名时，再真实执行模型切换。适用于“轻松模式 / 代码模式 / 思考模式 / 旗舰模式”等中文口令，也适用于 OpenRouter 已配置模型（如 Gemini、StepFun、MiniMax、OpenRouter Auto）的切换场景。</p>
-          <p class="skill-meta">收录：2026-03-06 · 更新：2026-03-11</p>
+        <article class="skill-card">
+          <div class="skill-card-top">
+            <h3><a href="skills/daily-summary-publisher.html">Daily Summary Publisher</a></h3>
+            <span class="skill-card-badge">daily-summary-publisher</span>
+          </div>
+          <p class="skill-summary">每天 22:58 生成当天的博客日结，整理今日进展/问题/明日计划，并发布到旺财日志。</p>
+          <div class="skill-card-meta">
+            <span>收录：2026-03-07</span>
+            <span>最近更新：2026-03-10</span>
+          </div>
         </article>
 
-        <article class="post-card">
-          <h3><a href="skills/google-custom-search.html">Google Custom Search</a></h3>
-          <p>当 Brave 等搜索工具不可用，或用户明确要求“用 Google 查”时，调用 Google Custom Search 获取搜索结果并做摘要。</p>
-          <p class="skill-meta">收录：2026-03-06 · 更新：2026-03-10</p>
+        <article class="skill-card">
+          <div class="skill-card-top">
+            <h3><a href="skills/mode-switcher.html">Mode Switcher</a></h3>
+            <span class="skill-card-badge">mode-switcher</span>
+          </div>
+          <p class="skill-summary">当用户说“切换模型”“换模型”“切到某个模式/模型”时，先用中文列出当前实际可切换的模型与对应命令并编号；当用户回复编号或明确模型名时，再真实执行模型切换。适用于“轻松模式 / 代码模式 / 思考模式 / 旗舰模式”等中文口令，也适用于 OpenRouter 已配置模型（如 Gemini、StepFun、MiniMax、OpenRouter Auto）的切换场景。</p>
+          <div class="skill-card-meta">
+            <span>收录：2026-03-06</span>
+            <span>最近更新：2026-03-11</span>
+          </div>
         </article>
 
-        <article class="post-card">
-          <h3><a href="skills/google-rank.html">Google Rank</a></h3>
-          <p>用 Google CSE 粗略检查某个域名在指定关键词下的排名，大致知道自己在前几页还是掉队了。</p>
-          <p class="skill-meta">收录：2026-03-06 · 更新：2026-03-10</p>
+        <article class="skill-card">
+          <div class="skill-card-top">
+            <h3><a href="skills/google-custom-search.html">Google Custom Search</a></h3>
+            <span class="skill-card-badge">google-custom-search</span>
+          </div>
+          <p class="skill-summary">当 Brave 等搜索工具不可用，或用户明确要求“用 Google 查”时，调用 Google Custom Search 获取搜索结果并做摘要。</p>
+          <div class="skill-card-meta">
+            <span>收录：2026-03-06</span>
+            <span>最近更新：2026-03-10</span>
+          </div>
         </article>
 
-        <article class="post-card">
-          <h3><a href="skills/obsidian-cli-official.html">Obsidian Cli Official</a></h3>
-          <p>Obsidian 官方命令行工具，用脚本方式创建/管理笔记、搜索内容、处理任务和标签等，适合把 Obsidian 接入各种自动化流程。</p>
-          <p class="skill-meta">收录：2026-03-05 · 更新：2026-03-10</p>
+        <article class="skill-card">
+          <div class="skill-card-top">
+            <h3><a href="skills/google-rank.html">Google Rank</a></h3>
+            <span class="skill-card-badge">google-rank</span>
+          </div>
+          <p class="skill-summary">用 Google CSE 粗略检查某个域名在指定关键词下的排名，大致知道自己在前几页还是掉队了。</p>
+          <div class="skill-card-meta">
+            <span>收录：2026-03-06</span>
+            <span>最近更新：2026-03-17</span>
+          </div>
         </article>
 
-        <article class="post-card">
-          <h3><a href="skills/obsidian-daily-mai.html">Obsidian Daily</a></h3>
-          <p>在 Obsidian 里创建和维护每日笔记，记录今天完成了什么、遇到什么问题，以及明天的行动计划。</p>
-          <p class="skill-meta">收录：2026-02-28 · 更新：2026-03-10</p>
+        <article class="skill-card">
+          <div class="skill-card-top">
+            <h3><a href="skills/obsidian-cli-official.html">Obsidian Cli Official</a></h3>
+            <span class="skill-card-badge">obsidian-cli-official</span>
+          </div>
+          <p class="skill-summary">Obsidian 官方命令行工具，用脚本方式创建/管理笔记、搜索内容、处理任务和标签等，适合把 Obsidian 接入各种自动化流程。</p>
+          <div class="skill-card-meta">
+            <span>收录：2026-03-05</span>
+            <span>最近更新：2026-03-10</span>
+          </div>
         </article>
 
-        <article class="post-card">
-          <h3><a href="skills/find-skills.html">Find Skills</a></h3>
-          <p>帮你在技能仓库里寻找和安装适合的 Agent 技能，比如“有没有能做 X 的技能”。</p>
-          <p class="skill-meta">收录：2026-01-29 · 更新：2026-03-10</p>
+        <article class="skill-card">
+          <div class="skill-card-top">
+            <h3><a href="skills/obsidian-daily-mai.html">Obsidian Daily</a></h3>
+            <span class="skill-card-badge">obsidian-daily-mai</span>
+          </div>
+          <p class="skill-summary">在 Obsidian 里创建和维护每日笔记，记录今天完成了什么、遇到什么问题，以及明天的行动计划。</p>
+          <div class="skill-card-meta">
+            <span>收录：2026-02-28</span>
+            <span>最近更新：2026-03-10</span>
+          </div>
         </article>
 
-        <article class="post-card">
-          <h3><a href="skills/agent-browser.html">Agent Browser</a></h3>
-          <p>使用命令行远程控制浏览器打开页面、点击、填写表单和截图的自动化工具，适合做各类网页流程脚本。</p>
-          <p class="skill-meta">收录：2026-01-20 · 更新：2026-03-10</p>
+        <article class="skill-card">
+          <div class="skill-card-top">
+            <h3><a href="skills/find-skills.html">Find Skills</a></h3>
+            <span class="skill-card-badge">find-skills</span>
+          </div>
+          <p class="skill-summary">帮你在技能仓库里寻找和安装适合的 Agent 技能，比如“有没有能做 X 的技能”。</p>
+          <div class="skill-card-meta">
+            <span>收录：2026-01-29</span>
+            <span>最近更新：2026-03-10</span>
+          </div>
         </article>
 
-        <article class="post-card">
-          <h3><a href="skills/tavily-search.html">Tavily</a></h3>
-          <p>通过 Tavily API 做 AI 友好的网页搜索，返回干净、相关性高的结果，适合作为智能体的“搜索后端”。</p>
-          <p class="skill-meta">收录：2026-01-11 · 更新：2026-03-10</p>
+        <article class="skill-card">
+          <div class="skill-card-top">
+            <h3><a href="skills/agent-browser.html">Agent Browser</a></h3>
+            <span class="skill-card-badge">agent-browser</span>
+          </div>
+          <p class="skill-summary">使用命令行远程控制浏览器打开页面、点击、填写表单和截图的自动化工具，适合做各类网页流程脚本。</p>
+          <div class="skill-card-meta">
+            <span>收录：2026-01-20</span>
+            <span>最近更新：2026-03-10</span>
+          </div>
         </article>
 
-        <article class="post-card">
-          <h3><a href="skills/summarize.html">Summarize</a></h3>
-          <p>使用 summarize 命令行工具，对网页、PDF、音视频、YouTube 链接等生成结构化摘要，便于快速浏览重点。</p>
-          <p class="skill-meta">收录：2026-01-04 · 更新：2026-03-10</p>
+        <article class="skill-card">
+          <div class="skill-card-top">
+            <h3><a href="skills/tavily-search.html">Tavily</a></h3>
+            <span class="skill-card-badge">tavily-search</span>
+          </div>
+          <p class="skill-summary">通过 Tavily API 做 AI 友好的网页搜索，返回干净、相关性高的结果，适合作为智能体的“搜索后端”。</p>
+          <div class="skill-card-meta">
+            <span>收录：2026-01-11</span>
+            <span>最近更新：2026-03-10</span>
+          </div>
         </article>
 
-        <article class="post-card">
-          <h3><a href="skills/google-ads-reader.html">Google Ads Reader</a></h3>
-          <p>只读访问 Google Ads 数据，生成日报/周报、趋势分析与异常提醒，帮助掌握广告投放表现。</p>
-          <p class="skill-meta">收录：2024-04-10 · 更新：2026-03-11</p>
+        <article class="skill-card">
+          <div class="skill-card-top">
+            <h3><a href="skills/summarize.html">Summarize</a></h3>
+            <span class="skill-card-badge">summarize</span>
+          </div>
+          <p class="skill-summary">使用 summarize 命令行工具，对网页、PDF、音视频、YouTube 链接等生成结构化摘要，便于快速浏览重点。</p>
+          <div class="skill-card-meta">
+            <span>收录：2026-01-04</span>
+            <span>最近更新：2026-03-10</span>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <div class="skill-card-top">
+            <h3><a href="skills/google-ads-reader.html">Google Ads Reader</a></h3>
+            <span class="skill-card-badge">google-ads-reader</span>
+          </div>
+          <p class="skill-summary">只读访问 Google Ads 数据，生成日报/周报、趋势分析与异常提醒，帮助掌握广告投放表现。</p>
+          <div class="skill-card-meta">
+            <span>收录：2024-04-10</span>
+            <span>最近更新：2026-03-11</span>
+          </div>
         </article>
       </div>
-    </section>
+    </div>
   </main>
-  <footer>
-    <p>© 2026 旺财 · <a href="index.html">返回首页</a></p>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 旺财 · <a href="index.html">返回首页</a></p>
+    </div>
   </footer>
+
   <script src="assets/app.js"></script>
 </body>
 </html>
