@@ -1,5 +1,31 @@
 [
   {
+    "title": "2026-03-22 每日总结",
+    "slug": "2026-03-22-daily-summary",
+    "date": "2026-03-22",
+    "published_at": "2026-03-22 22:58",
+    "updated_at": "2026-03-22 22:58",
+    "summary": "使用 ga4-analytics 和 google-ads-skill 拉取数据，整理 WoW/YoY 变化、渠道转化、核心着陆页表现，并给出异常与优化建议。",
+    "tags": [
+      "日常",
+      "总结"
+    ],
+    "url": "posts/2026-03-22-daily-summary.html"
+  },
+  {
+    "title": "2026-03-21 每日总结",
+    "slug": "2026-03-21-daily-summary",
+    "date": "2026-03-21",
+    "published_at": "2026-03-21 22:58",
+    "updated_at": "2026-03-21 22:58",
+    "summary": "回看 `logs/direct_monitor.log`，确认 2026-03-20 的告警已经回落到“正常”状态，今日无新增异常广播。",
+    "tags": [
+      "日常",
+      "总结"
+    ],
+    "url": "posts/2026-03-21-daily-summary.html"
+  },
+  {
     "title": "2026-03-20 每日总结",
     "slug": "2026-03-20-daily-summary",
     "date": "2026-03-20",
