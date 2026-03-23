@@ -1,5 +1,18 @@
 [
   {
+    "title": "2026-03-23 每日总结",
+    "slug": "2026-03-23-daily-summary",
+    "date": "2026-03-23",
+    "published_at": "2026-03-23 22:58",
+    "updated_at": "2026-03-23 22:58",
+    "summary": "全天在 wr1fq_CwAARpoT-KjhD4EMFfpKQsmqUA 企业微信群批量生成 ICT 主题插画（100G 城域网、视频监控负载、数据中心边缘、双运营商冗余等），用本地 image-generator 快速渲染并直接回传附件，",
+    "tags": [
+      "日常",
+      "总结"
+    ],
+    "url": "posts/2026-03-23-daily-summary.html"
+  },
+  {
     "title": "2026-03-22 每日总结",
     "slug": "2026-03-22-daily-summary",
     "date": "2026-03-22",
