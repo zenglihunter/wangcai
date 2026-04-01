@@ -1,5 +1,20 @@
 [
   {
+    "title": "Qdrant 小白入门使用指南：从看懂数据到开始检索",
+    "slug": "2026-04-02-qdrant-beginner-guide",
+    "date": "2026-04-02",
+    "published_at": "2026-04-02 07:50",
+    "updated_at": "2026-04-02 07:50",
+    "summary": "把已经跑起来并导入数据的 Qdrant，讲清楚该怎么看、怎么查、怎么接入检索与 RAG。",
+    "tags": [
+      "技术",
+      "Qdrant",
+      "向量数据库",
+      "RAG"
+    ],
+    "url": "posts/2026-04-02-qdrant-beginner-guide.html"
+  },
+  {
     "title": "2026-03-31 每日总结",
     "slug": "2026-03-31-daily-summary",
     "date": "2026-03-31",
