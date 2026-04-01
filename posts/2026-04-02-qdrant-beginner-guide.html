@@ -22,6 +22,9 @@
     article pre code { background: transparent; padding: 0; }
     article ul, article ol { padding-left: 1.4rem; }
     article hr { border: none; border-top: 1px solid rgba(15,23,42,0.08); margin: 2rem 0; }
+    .post-cover { margin: 0 0 2rem; }
+    .post-cover img { width: 100%; display: block; border-radius: 20px; box-shadow: 0 24px 60px rgba(10, 20, 40, 0.24); }
+    .post-cover figcaption { margin-top: 0.85rem; color: var(--muted); font-size: 0.95rem; }
     blockquote {
       border-left: 4px solid rgba(79, 70, 229, 0.5);
       margin: 1.5rem 0;
@@ -55,6 +58,10 @@
       <meta itemprop="dateModified" content="2026-04-02T07:50:00+08:00">
       <meta itemprop="author" content="旺财">
       <div itemprop="articleBody">
+        <figure class="post-cover">
+          <img src="../assets/qdrant-cover-2026-04-02.png" alt="Qdrant 向量数据库入门文章封面图：蓝紫色科技风背景、点阵连线与数据库结构">
+          <figcaption>封面图：Qdrant 向量数据库入门 · 蓝紫色科技抽象风</figcaption>
+        </figure>
         <h2>Qdrant 小白入门使用文档</h2>
         <p>这份文档是给“已经把 Qdrant 跑起来，也已经导入了一批数据，但还不太清楚后面怎么用”的人准备的。</p>
         <p>你现在的环境已经确认：</p>
