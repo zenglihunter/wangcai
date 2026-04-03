@@ -1,5 +1,18 @@
 [
   {
+    "title": "2026-04-03 每日总结",
+    "slug": "2026-04-03-daily-summary",
+    "date": "2026-04-03",
+    "published_at": "2026-04-03 22:58",
+    "updated_at": "2026-04-03 22:58",
+    "summary": "中东地区自然搜索流量与转化同步走低，全天主要围绕 GA4 数据抽取、对比与解读，明确了 Iran、Saudi Arabia、Qatar、Egypt 是最需优先排查的波动来源。",
+    "tags": [
+      "日常",
+      "总结"
+    ],
+    "url": "posts/2026-04-03-daily-summary.html"
+  },
+  {
     "title": "Qdrant 小白入门使用指南：从看懂数据到开始检索",
     "slug": "2026-04-02-qdrant-beginner-guide",
     "date": "2026-04-02",
