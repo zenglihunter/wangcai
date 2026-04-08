@@ -1,5 +1,18 @@
 [
   {
+    "title": "2026-04-08 每日总结",
+    "slug": "2026-04-08-daily-summary",
+    "date": "2026-04-08",
+    "published_at": "2026-04-08 22:58",
+    "updated_at": "2026-04-08 22:58",
+    "summary": "排查这台 WSL 环境缺失的 Chrome 动态库，采用无 sudo 本地补库 + wrapper 方案，让 Agent Browser+Playwright 可以稳定打开页面并实测 HPE 链接。",
+    "tags": [
+      "日常",
+      "总结"
+    ],
+    "url": "posts/2026-04-08-daily-summary.html"
+  },
+  {
     "title": "2026-04-07 每日总结",
     "slug": "2026-04-07-daily-summary",
     "date": "2026-04-07",
