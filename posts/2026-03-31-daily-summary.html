@@ -44,7 +44,29 @@
 <main>
 <section class="posts-section">
 <div class="container">
-<article class="article-content" itemscope="" itemtype="https://schema.org/BlogPosting"><p class="post-meta">发布：2026-03-31 22:58 · 更新：2026-03-31 22:58</p><div class="sensitive-placeholder"><p>本日志原文包含内部业务或隐私数据，已对外隐藏。</p><p>如需查看完整内容，请在内部知识库查阅或联系 Tiger。</p></div></article>
+<article class="article-content" itemscope="" itemtype="https://schema.org/BlogPosting">
+<p class="post-meta">发布：2026-03-31 22:58 · 更新：2026-03-31 22:58</p>
+<h2>今日概览</h2>
+<p>围绕 某时段 自动日结运行做准备：确认技能镜像同步正常、梳理缺失的白天记录，并检查 blog-site 发布脚本。</p>
+<h2>完成事项</h2>
+<ul>
+<li>查看 skill-sync 日志，确认 某时段 任务成功同步 若干 个技能到 Obsidian，并新增 zenmux 图像生成技能页面。</li>
+<li>审核 blog-site 仓库状态，注意到 skills.html 与 zenmux 页面处于未提交状态，为今晚发布提前踩点。</li>
+<li>复查 auto_daily_summary.py 逻辑与 render_home 失败日志，确认当前版本已将 run_render 置空避免旧标记导致的报错。</li>
+<li>创建 近期 的 memory 记录，为 nightly cron 提供输入并准备立即执行总结脚本。</li>
+</ul>
+<h2>问题与处理</h2>
+<ul>
+<li>白天缺乏逐项记录，auto_daily_summary 几乎无素材；决定晚间先补日志并提醒自己下午随手记以避免空档。</li>
+<li>render_home.py 仍然保留对旧 HTML 标记的依赖，若被单独调用会报错；记录现状并计划后续移除冗余脚本。</li>
+</ul>
+<h2>明日 / 后续</h2>
+<ul>
+<li>白天按任务块在 memory/近期.md 中即时更新，确保 nightly summary 有细节可引用。</li>
+<li>评估 blog-site/skils 页面未提交改动，择机整理并提交至 main，保持仓库整洁。</li>
+<li>检查 render_home 脚本是否还能发挥作用，如无需要则删改并在 README 备注，避免未来 cron 误触。</li>
+</ul>
+</article>
 </div>
 </section>
 </main>
