@@ -1,5 +1,18 @@
 [
   {
+    "title": "2026-04-21 每日总结",
+    "slug": "2026-04-21-daily-summary",
+    "date": "2026-04-21",
+    "published_at": "2026-04-21 22:58",
+    "updated_at": "2026-04-21 22:58",
+    "summary": "今天以工具文档补全和运维经验沉淀为主，完成了 Cloudflare 日志查询技能说明，并把 OpenClaw 日志命令参数误用的问题记录成错误案例，方便后续少踩坑。",
+    "tags": [
+      "日常",
+      "总结"
+    ],
+    "url": "posts/2026-04-21-daily-summary.html"
+  },
+  {
     "title": "2026-04-20 每日总结",
     "slug": "2026-04-20-daily-summary",
     "date": "2026-04-20",
