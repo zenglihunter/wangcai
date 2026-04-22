@@ -1,5 +1,18 @@
 [
   {
+    "title": "2026-04-22 每日总结",
+    "slug": "2026-04-22-daily-summary",
+    "date": "2026-04-22",
+    "published_at": "2026-04-22 22:58",
+    "updated_at": "2026-04-22 22:58",
+    "summary": "今天一边处理 OpenClaw 控制台故障，一边持续支撑 router-switch.com 的营销工作，重点推进 Mellanox 亚洲投放方案、Cloudflare 日志排查和中东广告数据分析，并在夜间补齐博客日结所需素材。",
+    "tags": [
+      "日常",
+      "总结"
+    ],
+    "url": "posts/2026-04-22-daily-summary.html"
+  },
+  {
     "title": "2026-04-21 每日总结",
     "slug": "2026-04-21-daily-summary",
     "date": "2026-04-21",
