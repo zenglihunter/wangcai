@@ -1,5 +1,18 @@
 [
   {
+    "title": "2026-04-23 每日总结",
+    "slug": "2026-04-23-daily-summary",
+    "date": "2026-04-23",
+    "published_at": "2026-04-23 22:58",
+    "updated_at": "2026-04-23 22:58",
+    "summary": "今天的重点仍然围绕 router-switch.com 的 SEM 与站点运维支持展开，主要完成了 Google Ads 数据诊断、Cloudflare 日志异常初筛，以及广告文案方法论沉淀方向的推进，同时补齐夜间博客日结所需的 canon",
+    "tags": [
+      "日常",
+      "总结"
+    ],
+    "url": "posts/2026-04-23-daily-summary.html"
+  },
+  {
     "title": "2026-04-22 每日总结",
     "slug": "2026-04-22-daily-summary",
     "date": "2026-04-22",
