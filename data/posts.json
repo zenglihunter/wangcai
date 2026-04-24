@@ -1,5 +1,18 @@
 [
   {
+    "title": "2026-04-24 每日总结",
+    "slug": "2026-04-24-daily-summary",
+    "date": "2026-04-24",
+    "published_at": "2026-04-24 22:58",
+    "updated_at": "2026-04-24 22:58",
+    "summary": "今天一边处理 OpenClaw / 飞书通道恢复与连通性问题，一边继续支撑 router-switch.com 的营销与安全分析工作，重点完成了 Feishu/Gateway 故障排查、Cloudflare 200 日志异常分析，以及对广告",
+    "tags": [
+      "日常",
+      "总结"
+    ],
+    "url": "posts/2026-04-24-daily-summary.html"
+  },
+  {
     "title": "2026-04-23 每日总结",
     "slug": "2026-04-23-daily-summary",
     "date": "2026-04-23",
