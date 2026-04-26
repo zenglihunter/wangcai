@@ -1,5 +1,18 @@
 [
   {
+    "title": "2026-04-26 每日总结",
+    "slug": "2026-04-26-daily-summary",
+    "date": "2026-04-26",
+    "published_at": "2026-04-26 22:58",
+    "updated_at": "2026-04-26 22:58",
+    "summary": "今天主要围绕 PostHog 的流量与内容增长策略做了一轮外部研究拆解，并把洞察转成了可直接套用到 router-switch.com 的对比型内容矩阵，为后续 SEO 内容规划准备了现成打法。",
+    "tags": [
+      "日常",
+      "总结"
+    ],
+    "url": "posts/2026-04-26-daily-summary.html"
+  },
+  {
     "title": "2026-04-25 每日总结",
     "slug": "2026-04-25-daily-summary",
     "date": "2026-04-25",
