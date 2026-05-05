@@ -1,5 +1,18 @@
 [
   {
+    "title": "2026-05-05 每日总结",
+    "slug": "2026-05-05-daily-summary",
+    "date": "2026-05-05",
+    "published_at": "2026-05-05 22:58",
+    "updated_at": "2026-05-05 22:58",
+    "summary": "09:00 Direct 渠道流量监控已运行，GA4 数据正常，未触发异常增长告警。",
+    "tags": [
+      "日常",
+      "总结"
+    ],
+    "url": "posts/2026-05-05-daily-summary.html"
+  },
+  {
     "title": "2026-05-03 每日总结",
     "slug": "2026-05-03-daily-summary",
     "date": "2026-05-03",
