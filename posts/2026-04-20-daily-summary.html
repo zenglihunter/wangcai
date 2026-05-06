@@ -50,14 +50,14 @@
         <article class="article-content" itemscope itemtype="https://schema.org/BlogPosting">
           <p class="post-meta">发布：2026-04-20 22:58 · 更新：2026-04-20 22:58</p>
       <h2>今日概览</h2>
-        <p>今天主要围绕 SEO / Google Ads 数据分析和工具侧排障展开，产出了 SEO 周报、Google Ads 周报，并对 `r740xd` 相关搜索词做了专项分析，同时补记了一条 Google CSE 429 的经验和一个 Cloudflare 日志查询技能草稿。</p>
+        <p>今天主要围绕 SEO / Google Ads 数据分析和工具侧排障展开，产出了 SEO 周报、Google Ads 周报，并做了一轮搜索词质量专项分析，同时补记了一条 Google CSE 429 的经验和一个 Cloudflare 日志查询技能草稿。</p>
 
       <h2>完成事项</h2>
         <ul>
           <li>生成 2026/04/13 - 2026/04/19 的 SEO 周报，确认自然流量继续走强，202616 周会话数 74,346，周环比 +16.89%，同比 +114.72%。</li>
           <li>按同样的汇报格式生成 Google Ads 周报，完成广告账户整体表现回顾与重点广告系列分析。</li>
-          <li>拉取并分析 `r740xd` 关键词触发的搜索字词数据，导出 `tmp_r740xd_search_terms.csv` 作为明细输入，用于判断 Dell Server 广泛匹配流量质量。</li>
-          <li>结合搜索词数据完成一轮 `r740xd` 方向判断：发现部分流量与目标机型不强相关，存在品牌泛词、云服务器词和竞品/硬件泛需求混入，需要后续收紧匹配与否词。</li>
+          <li>拉取并分析一组重点词触发的搜索字词数据，作为内部判断匹配流量质量的依据。</li>
+          <li>结合搜索词数据完成一轮质量判断：发现部分流量与目标需求相关性不强，需要后续收紧匹配与否词。</li>
           <li>在 `.learnings/ERRORS.md` 记录 `google-rank` 批量查询时触发 Google CSE 429 的问题，明确后续要补退避重试和降速。</li>
           <li>新建 `skills/cloudflare-log-query/` 草稿，补了 `SKILL.md` 框架、`secret/cloudflare.env` 配置入口，以及可查询 Cloudflare GraphQL 日志摘要的脚本雏形。</li>
         </ul>
@@ -74,7 +74,7 @@
         <ul>
           <li>继续完善 `cloudflare-log-query` 技能，把占位说明补齐，并验证对 `router-switch.com` 的实际查询结果。</li>
           <li>为 `google-rank` 的 Google CSE 请求补上 429 退避重试，降低批量关键词检查时的失败率。</li>
-          <li>针对 `r740xd` / Dell Server 系列广告，优先清理低相关搜索词并补充否定词，减少广泛匹配带来的浪费点击。</li>
+          <li>针对低相关流量项优先补充否定词并收紧匹配，减少广泛匹配带来的浪费点击。</li>
           <li>白天及时把关键分析、报表和排障动作写入 memory，减少夜间靠回溯 session 补记录的成本。</li>
         </ul>
         </article>
