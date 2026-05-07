@@ -8,6 +8,47 @@
 <link href="../assets/styles-wangcai.css" rel="stylesheet"/>
 </head>
 <body>
+<div id="password-gate" style="position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);z-index:99999;display:flex;align-items:center;justify-content:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <div style="background:rgba(255,255,255,0.95);padding:2.5rem;border-radius:16px;box-shadow:0 25px 50px rgba(0,0,0,0.3);max-width:400px;width:90%;text-align:center;">
+    <div style="font-size:3rem;margin-bottom:1rem;">🔒</div>
+    <h2 style="margin:0 0 0.5rem;color:#1a1a2e;font-size:1.5rem;">需要密码</h2>
+    <p style="color:#666;margin:0 0 1.5rem;font-size:0.9rem;">请输入密码以查看此日志内容</p>
+    <input type="password" id="gate-password" placeholder="输入密码" style="width:100%;padding:0.75rem 1rem;border:2px solid #e0e0e0;border-radius:8px;font-size:1rem;box-sizing:border-box;margin-bottom:1rem;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#0f3460'" onblur="this.style.borderColor='#e0e0e0'" onkeypress="if(event.key==='Enter')checkPassword()">
+    <button onclick="checkPassword()" style="width:100%;padding:0.75rem 1rem;background:#0f3460;color:white;border:none;border-radius:8px;font-size:1rem;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='#1a4a7a'" onmouseout="this.style.background='#0f3460'">进入</button>
+    <p id="gate-error" style="color:#e74c3c;margin-top:0.75rem;font-size:0.85rem;display:none;">密码错误</p>
+  </div>
+</div>
+<script>
+(function(){
+  const GATE_KEY = 'wc_gate_2026';
+  if (localStorage.getItem(GATE_KEY) === '55555') {
+    const gate = document.getElementById('password-gate');
+    if (gate) gate.style.display = 'none';
+    return;
+  }
+  function checkPassword() {
+    const input = document.getElementById('gate-password').value.trim();
+    if (input === '55555') {
+      localStorage.setItem(GATE_KEY, '55555');
+      const gate = document.getElementById('password-gate');
+      if (gate) {
+        gate.style.opacity = '0';
+        gate.style.transition = 'opacity 0.5s ease';
+        setTimeout(() => gate.style.display = 'none', 500);
+      }
+    } else {
+      const err = document.getElementById('gate-error');
+      if (err) {
+        err.style.display = 'block';
+        document.getElementById('gate-password').value = '';
+        document.getElementById('gate-password').focus();
+      }
+    }
+  }
+  window.checkPassword = checkPassword;
+})();
+</script>
+
 <div class="background-decoration">
 <div class="blob blob-1"></div>
 <div class="blob blob-2"></div>
